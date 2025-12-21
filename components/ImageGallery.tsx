@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect, useCallback, useRef } from "react";
+import { motion, AnimatePresence, PanInfo } from "framer-motion";
 
 interface MediaItem {
   type: "video" | "image";
@@ -83,6 +83,22 @@ export default function ImageGallery({
   const handleNext = useCallback(() => {
     setCurrentIndex((prev) => (prev === mediaItems.length - 1 ? 0 : prev + 1));
   }, [mediaItems.length]);
+
+  // Swipe handling for mobile
+  const swipeConfidenceThreshold = 10000;
+  const swipePower = (offset: number, velocity: number) => {
+    return Math.abs(offset) * velocity;
+  };
+
+  const handleDragEnd = (e: MouseEvent | TouchEvent | PointerEvent, { offset, velocity }: PanInfo) => {
+    const swipe = swipePower(offset.x, velocity.x);
+
+    if (swipe < -swipeConfidenceThreshold) {
+      handleNext();
+    } else if (swipe > swipeConfidenceThreshold) {
+      handlePrevious();
+    }
+  };
 
   // Keyboard navigation
   useEffect(() => {
@@ -182,11 +198,15 @@ export default function ImageGallery({
           {/* Main media container */}
           <motion.div
             key={currentIndex}
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -50 }}
             transition={{ duration: 0.2 }}
-            className="relative max-w-[90vw] max-h-[80vh] flex items-center justify-center"
+            drag={mediaItems.length > 1 ? "x" : false}
+            dragConstraints={{ left: 0, right: 0 }}
+            dragElastic={0.7}
+            onDragEnd={handleDragEnd}
+            className="relative max-w-[90vw] max-h-[80vh] flex items-center justify-center touch-pan-y"
             onClick={(e) => e.stopPropagation()}
           >
             {currentMedia.type === "video" ? (
