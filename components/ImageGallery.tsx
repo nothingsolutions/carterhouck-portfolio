@@ -54,6 +54,8 @@ export default function ImageGallery({
   projectName,
 }: ImageGalleryProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const [loadedImages, setLoadedImages] = useState<Set<string>>(new Set());
 
   // Build media items array: video first (if exists), then images
   const mediaItems: MediaItem[] = [];
@@ -122,12 +124,56 @@ export default function ImageGallery({
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [isOpen, handlePrevious, handleNext, onClose]);
 
-  // Reset index when gallery opens
+  // Reset index and loaded state when gallery opens
   useEffect(() => {
     if (isOpen) {
       setCurrentIndex(0);
+      setImageLoaded(false);
     }
   }, [isOpen]);
+
+  // Reset loaded state when switching images
+  useEffect(() => {
+    const currentMedia = mediaItems[currentIndex];
+    if (currentMedia?.type === "image") {
+      // Check if already loaded
+      if (loadedImages.has(currentMedia.url)) {
+        setImageLoaded(true);
+      } else {
+        setImageLoaded(false);
+      }
+    } else {
+      setImageLoaded(true); // Videos don't need loading state
+    }
+  }, [currentIndex, mediaItems, loadedImages]);
+
+  // Preload adjacent images
+  useEffect(() => {
+    if (!isOpen || mediaItems.length === 0) return;
+
+    const preloadImage = (url: string) => {
+      if (loadedImages.has(url)) return;
+      const img = new Image();
+      img.src = url;
+      img.onload = () => {
+        setLoadedImages(prev => new Set(prev).add(url));
+      };
+    };
+
+    // Preload current, next, and previous images
+    const indicesToPreload = [
+      currentIndex,
+      (currentIndex + 1) % mediaItems.length,
+      currentIndex === 0 ? mediaItems.length - 1 : currentIndex - 1,
+    ];
+
+    indicesToPreload.forEach(idx => {
+      const media = mediaItems[idx];
+      if (media?.type === "image") {
+        preloadImage(media.url);
+      }
+    });
+  }, [isOpen, currentIndex, mediaItems, loadedImages]);
 
   // Prevent body scroll when modal is open
   useEffect(() => {
@@ -220,11 +266,25 @@ export default function ImageGallery({
                 />
               </div>
             ) : (
-              <img
-                src={currentMedia.url}
-                alt={`${projectName || "Project"} - Image ${currentIndex + 1}`}
-                className="max-w-full max-h-[80vh] object-contain rounded-lg shadow-2xl"
-              />
+              <div className="relative">
+                {/* Loading spinner */}
+                {!imageLoaded && (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-8 h-8 border-2 border-white/20 border-t-white rounded-full animate-spin" />
+                  </div>
+                )}
+                <img
+                  src={currentMedia.url}
+                  alt={`${projectName || "Project"} - Image ${currentIndex + 1}`}
+                  className={`max-w-full max-h-[80vh] object-contain rounded-lg shadow-2xl transition-opacity duration-300 ${
+                    imageLoaded ? "opacity-100" : "opacity-0"
+                  }`}
+                  onLoad={() => {
+                    setImageLoaded(true);
+                    setLoadedImages(prev => new Set(prev).add(currentMedia.url));
+                  }}
+                />
+              </div>
             )}
           </motion.div>
 
