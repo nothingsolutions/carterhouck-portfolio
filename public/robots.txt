@@ -1,0 +1,8 @@
+# robots.txt for carterhouck-portfolio.vercel.app
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://carterhouck-portfolio.vercel.app/sitemap.xml
+
