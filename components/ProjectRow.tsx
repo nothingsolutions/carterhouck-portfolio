@@ -27,6 +27,35 @@ function getYouTubeThumbnail(url: string): string | null {
   return null;
 }
 
+// Convert URLs in text to clickable links
+function linkifyText(text: string): React.ReactNode {
+  if (!text) return "—";
+  
+  // URL regex pattern
+  const urlPattern = /(https?:\/\/[^\s]+)/g;
+  const parts = text.split(urlPattern);
+  
+  return parts.map((part, index) => {
+    if (part.match(urlPattern)) {
+      // Clean up trailing punctuation that might have been captured
+      const cleanUrl = part.replace(/[,.\s]+$/, '');
+      return (
+        <a
+          key={index}
+          href={cleanUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline hover:text-[#4a9eff] transition-colors"
+          onClick={(e) => e.stopPropagation()}
+        >
+          {cleanUrl}
+        </a>
+      );
+    }
+    return part;
+  });
+}
+
 export default function ProjectRow({
   project,
   onImageClick,
@@ -181,7 +210,7 @@ export default function ProjectRow({
           {isProtected ? (
             <BlurredContent>{LOREM.notes}</BlurredContent>
           ) : (
-            project.notes || "—"
+            linkifyText(project.notes)
           )}
         </div>
       </td>
