@@ -62,7 +62,7 @@ export default function ProjectRow({
         {isProtected ? (
           <button
             onClick={onUnlockRequest}
-            className="w-28 aspect-[3/4] rounded bg-[#2a2a2a] border border-[#3a3a3a] flex flex-col items-center justify-center gap-1 hover:border-[#4a9eff] hover:bg-[#2a2a2a]/80 transition-colors cursor-pointer group"
+            className="w-28 h-[150px] rounded bg-[#2a2a2a] border border-[#3a3a3a] flex flex-col items-center justify-center gap-1 hover:border-[#4a9eff] hover:bg-[#2a2a2a]/80 transition-colors cursor-pointer group"
           >
             <svg 
               className="w-5 h-5 text-[#666] group-hover:text-[#4a9eff] transition-colors" 
@@ -82,7 +82,7 @@ export default function ProjectRow({
             className="relative group cursor-pointer"
             aria-label={`View ${totalMediaCount} item${totalMediaCount > 1 ? "s" : ""}`}
           >
-            <div className="w-28 aspect-[3/4] rounded overflow-hidden border border-[#3a3a3a] group-hover:border-[#5a5a5a] transition-colors relative">
+            <div className="w-28 h-[150px] rounded overflow-hidden border border-[#3a3a3a] group-hover:border-[#5a5a5a] transition-colors relative">
               {/* Show video thumbnail if video exists and no images, otherwise show first image */}
               {hasVideo && !hasImages && videoThumbnail ? (
                 <>
@@ -124,7 +124,7 @@ export default function ProjectRow({
             )}
           </button>
         ) : (
-          <div className="w-28 aspect-[3/4] rounded bg-[#2a2a2a] border border-[#3a3a3a] flex items-center justify-center text-[#666] text-xs">
+          <div className="w-28 h-[150px] rounded bg-[#2a2a2a] border border-[#3a3a3a] flex items-center justify-center text-[#666] text-xs">
             —
           </div>
         )}
