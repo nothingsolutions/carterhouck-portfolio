@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import { motion, AnimatePresence, PanInfo } from "framer-motion";
 
 interface MediaItem {
@@ -57,26 +57,30 @@ export default function ImageGallery({
   const [imageLoaded, setImageLoaded] = useState(false);
   const [loadedImages, setLoadedImages] = useState<Set<string>>(new Set());
 
-  // Build media items array: video first (if exists), then images
-  const mediaItems: MediaItem[] = [];
-  
-  if (videoUrl) {
-    const videoId = extractYouTubeId(videoUrl);
-    if (videoId) {
-      mediaItems.push({
-        type: "video",
-        url: `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`,
-        thumbnailUrl: `https://img.youtube.com/vi/${videoId}/mqdefault.jpg`,
-      });
+  // Memoize media items array to prevent recreation on every render
+  const mediaItems = useMemo(() => {
+    const items: MediaItem[] = [];
+    
+    if (videoUrl) {
+      const videoId = extractYouTubeId(videoUrl);
+      if (videoId) {
+        items.push({
+          type: "video",
+          url: `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`,
+          thumbnailUrl: `https://img.youtube.com/vi/${videoId}/mqdefault.jpg`,
+        });
+      }
     }
-  }
-  
-  images.forEach((img) => {
-    mediaItems.push({
-      type: "image",
-      url: img,
+    
+    images.forEach((img) => {
+      items.push({
+        type: "image",
+        url: img,
+      });
     });
-  });
+    
+    return items;
+  }, [images, videoUrl]);
 
   const handlePrevious = useCallback(() => {
     setCurrentIndex((prev) => (prev === 0 ? mediaItems.length - 1 : prev - 1));
@@ -124,11 +128,12 @@ export default function ImageGallery({
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [isOpen, handlePrevious, handleNext, onClose]);
 
-  // Reset index and loaded state when gallery opens
+  // Reset state when gallery opens/closes
   useEffect(() => {
     if (isOpen) {
       setCurrentIndex(0);
       setImageLoaded(false);
+      setLoadedImages(new Set()); // Clear cache for fresh start
     }
   }, [isOpen]);
 
@@ -136,27 +141,34 @@ export default function ImageGallery({
   useEffect(() => {
     const currentMedia = mediaItems[currentIndex];
     if (currentMedia?.type === "image") {
-      // Check if already loaded
-      if (loadedImages.has(currentMedia.url)) {
-        setImageLoaded(true);
-      } else {
-        setImageLoaded(false);
-      }
+      // Check if already loaded using a callback to avoid stale closure
+      setLoadedImages(prev => {
+        if (prev.has(currentMedia.url)) {
+          setImageLoaded(true);
+        } else {
+          setImageLoaded(false);
+        }
+        return prev; // Don't modify, just check
+      });
     } else {
       setImageLoaded(true); // Videos don't need loading state
     }
-  }, [currentIndex, mediaItems, loadedImages]);
+  }, [currentIndex, mediaItems]);
 
   // Preload adjacent images
   useEffect(() => {
     if (!isOpen || mediaItems.length === 0) return;
 
     const preloadImage = (url: string) => {
-      if (loadedImages.has(url)) return;
       const img = new Image();
       img.src = url;
       img.onload = () => {
-        setLoadedImages(prev => new Set(prev).add(url));
+        setLoadedImages(prev => {
+          if (prev.has(url)) return prev; // Already loaded, don't update
+          const newSet = new Set(prev);
+          newSet.add(url);
+          return newSet;
+        });
       };
     };
 
@@ -173,7 +185,7 @@ export default function ImageGallery({
         preloadImage(media.url);
       }
     });
-  }, [isOpen, currentIndex, mediaItems, loadedImages]);
+  }, [isOpen, currentIndex, mediaItems]);
 
   // Prevent body scroll when modal is open
   useEffect(() => {
