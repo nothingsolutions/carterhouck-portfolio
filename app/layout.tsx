@@ -12,7 +12,7 @@ const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
 });
 
-const siteUrl = "https://carterhouck-portfolio.vercel.app";
+const siteUrl = "https://carterhouck.com";
 
 export const metadata: Metadata = {
   title: "Carter Houck | NYC Graphic Designer & Event Manager",
