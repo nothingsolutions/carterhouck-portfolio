@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback, useMemo } from "react";
+import { useState, useEffect, useCallback, useMemo, useRef } from "react";
 import { motion, AnimatePresence, PanInfo } from "framer-motion";
 
 interface MediaItem {
@@ -291,9 +291,16 @@ export default function ImageGallery({
                   alt={`${projectName || "Project"} - Image ${currentIndex + 1}`}
                   className={`max-w-full max-h-[80vh] object-contain rounded-lg shadow-2xl transition-opacity duration-300 ${imageLoaded ? "opacity-100" : "opacity-0"
                     }`}
+                  loading="eager"
                   onLoad={() => {
                     setImageLoaded(true);
                     setLoadedImages(prev => new Set(prev).add(currentMedia.url));
+                  }}
+                  ref={(img) => {
+                    if (img?.complete && !imageLoaded) {
+                      setImageLoaded(true);
+                      setLoadedImages(prev => new Set(prev).add(currentMedia.url));
+                    }
                   }}
                 />
               </div>
@@ -362,8 +369,8 @@ export default function ImageGallery({
                     setCurrentIndex(index);
                   }}
                   className={`w-16 h-12 rounded overflow-hidden border-2 transition-all relative ${index === currentIndex
-                      ? "border-white opacity-100"
-                      : "border-transparent opacity-50 hover:opacity-75"
+                    ? "border-white opacity-100"
+                    : "border-transparent opacity-50 hover:opacity-75"
                     }`}
                 >
                   {media.type === "video" ? (
