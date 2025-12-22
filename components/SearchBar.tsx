@@ -121,7 +121,7 @@ export default function SearchBar({ projects, onSearch }: SearchBarProps) {
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
           placeholder={placeholder || "Search..."}
-          className="w-full bg-[#1a1a1a] border border-[#3a3a3a] rounded px-3 py-1.5 pl-9 pr-8 text-xs text-white font-mono placeholder-[#555] focus:outline-none focus:border-[#4a9eff] transition-colors"
+          className="w-full bg-[#1a1a1a] border border-[#3a3a3a] rounded px-3 py-1.5 pl-9 pr-8 text-xs text-white font-mono placeholder-[#555] focus:outline-none focus:border-[#C1121E] transition-colors"
         />
         {query && (
           <button

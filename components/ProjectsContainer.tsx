@@ -16,12 +16,12 @@ const UNLOCK_PASSWORD = "carter2025";
 // Handles: "11.2025" (month.year), "2024" (year only), "Ongoing", ""
 function parseDate(dateStr: string): number {
   if (!dateStr) return 0;
-  
+
   const normalized = dateStr.toLowerCase().trim();
-  
+
   // "Ongoing" projects should appear at the top (highest value)
   if (normalized === "ongoing") return 999999;
-  
+
   // Format: "11.2025" (month.year)
   const parts = dateStr.split(".");
   if (parts.length === 2) {
@@ -29,13 +29,13 @@ function parseDate(dateStr: string): number {
     const year = parseInt(parts[1], 10) || 0;
     return year * 100 + month; // e.g., 202511 for 11.2025
   }
-  
+
   // Format: "2024" (year only) - treat as December of that year
   const yearOnly = parseInt(dateStr, 10);
   if (!isNaN(yearOnly) && yearOnly > 1900 && yearOnly < 2100) {
     return yearOnly * 100 + 1; // Put year-only dates at start of that year
   }
-  
+
   return 0;
 }
 
@@ -43,7 +43,7 @@ function parseDate(dateStr: string): number {
 function getFeaturedOrder(status: string): number | null {
   if (!status) return null;
   const normalized = status.toLowerCase().trim();
-  
+
   // Match "featured", "featured 1", "featured 2", etc.
   if (normalized === "featured") return 0;
   const match = normalized.match(/^featured\s+(\d+)$/);
@@ -65,18 +65,18 @@ export default function ProjectsContainer({ projects }: ProjectsContainerProps) 
     return [...projects].sort((a, b) => {
       const aFeatured = getFeaturedOrder(a.status);
       const bFeatured = getFeaturedOrder(b.status);
-      
+
       // Both are featured - sort by featured number
       if (aFeatured !== null && bFeatured !== null) {
         return aFeatured - bFeatured;
       }
-      
+
       // Only a is featured - a comes first
       if (aFeatured !== null) return -1;
-      
+
       // Only b is featured - b comes first
       if (bFeatured !== null) return 1;
-      
+
       // Neither is featured - sort by date (most recent first)
       return parseDate(b.date) - parseDate(a.date);
     });
@@ -129,8 +129,8 @@ export default function ProjectsContainer({ projects }: ProjectsContainerProps) 
       </div>
 
       {/* Spreadsheet */}
-      <SpreadsheetTable 
-        projects={filteredProjects} 
+      <SpreadsheetTable
+        projects={filteredProjects}
         isUnlocked={isUnlocked}
         onUnlockRequest={handleUnlockRequest}
       />
@@ -142,9 +142,9 @@ export default function ProjectsContainer({ projects }: ProjectsContainerProps) 
             <h3 className="text-white font-medium mb-1">Full Portfolio Access</h3>
             <p className="text-[#888] text-sm mb-4">
               For full access to my portfolio, please enter the password to view or{" "}
-              <a 
-                href="mailto:carter@nothingradio.com?subject=Portfolio%20Access%20Request" 
-                className="text-[#4a9eff] hover:underline"
+              <a
+                href="mailto:carter@nothingradio.com?subject=Portfolio%20Access%20Request"
+                className="text-[#C1121E] hover:underline"
               >
                 request access
               </a>.
@@ -159,9 +159,8 @@ export default function ProjectsContainer({ projects }: ProjectsContainerProps) 
                 }}
                 placeholder="Password"
                 autoFocus
-                className={`w-full bg-[#2a2a2a] border ${
-                  passwordError ? "border-red-500" : "border-[#3a3a3a]"
-                } rounded px-3 py-2 text-white placeholder-[#666] focus:outline-none focus:border-[#4a9eff] transition-colors`}
+                className={`w-full bg-[#2a2a2a] border ${passwordError ? "border-red-500" : "border-[#3a3a3a]"
+                  } rounded px-3 py-2 text-white placeholder-[#666] focus:outline-none focus:border-[#C1121E] transition-colors`}
               />
               {passwordError && (
                 <p className="text-red-400 text-xs mt-1">Incorrect password</p>
@@ -176,7 +175,7 @@ export default function ProjectsContainer({ projects }: ProjectsContainerProps) 
                 </button>
                 <button
                   type="submit"
-                  className="flex-1 px-4 py-2 bg-[#4a9eff] text-white rounded hover:bg-[#3a8eef] transition-colors"
+                  className="flex-1 px-4 py-2 bg-[#C1121E] text-white rounded hover:bg-[#3a8eef] transition-colors"
                 >
                   Unlock
                 </button>
