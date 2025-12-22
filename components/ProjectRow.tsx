@@ -72,6 +72,27 @@ export default function ProjectRow({
   const isLoginRequired = project.status.toLowerCase() === "login required";
   const isProtected = isLoginRequired && !isUnlocked;
 
+  // Google Analytics Event Tracking
+  const trackEvent = (eventName: string) => {
+    if (typeof window !== 'undefined' && (window as any).gtag) {
+      (window as any).gtag('event', eventName, {
+        project_name: project.item,
+        client: project.client,
+        category: project.category,
+      });
+    }
+  };
+
+  const handleUnlockRequest = () => {
+    trackEvent('request_project_access');
+    onUnlockRequest();
+  };
+
+  const handleImageClick = () => {
+    trackEvent('view_project_media');
+    onImageClick();
+  };
+
   // Total media count (video counts as 1 + images)
   const totalMediaCount = (hasVideo ? 1 : 0) + imageCount;
 
@@ -89,7 +110,7 @@ export default function ProjectRow({
       <td className="px-3 py-2 border-r border-[#3a3a3a] align-middle">
         {isProtected ? (
           <button
-            onClick={onUnlockRequest}
+            onClick={handleUnlockRequest}
             className="w-28 h-[150px] rounded bg-[#2a2a2a] border border-[#3a3a3a] flex flex-col items-center justify-center gap-1 hover:border-[#4a9eff] hover:bg-[#2a2a2a]/80 transition-colors cursor-pointer group"
           >
             <svg
@@ -106,7 +127,7 @@ export default function ProjectRow({
           </button>
         ) : hasMedia ? (
           <button
-            onClick={onImageClick}
+            onClick={handleImageClick}
             className="relative group cursor-pointer"
             aria-label={`View ${totalMediaCount} item${totalMediaCount > 1 ? "s" : ""}`}
           >
