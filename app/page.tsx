@@ -21,10 +21,10 @@ export default function Home() {
             <div className="flex items-center gap-4">
               <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" title="Live" />
             </div>
-          </div>
+        </div>
         </div>
         {/* Accent line */}
-        <div className="h-[2px] bg-gradient-to-r from-transparent via-[#C1121E] to-transparent header-shimmer" />
+        <div className="h-[2px] bg-gradient-to-r from-transparent via-[#4a9eff] to-transparent header-shimmer" />
       </header>
 
       {/* Main content */}
@@ -41,7 +41,7 @@ export default function Home() {
             <div className="flex items-center justify-center gap-6 text-xs font-mono">
               <a
                 href="mailto:carter@nothingradio.com"
-                className="text-[#666] hover:text-[#C1121E] transition-colors"
+                className="text-[#666] hover:text-[#4a9eff] transition-colors"
               >
                 carter@nothingradio.com
               </a>
@@ -50,7 +50,7 @@ export default function Home() {
                 href="https://instagram.com/carterhouck"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#666] hover:text-[#C1121E] transition-colors"
+                className="text-[#666] hover:text-[#4a9eff] transition-colors"
               >
                 @carterhouck
               </a>

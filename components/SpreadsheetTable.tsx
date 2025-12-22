@@ -25,7 +25,7 @@ const COLUMNS = [
 export default function SpreadsheetTable({ projects, isUnlocked, onUnlockRequest }: SpreadsheetTableProps) {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
-
+  
   const headerScrollRef = useRef<HTMLDivElement>(null);
   const bodyScrollRef = useRef<HTMLDivElement>(null);
 
@@ -33,7 +33,7 @@ export default function SpreadsheetTable({ projects, isUnlocked, onUnlockRequest
   useEffect(() => {
     const headerEl = headerScrollRef.current;
     const bodyEl = bodyScrollRef.current;
-
+    
     if (!headerEl || !bodyEl) return;
 
     const syncBodyToHeader = () => {
@@ -43,7 +43,7 @@ export default function SpreadsheetTable({ projects, isUnlocked, onUnlockRequest
     };
 
     bodyEl.addEventListener("scroll", syncBodyToHeader, { passive: true });
-
+    
     return () => {
       bodyEl.removeEventListener("scroll", syncBodyToHeader);
     };
@@ -52,7 +52,7 @@ export default function SpreadsheetTable({ projects, isUnlocked, onUnlockRequest
   const handleImageClick = (project: Project) => {
     const hasVideo = extractVideoUrl(project.notes) !== null;
     const hasImages = project.images.length > 0;
-
+    
     if (hasImages || hasVideo) {
       setSelectedProject(project);
       setIsGalleryOpen(true);
@@ -67,8 +67,8 @@ export default function SpreadsheetTable({ projects, isUnlocked, onUnlockRequest
   return (
     <>
       {/* Sticky Header - scrolls horizontally in sync with body */}
-      <div className="sticky top-[142px] z-10 bg-[#2d2d2d] border-b-2 border-[#C1121E]">
-        <div
+      <div className="sticky top-[142px] z-10 bg-[#2d2d2d] border-b-2 border-[#4a9eff]">
+        <div 
           ref={headerScrollRef}
           className="w-full overflow-x-hidden"
         >
@@ -95,7 +95,7 @@ export default function SpreadsheetTable({ projects, isUnlocked, onUnlockRequest
       </div>
 
       {/* Scrollable Table Body */}
-      <div
+      <div 
         ref={bodyScrollRef}
         className="w-full overflow-x-auto scrollbar-thin scrollbar-thumb-[#4a4a4a] scrollbar-track-[#1a1a1a]"
       >

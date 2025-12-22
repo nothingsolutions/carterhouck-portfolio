@@ -45,7 +45,7 @@ function linkifyText(text: string): React.ReactNode {
           href={cleanUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="underline hover:text-[#C1121E] transition-colors"
+          className="underline hover:text-[#4a9eff] transition-colors"
           onClick={(e) => e.stopPropagation()}
         >
           {cleanUrl}
@@ -111,17 +111,17 @@ export default function ProjectRow({
         {isProtected ? (
           <button
             onClick={handleUnlockRequest}
-            className="w-28 h-[150px] rounded bg-[#2a2a2a] border border-[#3a3a3a] flex flex-col items-center justify-center gap-1 hover:border-[#C1121E] hover:bg-[#2a2a2a]/80 transition-colors cursor-pointer group"
+            className="w-28 h-[150px] rounded bg-[#2a2a2a] border border-[#3a3a3a] flex flex-col items-center justify-center gap-1 hover:border-[#4a9eff] hover:bg-[#2a2a2a]/80 transition-colors cursor-pointer group"
           >
             <svg
-              className="w-5 h-5 text-[#666] group-hover:text-[#C1121E] transition-colors"
+              className="w-5 h-5 text-[#666] group-hover:text-[#4a9eff] transition-colors"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
             >
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
             </svg>
-            <span className="text-[10px] text-[#666] group-hover:text-[#C1121E] transition-colors">
+            <span className="text-[10px] text-[#666] group-hover:text-[#4a9eff] transition-colors">
               Request Access
             </span>
           </button>
@@ -161,7 +161,7 @@ export default function ProjectRow({
             </div>
             {/* Media count badge */}
             {totalMediaCount > 1 && (
-              <span className="absolute -top-1 -right-1 bg-[#C1121E] text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">
+              <span className="absolute -top-1 -right-1 bg-[#4a9eff] text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">
                 {totalMediaCount}
               </span>
             )}
