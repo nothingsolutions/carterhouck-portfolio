@@ -30,11 +30,11 @@ function getYouTubeThumbnail(url: string): string | null {
 // Convert URLs in text to clickable links
 function linkifyText(text: string): React.ReactNode {
   if (!text) return "—";
-  
+
   // URL regex pattern
   const urlPattern = /(https?:\/\/[^\s]+)/g;
   const parts = text.split(urlPattern);
-  
+
   return parts.map((part, index) => {
     if (part.match(urlPattern)) {
       // Clean up trailing punctuation that might have been captured
@@ -71,7 +71,7 @@ export default function ProjectRow({
   const videoThumbnail = videoUrl ? getYouTubeThumbnail(videoUrl) : null;
   const isLoginRequired = project.status.toLowerCase() === "login required";
   const isProtected = isLoginRequired && !isUnlocked;
-  
+
   // Total media count (video counts as 1 + images)
   const totalMediaCount = (hasVideo ? 1 : 0) + imageCount;
 
@@ -82,9 +82,8 @@ export default function ProjectRow({
 
   return (
     <tr
-      className={`border-b border-[#3a3a3a] hover:bg-[#2a2a2a] transition-colors ${
-        isEven ? "bg-[#1e1e1e]" : "bg-[#252525]"
-      } ${isProtected ? "opacity-60" : ""}`}
+      className={`border-b border-[#3a3a3a] hover:bg-[#2a2a2a] transition-colors ${isEven ? "bg-[#1e1e1e]" : "bg-[#252525]"
+        } ${isProtected ? "opacity-60" : ""}`}
     >
       {/* Image cell */}
       <td className="px-3 py-2 border-r border-[#3a3a3a] align-middle">
@@ -93,10 +92,10 @@ export default function ProjectRow({
             onClick={onUnlockRequest}
             className="w-28 h-[150px] rounded bg-[#2a2a2a] border border-[#3a3a3a] flex flex-col items-center justify-center gap-1 hover:border-[#4a9eff] hover:bg-[#2a2a2a]/80 transition-colors cursor-pointer group"
           >
-            <svg 
-              className="w-5 h-5 text-[#666] group-hover:text-[#4a9eff] transition-colors" 
-              fill="none" 
-              stroke="currentColor" 
+            <svg
+              className="w-5 h-5 text-[#666] group-hover:text-[#4a9eff] transition-colors"
+              fill="none"
+              stroke="currentColor"
               viewBox="0 0 24 24"
             >
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
@@ -117,14 +116,15 @@ export default function ProjectRow({
                 <>
                   <img
                     src={videoThumbnail}
-                    alt={project.item}
+                    alt={`Carter Houck - ${project.item} - ${project.client} (Video Thumbnail)`}
+                    title={`Carter Houck - ${project.item} - ${project.client}`}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform"
                   />
                   {/* Play button overlay */}
                   <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/20 transition-colors">
                     <div className="w-10 h-10 rounded-full bg-white/90 flex items-center justify-center">
                       <svg className="w-5 h-5 text-black ml-0.5" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M8 5v14l11-7z"/>
+                        <path d="M8 5v14l11-7z" />
                       </svg>
                     </div>
                   </div>
@@ -132,7 +132,8 @@ export default function ProjectRow({
               ) : hasImages ? (
                 <img
                   src={project.images[0]}
-                  alt={project.item}
+                  alt={`Carter Houck - ${project.item} - ${project.client}`}
+                  title={`Carter Houck - ${project.item} - ${project.client}`}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform"
                 />
               ) : null}
@@ -147,7 +148,7 @@ export default function ProjectRow({
             {hasVideo && hasImages && (
               <span className="absolute -bottom-1 -right-1 bg-red-500 text-white text-[8px] font-bold px-1 py-0.5 rounded flex items-center gap-0.5">
                 <svg className="w-2 h-2" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M8 5v14l11-7z"/>
+                  <path d="M8 5v14l11-7z" />
                 </svg>
               </span>
             )}

@@ -72,36 +72,49 @@ export const metadata: Metadata = {
 };
 
 // Structured data for SEO (JSON-LD)
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  name: "Carter Houck",
-  url: siteUrl,
-  image: `${siteUrl}/photowall/carterhouck-01.png`,
-  jobTitle: "Graphic Designer & Event Manager",
-  worksFor: {
-    "@type": "Organization",
-    name: "Nothing Radio",
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Carter Houck",
+    url: siteUrl,
+    image: `${siteUrl}/photowall/carterhouck-01.png`,
+    jobTitle: "Graphic Designer & Event Manager",
+    worksFor: {
+      "@type": "Organization",
+      name: "Nothing Radio",
+    },
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "New York",
+      addressRegion: "NY",
+      addressCountry: "US",
+    },
+    email: "carter@nothingradio.com",
+    sameAs: [
+      "https://instagram.com/carterhouck",
+    ],
+    knowsAbout: [
+      "Graphic Design",
+      "Event Management",
+      "Web Design",
+      "Creative Direction",
+      "Video Editing",
+      "Photography",
+    ],
   },
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "New York",
-    addressRegion: "NY",
-    addressCountry: "US",
-  },
-  email: "carter@nothingradio.com",
-  sameAs: [
-    "https://instagram.com/carterhouck",
-  ],
-  knowsAbout: [
-    "Graphic Design",
-    "Event Management",
-    "Web Design",
-    "Creative Direction",
-    "Video Editing",
-    "Photography",
-  ],
-};
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Carter Houck Portfolio",
+    url: siteUrl,
+    description: "Portfolio of Carter Houck, a NYC-based graphic designer and event manager.",
+    author: {
+      "@type": "Person",
+      name: "Carter Houck",
+    },
+  }
+];
 
 export default function RootLayout({
   children,
