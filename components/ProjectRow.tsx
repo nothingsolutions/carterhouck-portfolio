@@ -1,4 +1,5 @@
 "use client";
+import { useState } from "react";
 
 import { Project } from "@/types/project";
 import { extractVideoUrl } from "./ImageGallery";
@@ -72,6 +73,9 @@ export default function ProjectRow({
   const isLoginRequired = project.status.toLowerCase() === "login required";
   const isProtected = isLoginRequired && !isUnlocked;
 
+  // Local state for image loading
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
+
   // Google Analytics Event Tracking
   const trackEvent = (eventName: string) => {
     if (typeof window !== 'undefined' && (window as any).gtag) {
@@ -135,14 +139,22 @@ export default function ProjectRow({
               {/* Show video thumbnail if video exists and no images, otherwise show first image */}
               {hasVideo && !hasImages && videoThumbnail ? (
                 <>
+                  {/* Skeleton Loader */}
+                  {!isImageLoaded && (
+                    <div className="absolute inset-0 bg-[#2a2a2a] animate-pulse" />
+                  )}
                   <img
                     src={videoThumbnail}
                     alt={`Carter Houck - ${project.item} - ${project.client} (Video Thumbnail)`}
                     title={`Carter Houck - ${project.item} - ${project.client}`}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                    className={`w-full h-full object-cover group-hover:scale-105 transition-all duration-500 ${isImageLoaded ? "opacity-100" : "opacity-0"
+                      }`}
+                    loading="lazy"
+                    decoding="async"
+                    onLoad={() => setIsImageLoaded(true)}
                   />
-                  {/* Play button overlay */}
-                  <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/20 transition-colors">
+                  {/* Play button overlay - only show after load */}
+                  <div className={`absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/20 transition-all duration-300 ${isImageLoaded ? "opacity-100" : "opacity-0"}`}>
                     <div className="w-10 h-10 rounded-full bg-white/90 flex items-center justify-center">
                       <svg className="w-5 h-5 text-black ml-0.5" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M8 5v14l11-7z" />
@@ -151,12 +163,22 @@ export default function ProjectRow({
                   </div>
                 </>
               ) : hasImages ? (
-                <img
-                  src={project.images[0]}
-                  alt={`Carter Houck - ${project.item} - ${project.client}`}
-                  title={`Carter Houck - ${project.item} - ${project.client}`}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform"
-                />
+                <>
+                  {/* Skeleton Loader */}
+                  {!isImageLoaded && (
+                    <div className="absolute inset-0 bg-[#2a2a2a] animate-pulse" />
+                  )}
+                  <img
+                    src={project.images[0]}
+                    alt={`Carter Houck - ${project.item} - ${project.client}`}
+                    title={`Carter Houck - ${project.item} - ${project.client}`}
+                    className={`w-full h-full object-cover group-hover:scale-105 transition-all duration-500 ${isImageLoaded ? "opacity-100" : "opacity-0"
+                      }`}
+                    loading="lazy"
+                    decoding="async"
+                    onLoad={() => setIsImageLoaded(true)}
+                  />
+                </>
               ) : null}
             </div>
             {/* Media count badge */}
