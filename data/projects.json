@@ -1,8 +1,11 @@
 [
- 
   {
     "id": "2",
-    "images": ["/images/Aspen%20Posters%20Winter%2025%3A26%20Catalog-1.jpg", "/images/Aspen%20Posters%20Winter%2025%3A26%20Catalog-2.jpg", "/images/Die%20Cut%20Shipping%20Sticker.jpg"],
+    "images": [
+      "/images/Aspen%20Posters%20Winter%2025%3A26%20Catalog-1.jpg",
+      "/images/Aspen%20Posters%20Winter%2025%3A26%20Catalog-2.jpg",
+      "/images/Die%20Cut%20Shipping%20Sticker.jpg"
+    ],
     "item": "Catalog, Stickers",
     "client": "Aspen Posters",
     "category": "Physical Goods",
@@ -15,7 +18,9 @@
   },
   {
     "id": "3",
-    "images": ["/images/Get%20a%20Room%2026%20Flyer.jpg"],
+    "images": [
+      "/images/Get%20a%20Room%2026%20Flyer.jpg"
+    ],
     "item": "Get a Room: 26",
     "client": "Nothing Radio",
     "category": "Event Flyers, Event",
@@ -28,7 +33,12 @@
   },
   {
     "id": "4",
-    "images": ["/images/publichotel215-1.gif","/images/publichotel215-2.jpeg","/images/publichotel215-3.jpg","/images/publichotel215-4.png"],
+    "images": [
+      "/images/publichotel215-1.gif",
+      "/images/publichotel215-2.jpeg",
+      "/images/publichotel215-3.jpg",
+      "/images/publichotel215-4.png"
+    ],
     "item": "215 @ Public Hotel",
     "client": "Nothing Radio",
     "category": "Event Flyers, Event",
@@ -41,7 +51,11 @@
   },
   {
     "id": "5",
-    "images": ["/images/Business%20Card%20Matchbooks-1.jpg", "/images/Business%20Card%20Matchbooks-2.jpg", "/images/Business%20Card%20Matchbooks-3.jpg"],
+    "images": [
+      "/images/Business%20Card%20Matchbooks-1.jpg",
+      "/images/Business%20Card%20Matchbooks-2.jpg",
+      "/images/Business%20Card%20Matchbooks-3.jpg"
+    ],
     "item": "Business Card Matchbooks",
     "client": "Studio Luhtala",
     "category": "Physical Goods",
@@ -54,7 +68,10 @@
   },
   {
     "id": "6",
-    "images": ["/images/AW%20Engraved%20Notepad-1.jpg", "/images/AW%20Engraved%20Notepad-2.jpg"],
+    "images": [
+      "/images/AW%20Engraved%20Notepad-1.jpg",
+      "/images/AW%20Engraved%20Notepad-2.jpg"
+    ],
     "item": "AW Engraved Notepad",
     "client": "AW",
     "category": "Physical Goods",
@@ -67,7 +84,10 @@
   },
   {
     "id": "7",
-    "images": ["/images/Dog%20Tag%20Necklace-1.jpg", "/images/Dog%20Tag%20Necklace-2.jpg"],
+    "images": [
+      "/images/Dog%20Tag%20Necklace-1.jpg",
+      "/images/Dog%20Tag%20Necklace-2.jpg"
+    ],
     "item": "Bottle Opener Necklace",
     "client": "Nothing Radio",
     "category": "Accessories",
@@ -80,7 +100,11 @@
   },
   {
     "id": "8",
-    "images": ["/images/Get%20a%20Room%20Halloween%2025-1.webp", "/images/Get%20a%20Room%20Halloween%2025-2.jpg", "/images/Get%20a%20Room%20Halloween%2025-3.jpg"],
+    "images": [
+      "/images/Get%20a%20Room%20Halloween%2025-1.webp",
+      "/images/Get%20a%20Room%20Halloween%2025-2.jpg",
+      "/images/Get%20a%20Room%20Halloween%2025-3.jpg"
+    ],
     "item": "Get a Room: Halloween (2025)",
     "client": "Nothing Radio",
     "category": "Event Flyer",
@@ -93,7 +117,9 @@
   },
   {
     "id": "9",
-    "images": ["/images/Studio%20Luhtala%20website.jpg"],
+    "images": [
+      "/images/Studio%20Luhtala%20website.jpg"
+    ],
     "item": "Studio Luhtala Website",
     "client": "Studio Luhtala",
     "category": "Website",
@@ -106,7 +132,9 @@
   },
   {
     "id": "10",
-    "images": ["/images/Solo%20Studio%20Website.jpg"],
+    "images": [
+      "/images/Solo%20Studio%20Website.jpg"
+    ],
     "item": "Solo Studio Website",
     "client": "Solo Studio LA",
     "category": "Website",
@@ -119,7 +147,23 @@
   },
   {
     "id": "11",
-    "images": ["/images/getaroom2025-01.png", "/images/getaroom2025-02.jpeg","/images/getaroom2025-03.png", "/images/getaroom2025-04.jpg","/images/getaroom2025-05.jpeg","/images/getaroom2025-06.jpg", "/images/getaroom2025-07.png", "/images/getaroom2025-08.jpg","/images/getaroom2025-09.png", "/images/getaroom2025-10.jpg", "/images/getaroom2025-11.png", "/images/getaroom2025-12.jpg","/images/getaroom2025-13.jpg", "/images/getaroom2025-14.jpg", "/images/getaroom2025-15.png"   ],
+    "images": [
+      "/images/getaroom2025-01.png",
+      "/images/getaroom2025-02.jpeg",
+      "/images/getaroom2025-03.png",
+      "/images/getaroom2025-04.jpg",
+      "/images/getaroom2025-05.jpeg",
+      "/images/getaroom2025-06.jpg",
+      "/images/getaroom2025-07.png",
+      "/images/getaroom2025-08.jpg",
+      "/images/getaroom2025-09.png",
+      "/images/getaroom2025-10.jpg",
+      "/images/getaroom2025-11.png",
+      "/images/getaroom2025-12.jpg",
+      "/images/getaroom2025-13.jpg",
+      "/images/getaroom2025-14.jpg",
+      "/images/getaroom2025-15.png"
+    ],
     "item": "Get a Room Flyers: 2025",
     "client": "Nothing Radio",
     "category": "Event Flyer",
@@ -156,7 +200,9 @@
   },
   {
     "id": "13",
-    "images": ["/images/Aspen%20Posters%20x%20Framebridge%20New%20York%20City%20Popup-1.jpg"],
+    "images": [
+      "/images/Aspen%20Posters%20x%20Framebridge%20New%20York%20City%20Popup-1.jpg"
+    ],
     "item": "Aspen Posters x Framebridge, NYC Popup",
     "client": "Aspen Posters, Framebridge",
     "category": "Event, Physical Goods",
@@ -169,7 +215,9 @@
   },
   {
     "id": "14",
-    "images": ["/images/Chateau%20Marmont%20holiday%20card%202026-1.jpg"],
+    "images": [
+      "/images/Chateau%20Marmont%20holiday%20card%202026-1.jpg"
+    ],
     "item": "Chateau Marmont Holiday Card 2026",
     "client": "Chateau Marmont",
     "category": "Printed Good",
@@ -182,7 +230,9 @@
   },
   {
     "id": "15",
-    "images": ["/images/Chateau%20Marmont%20Gallery%20Wall%20Acrhive%20Project-1.jpg"],
+    "images": [
+      "/images/Chateau%20Marmont%20Gallery%20Wall%20Acrhive%20Project-1.jpg"
+    ],
     "item": "Chateau Marmont Gallery Wall",
     "client": "Chateau Marmont",
     "category": "Project Management",
@@ -195,7 +245,11 @@
   },
   {
     "id": "16",
-    "images": ["/images/nothing%20radio%20website-1.jpg", "/images/nothing%20radio%20website-2.jpg", "/images/nothing%20radio%20website-3.jpg"],
+    "images": [
+      "/images/nothing%20radio%20website-1.jpg",
+      "/images/nothing%20radio%20website-2.jpg",
+      "/images/nothing%20radio%20website-3.jpg"
+    ],
     "item": "Nothing Radio Website",
     "client": "Nothing Radio",
     "category": "Website Design",
@@ -208,7 +262,9 @@
   },
   {
     "id": "17",
-    "images": ["/images/Jorocco%20x%20the%20standard-1.jpg"],
+    "images": [
+      "/images/Jorocco%20x%20the%20standard-1.jpg"
+    ],
     "item": "JoRocco + The Standard, Highline",
     "client": "The Standard, JoRocco",
     "category": "Retail, Merchandising",
@@ -221,7 +277,9 @@
   },
   {
     "id": "18",
-    "images": ["/images/Carolina%20Sarria%20video%20campaign-1.jpg"],
+    "images": [
+      "/images/Carolina%20Sarria%20video%20campaign-1.jpg"
+    ],
     "item": "Carolina Sarria video campaign",
     "client": "Carolina Sarria",
     "category": "Video Editing",
@@ -234,7 +292,11 @@
   },
   {
     "id": "19",
-    "images": ["/images/All%20a%20Dream-1.jpg", "/images/All%20a%20Dream-2.jpg", "/images/All%20a%20Dream-3.jpg"],
+    "images": [
+      "/images/All%20a%20Dream-1.jpg",
+      "/images/All%20a%20Dream-2.jpg",
+      "/images/All%20a%20Dream-3.jpg"
+    ],
     "item": "All a Dream (2020)",
     "client": "Personal Project",
     "category": "Zine",
@@ -247,7 +309,11 @@
   },
   {
     "id": "20",
-    "images": ["/images/Cry%20for%20Help-1.jpg", "/images/Cry%20for%20Help-2.jpg", "/images/Cry%20for%20Help-3.jpg"],
+    "images": [
+      "/images/Cry%20for%20Help-1.jpg",
+      "/images/Cry%20for%20Help-2.jpg",
+      "/images/Cry%20for%20Help-3.jpg"
+    ],
     "item": "Cry for Help (2020)",
     "client": "Personal Project",
     "category": "Zine",
@@ -260,7 +326,11 @@
   },
   {
     "id": "21",
-    "images": ["/images/Imitating%20Color-1.jpg", "/images/Imitating%20Color-2.jpg", "/images/Imitating%20Color-3.jpg"],
+    "images": [
+      "/images/Imitating%20Color-1.jpg",
+      "/images/Imitating%20Color-2.jpg",
+      "/images/Imitating%20Color-3.jpg"
+    ],
     "item": "Imitating Color (2020)",
     "client": "Personal Project",
     "category": "Zine",
@@ -273,7 +343,9 @@
   },
   {
     "id": "22",
-    "images": ["/images/Kiss%20and%20Tell-1.jpg"],
+    "images": [
+      "/images/Kiss%20and%20Tell-1.jpg"
+    ],
     "item": "New Years Eve Party (2025)",
     "client": "Nothing Radio",
     "category": "Event",
@@ -286,7 +358,9 @@
   },
   {
     "id": "23",
-    "images": ["/images/Anok%20and%20Alex.jpg"],
+    "images": [
+      "/images/Anok%20and%20Alex.jpg"
+    ],
     "item": "Anok Yai & Alex Consani Interview",
     "client": "Nothing Radio",
     "category": "Interview",
@@ -312,7 +386,10 @@
   },
   {
     "id": "25",
-    "images": ["/images/Aspen%20Posters%20x%20Performance%20Ski%20Aspen%20Popup-1.jpg", "/images/Aspen%20Posters%20x%20Performance%20Ski%20Aspen%20Popup-2.jpg"],
+    "images": [
+      "/images/Aspen%20Posters%20x%20Performance%20Ski%20Aspen%20Popup-1.jpg",
+      "/images/Aspen%20Posters%20x%20Performance%20Ski%20Aspen%20Popup-2.jpg"
+    ],
     "item": "Aspen Posters x Performance Ski Aspen Popup",
     "client": "Aspen Posters",
     "category": "Popup, Event",
@@ -325,7 +402,9 @@
   },
   {
     "id": "26",
-    "images": ["/images/getaroom2024-1%20(1).jpg"],
+    "images": [
+      "/images/getaroom2024-1%20(1).jpg"
+    ],
     "item": "Get a Room: Halloween Party (2024)",
     "client": "Nothing Radio",
     "category": "Event",
@@ -351,7 +430,9 @@
   },
   {
     "id": "28",
-    "images": ["images/aspenposters-website.png"],
+    "images": [
+      "images/aspenposters-website.png"
+    ],
     "item": "Aspen Posters Shopify Migration",
     "client": "Aspen Posters",
     "category": "Website",
@@ -364,7 +445,9 @@
   },
   {
     "id": "29",
-    "images": ["images/flowershop-website.png"],
+    "images": [
+      "images/flowershop-website.png"
+    ],
     "item": "Agency Launch",
     "client": "Flower Shop Agency",
     "category": "Assistant, Research",
@@ -377,7 +460,9 @@
   },
   {
     "id": "30",
-    "images": ["/images/Fanatics%20x%20Tom%20Brady.jpg"],
+    "images": [
+      "/images/Fanatics%20x%20Tom%20Brady.jpg"
+    ],
     "item": "Fanatics x Tom Brady",
     "client": "Flower Shop Agency",
     "category": "Assistant, Research",
@@ -390,7 +475,9 @@
   },
   {
     "id": "31",
-    "images": ["/images/Sotto Voce-1.jpg"],
+    "images": [
+      "/images/Sotto Voce-1.jpg"
+    ],
     "item": "Sotto Voce Short Film",
     "client": "Sotto Voce",
     "category": "Short Film",
@@ -416,7 +503,9 @@
   },
   {
     "id": "33",
-    "images": ["/images/Farnsworth%20Blog.jpg"],
+    "images": [
+      "/images/Farnsworth%20Blog.jpg"
+    ],
     "item": "Blog Post Editor",
     "client": "Farnsworth Fine Cannabis",
     "category": "Website, Blog",
@@ -468,7 +557,12 @@
   },
   {
     "id": "37",
-    "images": ["/images/TheChlorineBible-1.jpg","images/TheChlorineBible-2.webp","images/TheChlorineBible-3.avif", "/images/TheChlorineBible-4.webp"],
+    "images": [
+      "/images/TheChlorineBible-1.jpg",
+      "images/TheChlorineBible-2.webp",
+      "images/TheChlorineBible-3.avif",
+      "/images/TheChlorineBible-4.webp"
+    ],
     "item": "The Chlorine Bible (Pilot)",
     "client": "The Chlorine Bible",
     "category": "TV Show",
@@ -559,7 +653,9 @@
   },
   {
     "id": "44",
-    "images": ["/images/Clancy.jpg"],
+    "images": [
+      "/images/Clancy.jpg"
+    ],
     "item": "Stone Cold Eyes",
     "client": "Clancy",
     "category": "Music Video",
@@ -572,7 +668,9 @@
   },
   {
     "id": "45",
-    "images": ["/images/Find%20Me%20Bloody.jpg"],
+    "images": [
+      "/images/Find%20Me%20Bloody.jpg"
+    ],
     "item": "Find Me",
     "client": "Bloody",
     "category": "Music Video",
@@ -624,7 +722,9 @@
   },
   {
     "id": "49",
-    "images": ["/images/Say%20it%20All%20Anxiety%20Attacks.jpg"],
+    "images": [
+      "/images/Say%20it%20All%20Anxiety%20Attacks.jpg"
+    ],
     "item": "Say it All",
     "client": "Anxiety Attacks!",
     "category": "Music Video",
@@ -663,7 +763,9 @@
   },
   {
     "id": "52",
-    "images": ["/images/Chemicals%20Anxiety%20Attacks.jpg"],
+    "images": [
+      "/images/Chemicals%20Anxiety%20Attacks.jpg"
+    ],
     "item": "Chemicals",
     "client": "Anxiety Attacks!",
     "category": "Music Video",
@@ -676,7 +778,9 @@
   },
   {
     "id": "53",
-    "images": ["/images/Jaxxon%20D%20Silva.jpg"],
+    "images": [
+      "/images/Jaxxon%20D%20Silva.jpg"
+    ],
     "item": "Escape Claws",
     "client": "Jaxxon D. Silva",
     "category": "Music Video",
@@ -806,7 +910,9 @@
   },
   {
     "id": "63",
-    "images": ["/images/Wiederhoeft-1.jpeg"],
+    "images": [
+      "/images/Wiederhoeft-1.jpeg"
+    ],
     "item": "Wiederhoeft S/S 24",
     "client": "Lindsey Media",
     "category": "NYFW Event",
@@ -845,7 +951,9 @@
   },
   {
     "id": "66",
-    "images": ["images/bruce%20glen-1.jpeg"],
+    "images": [
+      "/images/Bruce%20Glen-1.jpeg"
+    ],
     "item": "Bruce Glen",
     "client": "Lindsey Media",
     "category": "NYFW Event",
@@ -858,7 +966,13 @@
   },
   {
     "id": "67",
-    "images": ["/images/getaroomzine-1.jpg","/images/getaroomzine-2.png","/images/getaroomzine-3.jpg","/images/getaroomzine-4.jpg","/images/getaroomzine-5.gif"],
+    "images": [
+      "/images/getaroomzine-1.jpg",
+      "/images/getaroomzine-2.png",
+      "/images/getaroomzine-3.jpg",
+      "/images/getaroomzine-4.jpg",
+      "/images/getaroomzine-5.gif"
+    ],
     "item": "A Year of Get a Room",
     "client": "Nothing Radio",
     "category": "Zine",

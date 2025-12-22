@@ -20,29 +20,29 @@ interface ImageGalleryProps {
 // Extract YouTube video ID from various URL formats
 function extractYouTubeId(url: string): string | null {
   if (!url) return null;
-  
+
   // Match various YouTube URL formats
   const patterns = [
     /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([a-zA-Z0-9_-]{11})/,
     /youtube\.com\/watch\?.*v=([a-zA-Z0-9_-]{11})/,
   ];
-  
+
   for (const pattern of patterns) {
     const match = url.match(pattern);
     if (match) return match[1];
   }
-  
+
   return null;
 }
 
 // Extract video URL from notes field
 export function extractVideoUrl(notes: string): string | null {
   if (!notes) return null;
-  
+
   // Look for YouTube URLs
   const youtubeMatch = notes.match(/https?:\/\/(?:www\.)?(?:youtube\.com\/watch\?v=|youtu\.be\/)[a-zA-Z0-9_-]+[^\s]*/);
   if (youtubeMatch) return youtubeMatch[0];
-  
+
   return null;
 }
 
@@ -60,7 +60,7 @@ export default function ImageGallery({
   // Memoize media items array to prevent recreation on every render
   const mediaItems = useMemo(() => {
     const items: MediaItem[] = [];
-    
+
     if (videoUrl) {
       const videoId = extractYouTubeId(videoUrl);
       if (videoId) {
@@ -71,14 +71,14 @@ export default function ImageGallery({
         });
       }
     }
-    
+
     images.forEach((img) => {
       items.push({
         type: "image",
         url: img,
       });
     });
-    
+
     return items;
   }, [images, videoUrl]);
 
@@ -202,6 +202,7 @@ export default function ImageGallery({
   if (!isOpen || mediaItems.length === 0) return null;
 
   const currentMedia = mediaItems[currentIndex];
+  if (!currentMedia) return null; // Safety check
 
   return (
     <AnimatePresence>
@@ -247,7 +248,7 @@ export default function ImageGallery({
           <div className="absolute top-4 left-1/2 -translate-x-1/2 text-white/70 text-sm font-mono flex items-center gap-2">
             {currentMedia.type === "video" && (
               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M8 5v14l11-7z"/>
+                <path d="M8 5v14l11-7z" />
               </svg>
             )}
             {currentIndex + 1} / {mediaItems.length}
@@ -288,9 +289,8 @@ export default function ImageGallery({
                 <img
                   src={currentMedia.url}
                   alt={`${projectName || "Project"} - Image ${currentIndex + 1}`}
-                  className={`max-w-full max-h-[80vh] object-contain rounded-lg shadow-2xl transition-opacity duration-300 ${
-                    imageLoaded ? "opacity-100" : "opacity-0"
-                  }`}
+                  className={`max-w-full max-h-[80vh] object-contain rounded-lg shadow-2xl transition-opacity duration-300 ${imageLoaded ? "opacity-100" : "opacity-0"
+                    }`}
                   onLoad={() => {
                     setImageLoaded(true);
                     setLoadedImages(prev => new Set(prev).add(currentMedia.url));
@@ -361,11 +361,10 @@ export default function ImageGallery({
                     e.stopPropagation();
                     setCurrentIndex(index);
                   }}
-                  className={`w-16 h-12 rounded overflow-hidden border-2 transition-all relative ${
-                    index === currentIndex
+                  className={`w-16 h-12 rounded overflow-hidden border-2 transition-all relative ${index === currentIndex
                       ? "border-white opacity-100"
                       : "border-transparent opacity-50 hover:opacity-75"
-                  }`}
+                    }`}
                 >
                   {media.type === "video" ? (
                     <>
@@ -376,7 +375,7 @@ export default function ImageGallery({
                       />
                       <div className="absolute inset-0 flex items-center justify-center bg-black/30">
                         <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M8 5v14l11-7z"/>
+                          <path d="M8 5v14l11-7z" />
                         </svg>
                       </div>
                     </>
