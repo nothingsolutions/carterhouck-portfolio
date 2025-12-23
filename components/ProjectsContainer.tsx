@@ -1,10 +1,9 @@
 "use client";
 
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo } from "react";
 import SpreadsheetTable from "./SpreadsheetTable";
 import SearchBar from "./SearchBar";
 import { Project } from "@/types/project";
-import { extractVideoUrl } from "./ImageGallery";
 
 interface ProjectsContainerProps {
   projects: Project[];
@@ -116,51 +115,6 @@ export default function ProjectsContainer({ projects }: ProjectsContainerProps) 
     setPasswordError(false);
     setPasswordInput("");
   };
-
-  // Preload first 8 project images for faster initial load
-  useEffect(() => {
-    const imagesToPreload: string[] = [];
-    const maxPreload = 8;
-    
-    // Get first 8 visible projects that have images and are not protected
-    sortedProjects.slice(0, maxPreload).forEach((project) => {
-      const isLoginRequired = project.status.toLowerCase() === "login required";
-      if (isLoginRequired) return; // Skip protected projects
-      
-      if (project.images.length > 0) {
-        imagesToPreload.push(project.images[0]);
-      } else {
-        // Check for video thumbnail
-        const videoUrl = extractVideoUrl(project.notes);
-        if (videoUrl) {
-          const match = videoUrl.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([a-zA-Z0-9_-]{11})/);
-          if (match) {
-            imagesToPreload.push(`https://img.youtube.com/vi/${match[1]}/mqdefault.jpg`);
-          }
-        }
-      }
-    });
-
-    // Preload images using link rel="preload"
-    imagesToPreload.forEach((src) => {
-      const link = document.createElement("link");
-      link.rel = "preload";
-      link.as = "image";
-      link.href = src;
-      link.fetchPriority = "high";
-      document.head.appendChild(link);
-    });
-
-    // Cleanup function to remove preload links
-    return () => {
-      imagesToPreload.forEach((src) => {
-        const existingLink = document.querySelector(`link[href="${src}"]`);
-        if (existingLink) {
-          existingLink.remove();
-        }
-      });
-    };
-  }, [sortedProjects]);
 
   return (
     <div className="bg-[#1a1a1a] border-x border-b border-[#3a3a3a] rounded-b-lg shadow-2xl">
