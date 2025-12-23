@@ -75,9 +75,6 @@ export default function ProjectRow({
   const isLoginRequired = project.status.toLowerCase() === "login required";
   const isProtected = isLoginRequired && !isUnlocked;
 
-  // Local state for image loading
-  const [isImageLoaded, setIsImageLoaded] = useState(false);
-
   // Google Analytics Event Tracking
   const trackEvent = (eventName: string) => {
     if (typeof window !== 'undefined' && (window as any).gtag) {
@@ -139,56 +136,42 @@ export default function ProjectRow({
             className="relative group cursor-pointer"
             aria-label={`View ${totalMediaCount} item${totalMediaCount > 1 ? "s" : ""}`}
           >
-            <div className="w-28 h-[150px] rounded overflow-hidden border border-[#3a3a3a] group-hover:border-[#5a5a5a] transition-colors relative">
+            <div className="w-28 h-[150px] rounded overflow-hidden border border-[#3a3a3a] group-hover:border-[#5a5a5a] transition-colors bg-[#2a2a2a]">
               {/* Show video thumbnail if video exists and no images, otherwise show first image */}
               {hasVideo && !hasImages && videoThumbnail ? (
-                <>
-                  {/* Skeleton Loader */}
-                  {!isImageLoaded && (
-                    <div className="absolute inset-0 bg-[#2a2a2a] animate-pulse" />
-                  )}
+                <div className="relative w-full h-full">
                   <img
                     src={videoThumbnail}
                     alt={`Carter Houck - ${project.item} - ${project.client} (Video Thumbnail)`}
                     title={`Carter Houck - ${project.item} - ${project.client}`}
                     width={112}
                     height={150}
-                    className={`w-full h-full object-cover group-hover:scale-105 transition-all duration-500 ${isImageLoaded ? "opacity-100" : "opacity-0"
-                      }`}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     loading={priority ? "eager" : "lazy"}
                     fetchPriority={priority ? "high" : "auto"}
                     decoding="async"
-                    onLoad={() => setIsImageLoaded(true)}
                   />
-                  {/* Play button overlay - only show after load */}
-                  <div className={`absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/20 transition-all duration-300 ${isImageLoaded ? "opacity-100" : "opacity-0"}`}>
+                  {/* Play button overlay */}
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/20 transition-all duration-300">
                     <div className="w-10 h-10 rounded-full bg-white/90 flex items-center justify-center">
                       <svg className="w-5 h-5 text-black ml-0.5" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M8 5v14l11-7z" />
                       </svg>
                     </div>
                   </div>
-                </>
+                </div>
               ) : hasImages ? (
-                <>
-                  {/* Skeleton Loader */}
-                  {!isImageLoaded && (
-                    <div className="absolute inset-0 bg-[#2a2a2a] animate-pulse" />
-                  )}
-                  <img
-                    src={project.images[0]}
-                    alt={`Carter Houck - ${project.item} - ${project.client}`}
-                    title={`Carter Houck - ${project.item} - ${project.client}`}
-                    width={112}
-                    height={150}
-                    className={`w-full h-full object-cover group-hover:scale-105 transition-all duration-500 ${isImageLoaded ? "opacity-100" : "opacity-0"
-                      }`}
-                    loading={priority ? "eager" : "lazy"}
-                    fetchPriority={priority ? "high" : "auto"}
-                    decoding="async"
-                    onLoad={() => setIsImageLoaded(true)}
-                  />
-                </>
+                <img
+                  src={project.images[0]}
+                  alt={`Carter Houck - ${project.item} - ${project.client}`}
+                  title={`Carter Houck - ${project.item} - ${project.client}`}
+                  width={112}
+                  height={150}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  loading={priority ? "eager" : "lazy"}
+                  fetchPriority={priority ? "high" : "auto"}
+                  decoding="async"
+                />
               ) : null}
             </div>
             {/* Media count badge */}
