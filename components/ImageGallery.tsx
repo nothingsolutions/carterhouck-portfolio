@@ -52,8 +52,7 @@ export default function ImageGallery({
   onClose,
   projectName,
 }: ImageGalleryProps) {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [imageLoaded, setImageLoaded] = useState(false);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
 
   // Memoize media items
   const mediaItems = useMemo(() => {
@@ -143,6 +142,25 @@ export default function ImageGallery({
     }
   }, [isOpen, currentIndex, mediaItems]);
 
+  // Touch handlers for mobile swipe
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = (e: React.TouchEvent) => {
+    if (touchStart === null) return;
+    const touchEnd = e.changedTouches[0].clientX;
+    const diff = touchStart - touchEnd;
+
+    // Threshold of 50px for swipe
+    if (diff > 50) {
+      handleNext();
+    } else if (diff < -50) {
+      handlePrevious();
+    }
+    setTouchStart(null);
+  };
+
   if (!isOpen || mediaItems.length === 0) return null;
 
   const currentMedia = mediaItems[currentIndex];
@@ -150,11 +168,13 @@ export default function ImageGallery({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-sm"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-sm touch-none"
       onClick={onClose}
+      onTouchStart={onTouchStart}
+      onTouchEnd={onTouchEnd}
     >
       {/* Top Bar */}
-      <div className="absolute top-0 left-0 right-0 p-4 flex justify-between items-center z-10">
+      <div className="absolute top-0 left-0 right-0 p-4 flex justify-between items-center z-30 bg-gradient-to-b from-black/50 to-transparent">
         <div className="text-white/80 font-mono text-sm">
           {projectName}
         </div>
@@ -241,10 +261,6 @@ export default function ImageGallery({
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
           </button>
-
-          {/* Mobile Tap Areas (Invisible) */}
-          <div className="absolute inset-y-0 left-0 w-1/4 z-10 md:hidden" onClick={(e) => { e.stopPropagation(); handlePrevious(); }} />
-          <div className="absolute inset-y-0 right-0 w-1/4 z-10 md:hidden" onClick={(e) => { e.stopPropagation(); handleNext(); }} />
         </>
       )}
 
