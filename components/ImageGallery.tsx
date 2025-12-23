@@ -52,6 +52,8 @@ export default function ImageGallery({
   onClose,
   projectName,
 }: ImageGalleryProps) {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [imageLoaded, setImageLoaded] = useState(false);
   const [touchStart, setTouchStart] = useState<number | null>(null);
 
   // Memoize media items
