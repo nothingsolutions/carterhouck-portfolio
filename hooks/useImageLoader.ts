@@ -12,7 +12,7 @@ interface UseImageLoaderReturn {
   isLoaded: boolean;
   shouldLoad: boolean;
   error: boolean;
-  imgRef: React.RefObject<HTMLImageElement>;
+  imgRef: React.RefObject<HTMLImageElement | null>;
 }
 
 /**
@@ -113,8 +113,8 @@ export function useImageLoader({
  */
 export function useImageLoaderWithRef(
   options: UseImageLoaderOptions
-): UseImageLoaderReturn & { imgRef: React.RefObject<HTMLImageElement> } {
-  const imgRef = useRef<HTMLImageElement>(null);
+): UseImageLoaderReturn {
+  const imgRef = useRef<HTMLImageElement | null>(null);
   const result = useImageLoader(options);
   return { ...result, imgRef };
 }
