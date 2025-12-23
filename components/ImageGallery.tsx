@@ -1,7 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback, useMemo, useRef } from "react";
-import { motion, AnimatePresence, PanInfo } from "framer-motion";
+import { useState, useEffect, useCallback, useMemo } from "react";
 
 interface MediaItem {
   type: "video" | "image";
@@ -55,9 +54,8 @@ export default function ImageGallery({
 }: ImageGalleryProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [imageLoaded, setImageLoaded] = useState(false);
-  const [loadedImages, setLoadedImages] = useState<Set<string>>(new Set());
 
-  // Memoize media items array to prevent recreation on every render
+  // Memoize media items
   const mediaItems = useMemo(() => {
     const items: MediaItem[] = [];
 
@@ -84,27 +82,13 @@ export default function ImageGallery({
 
   const handlePrevious = useCallback(() => {
     setCurrentIndex((prev) => (prev === 0 ? mediaItems.length - 1 : prev - 1));
+    setImageLoaded(false);
   }, [mediaItems.length]);
 
   const handleNext = useCallback(() => {
     setCurrentIndex((prev) => (prev === mediaItems.length - 1 ? 0 : prev + 1));
+    setImageLoaded(false);
   }, [mediaItems.length]);
-
-  // Swipe handling for mobile
-  const swipeConfidenceThreshold = 10000;
-  const swipePower = (offset: number, velocity: number) => {
-    return Math.abs(offset) * velocity;
-  };
-
-  const handleDragEnd = (e: MouseEvent | TouchEvent | PointerEvent, { offset, velocity }: PanInfo) => {
-    const swipe = swipePower(offset.x, velocity.x);
-
-    if (swipe < -swipeConfidenceThreshold) {
-      handleNext();
-    } else if (swipe > swipeConfidenceThreshold) {
-      handlePrevious();
-    }
-  };
 
   // Keyboard navigation
   useEffect(() => {
@@ -128,70 +112,18 @@ export default function ImageGallery({
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [isOpen, handlePrevious, handleNext, onClose]);
 
-  // Reset state when gallery opens/closes
+  // Reset state when gallery opens
   useEffect(() => {
     if (isOpen) {
       setCurrentIndex(0);
       setImageLoaded(false);
-      setLoadedImages(new Set()); // Clear cache for fresh start
+      document.body.style.overflow = "hidden"; // Prevent scroll
     }
   }, [isOpen]);
 
-  // Reset loaded state when switching images
+  // Cleanup on close
   useEffect(() => {
-    const currentMedia = mediaItems[currentIndex];
-    if (currentMedia?.type === "image") {
-      // Check if already loaded using a callback to avoid stale closure
-      setLoadedImages(prev => {
-        if (prev.has(currentMedia.url)) {
-          setImageLoaded(true);
-        } else {
-          setImageLoaded(false);
-        }
-        return prev; // Don't modify, just check
-      });
-    } else {
-      setImageLoaded(true); // Videos don't need loading state
-    }
-  }, [currentIndex, mediaItems]);
-
-  // Preload adjacent images
-  useEffect(() => {
-    if (!isOpen || mediaItems.length === 0) return;
-
-    const preloadImage = (url: string) => {
-      const img = new Image();
-      img.src = url;
-      img.onload = () => {
-        setLoadedImages(prev => {
-          if (prev.has(url)) return prev; // Already loaded, don't update
-          const newSet = new Set(prev);
-          newSet.add(url);
-          return newSet;
-        });
-      };
-    };
-
-    // Preload current, next, and previous images
-    const indicesToPreload = [
-      currentIndex,
-      (currentIndex + 1) % mediaItems.length,
-      currentIndex === 0 ? mediaItems.length - 1 : currentIndex - 1,
-    ];
-
-    indicesToPreload.forEach(idx => {
-      const media = mediaItems[idx];
-      if (media?.type === "image") {
-        preloadImage(media.url);
-      }
-    });
-  }, [isOpen, currentIndex, mediaItems]);
-
-  // Prevent body scroll when modal is open
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
+    if (!isOpen) {
       document.body.style.overflow = "";
     }
     return () => {
@@ -199,208 +131,146 @@ export default function ImageGallery({
     };
   }, [isOpen]);
 
+  // Simple preloading of next image
+  useEffect(() => {
+    if (!isOpen || mediaItems.length === 0) return;
+
+    const nextIndex = (currentIndex + 1) % mediaItems.length;
+    const nextItem = mediaItems[nextIndex];
+    if (nextItem?.type === "image") {
+      const img = new Image();
+      img.src = nextItem.url;
+    }
+  }, [isOpen, currentIndex, mediaItems]);
+
   if (!isOpen || mediaItems.length === 0) return null;
 
   const currentMedia = mediaItems[currentIndex];
-  if (!currentMedia) return null; // Safety check
+  if (!currentMedia) return null;
 
   return (
-    <AnimatePresence>
-      {isOpen && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.2 }}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm"
-          onClick={onClose}
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-sm"
+      onClick={onClose}
+    >
+      {/* Top Bar */}
+      <div className="absolute top-0 left-0 right-0 p-4 flex justify-between items-center z-10">
+        <div className="text-white/80 font-mono text-sm">
+          {projectName}
+        </div>
+
+        <div className="text-white/60 font-mono text-sm">
+          {currentIndex + 1} / {mediaItems.length}
+        </div>
+
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            onClose();
+          }}
+          className="p-2 text-white/70 hover:text-white transition-colors"
+          aria-label="Close"
         >
-          {/* Close button */}
+          <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      {/* Main Content */}
+      <div
+        className="relative w-full h-full flex items-center justify-center p-4 md:p-12"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {currentMedia.type === "video" ? (
+          <div className="w-full max-w-6xl aspect-video bg-black shadow-2xl">
+            <iframe
+              src={currentMedia.url}
+              title={projectName || "Video"}
+              className="w-full h-full"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
+        ) : (
+          <div className="relative flex items-center justify-center w-full h-full">
+            {!imageLoaded && (
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-10 h-10 border-2 border-white/20 border-t-white rounded-full animate-spin" />
+              </div>
+            )}
+            <img
+              key={currentMedia.url} // Force re-render on url change for clean transitions
+              src={currentMedia.url}
+              alt={`${projectName} - ${currentIndex + 1}`}
+              className={`max-w-full max-h-full object-contain transition-opacity duration-200 ${imageLoaded ? 'opacity-100' : 'opacity-0'
+                }`}
+              loading="eager"
+              decoding="sync"
+              onLoad={() => setImageLoaded(true)}
+            />
+          </div>
+        )}
+      </div>
+
+      {/* Navigation Buttons */}
+      {mediaItems.length > 1 && (
+        <>
           <button
-            onClick={onClose}
-            className="absolute top-4 right-4 z-10 p-2 text-white/70 hover:text-white transition-colors"
-            aria-label="Close gallery"
+            onClick={(e) => {
+              e.stopPropagation();
+              handlePrevious();
+            }}
+            className="absolute left-4 top-1/2 -translate-y-1/2 p-4 text-white/50 hover:text-white transition-colors z-20 hover:bg-white/10 rounded-full hidden md:block"
+            aria-label="Previous"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="32"
-              height="32"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <line x1="18" y1="6" x2="6" y2="18" />
-              <line x1="6" y1="6" x2="18" y2="18" />
+            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
           </button>
 
-          {/* Project name */}
-          {projectName && (
-            <div className="absolute top-4 left-4 text-white/70 text-sm font-mono">
-              {projectName}
-            </div>
-          )}
-
-          {/* Media counter */}
-          <div className="absolute top-4 left-1/2 -translate-x-1/2 text-white/70 text-sm font-mono flex items-center gap-2">
-            {currentMedia.type === "video" && (
-              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M8 5v14l11-7z" />
-              </svg>
-            )}
-            {currentIndex + 1} / {mediaItems.length}
-          </div>
-
-          {/* Main media container */}
-          <motion.div
-            key={currentIndex}
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -50 }}
-            transition={{ duration: 0.2 }}
-            drag={mediaItems.length > 1 ? "x" : false}
-            dragConstraints={{ left: 0, right: 0 }}
-            dragElastic={0.7}
-            onDragEnd={handleDragEnd}
-            className="relative max-w-[90vw] max-h-[80vh] flex items-center justify-center touch-pan-y"
-            onClick={(e) => e.stopPropagation()}
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              handleNext();
+            }}
+            className="absolute right-4 top-1/2 -translate-y-1/2 p-4 text-white/50 hover:text-white transition-colors z-20 hover:bg-white/10 rounded-full hidden md:block"
+            aria-label="Next"
           >
-            {currentMedia.type === "video" ? (
-              <div className="w-[80vw] max-w-[1200px] aspect-video bg-black rounded-lg overflow-hidden shadow-2xl">
-                <iframe
-                  src={currentMedia.url}
-                  title={projectName || "Video"}
-                  className="w-full h-full"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
-              </div>
-            ) : (
-              <div className="relative">
-                {/* Loading spinner */}
-                {!imageLoaded && (
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-8 h-8 border-2 border-white/20 border-t-white rounded-full animate-spin" />
-                  </div>
-                )}
-                <img
-                  src={currentMedia.url}
-                  alt={`${projectName || "Project"} - Image ${currentIndex + 1}`}
-                  className={`max-w-full max-h-[80vh] object-contain rounded-lg shadow-2xl transition-opacity duration-300 ${imageLoaded ? "opacity-100" : "opacity-0"
-                    }`}
-                  loading="eager"
-                  fetchPriority="high"
-                  decoding="async"
-                  onLoad={() => {
-                    setImageLoaded(true);
-                    setLoadedImages(prev => new Set(prev).add(currentMedia.url));
-                  }}
-                  ref={(img) => {
-                    if (img?.complete && !imageLoaded) {
-                      setImageLoaded(true);
-                      setLoadedImages(prev => new Set(prev).add(currentMedia.url));
-                    }
-                  }}
-                />
-              </div>
-            )}
-          </motion.div>
+            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
 
-          {/* Navigation arrows */}
-          {mediaItems.length > 1 && (
-            <>
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  handlePrevious();
-                }}
-                className="absolute left-4 top-1/2 -translate-y-1/2 p-3 text-white/70 hover:text-white hover:bg-white/10 rounded-full transition-all"
-                aria-label="Previous"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="32"
-                  height="32"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <polyline points="15 18 9 12 15 6" />
-                </svg>
-              </button>
-
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  handleNext();
-                }}
-                className="absolute right-4 top-1/2 -translate-y-1/2 p-3 text-white/70 hover:text-white hover:bg-white/10 rounded-full transition-all"
-                aria-label="Next"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="32"
-                  height="32"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <polyline points="9 18 15 12 9 6" />
-                </svg>
-              </button>
-            </>
-          )}
-
-          {/* Thumbnail strip */}
-          {mediaItems.length > 1 && (
-            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
-              {mediaItems.map((media, index) => (
-                <button
-                  key={index}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setCurrentIndex(index);
-                  }}
-                  className={`w-16 h-12 rounded overflow-hidden border-2 transition-all relative ${index === currentIndex
-                    ? "border-white opacity-100"
-                    : "border-transparent opacity-50 hover:opacity-75"
-                    }`}
-                >
-                  {media.type === "video" ? (
-                    <>
-                      <img
-                        src={media.thumbnailUrl}
-                        alt="Video thumbnail"
-                        className="w-full h-full object-cover"
-                      />
-                      <div className="absolute inset-0 flex items-center justify-center bg-black/30">
-                        <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M8 5v14l11-7z" />
-                        </svg>
-                      </div>
-                    </>
-                  ) : (
-                    <img
-                      src={media.url}
-                      alt={`Thumbnail ${index + 1}`}
-                      className="w-full h-full object-cover"
-                    />
-                  )}
-                </button>
-              ))}
-            </div>
-          )}
-        </motion.div>
+          {/* Mobile Tap Areas (Invisible) */}
+          <div className="absolute inset-y-0 left-0 w-1/4 z-10 md:hidden" onClick={(e) => { e.stopPropagation(); handlePrevious(); }} />
+          <div className="absolute inset-y-0 right-0 w-1/4 z-10 md:hidden" onClick={(e) => { e.stopPropagation(); handleNext(); }} />
+        </>
       )}
-    </AnimatePresence>
+
+      {/* Thumbnails */}
+      {mediaItems.length > 1 && (
+        <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2 px-4 z-20 overflow-x-auto">
+          {mediaItems.map((item, idx) => (
+            <button
+              key={idx}
+              onClick={(e) => {
+                e.stopPropagation();
+                setCurrentIndex(idx);
+                setImageLoaded(false);
+              }}
+              className={`relative h-12 w-16 flex-shrink-0 rounded-sm overflow-hidden border transition-all ${idx === currentIndex ? 'border-white opacity-100' : 'border-transparent opacity-50 hover:opacity-100'
+                }`}
+            >
+              <img
+                src={item.type === 'video' ? item.thumbnailUrl : item.url}
+                alt={`Thumbnail ${idx + 1}`}
+                className="w-full h-full object-cover"
+              />
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
   );
 }
