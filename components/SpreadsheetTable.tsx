@@ -121,6 +121,7 @@ export default function SpreadsheetTable({ projects, isUnlocked, onUnlockRequest
                 isEven={index % 2 === 0}
                 isUnlocked={isUnlocked}
                 onUnlockRequest={onUnlockRequest}
+                priority={index < 8} // Priority load first 8 projects (above the fold)
               />
             ))}
           </tbody>

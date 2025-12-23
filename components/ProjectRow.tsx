@@ -10,6 +10,7 @@ interface ProjectRowProps {
   isEven: boolean;
   isUnlocked: boolean;
   onUnlockRequest: () => void;
+  priority?: boolean; // If true, load image immediately with high priority
 }
 
 // Lorem ipsum placeholder texts of varying lengths
@@ -63,6 +64,7 @@ export default function ProjectRow({
   isEven,
   isUnlocked,
   onUnlockRequest,
+  priority = false,
 }: ProjectRowProps) {
   const hasImages = project.images.length > 0;
   const imageCount = project.images.length;
@@ -83,6 +85,8 @@ export default function ProjectRow({
         project_name: project.item,
         client: project.client,
         category: project.category,
+        role: project.role,
+        date: project.date,
       });
     }
   };
@@ -147,9 +151,12 @@ export default function ProjectRow({
                     src={videoThumbnail}
                     alt={`Carter Houck - ${project.item} - ${project.client} (Video Thumbnail)`}
                     title={`Carter Houck - ${project.item} - ${project.client}`}
+                    width={112}
+                    height={150}
                     className={`w-full h-full object-cover group-hover:scale-105 transition-all duration-500 ${isImageLoaded ? "opacity-100" : "opacity-0"
                       }`}
-                    loading="lazy"
+                    loading={priority ? "eager" : "lazy"}
+                    fetchPriority={priority ? "high" : "auto"}
                     decoding="async"
                     onLoad={() => setIsImageLoaded(true)}
                   />
@@ -172,9 +179,12 @@ export default function ProjectRow({
                     src={project.images[0]}
                     alt={`Carter Houck - ${project.item} - ${project.client}`}
                     title={`Carter Houck - ${project.item} - ${project.client}`}
+                    width={112}
+                    height={150}
                     className={`w-full h-full object-cover group-hover:scale-105 transition-all duration-500 ${isImageLoaded ? "opacity-100" : "opacity-0"
                       }`}
-                    loading="lazy"
+                    loading={priority ? "eager" : "lazy"}
+                    fetchPriority={priority ? "high" : "auto"}
                     decoding="async"
                     onLoad={() => setIsImageLoaded(true)}
                   />

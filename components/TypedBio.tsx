@@ -278,6 +278,8 @@ export default function TypedBio() {
                         alt={`Photo ${index + 1}`}
                         className="w-full rounded-sm hover:opacity-90 transition-opacity"
                         loading="lazy"
+                        decoding="async"
+                        fetchPriority={index < 12 ? "high" : "auto"}
                       />
                     </div>
                   ))}

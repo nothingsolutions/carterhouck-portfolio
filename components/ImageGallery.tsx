@@ -292,6 +292,8 @@ export default function ImageGallery({
                   className={`max-w-full max-h-[80vh] object-contain rounded-lg shadow-2xl transition-opacity duration-300 ${imageLoaded ? "opacity-100" : "opacity-0"
                     }`}
                   loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
                   onLoad={() => {
                     setImageLoaded(true);
                     setLoadedImages(prev => new Set(prev).add(currentMedia.url));
