@@ -8,12 +8,15 @@
     "start": "next start",
     "lint": "eslint",
     "convert-data": "node scripts/convert-csv.js",
+    "migrate-to-markdown": "node scripts/migrate-to-markdown.js",
+    "cms:local": "npx decap-server",
     "deploy": "npm run build && rsync -avz --delete out/ pi@raspberrypi.local:/var/www/portfolio/",
     "deploy:build-only": "npm run build"
   },
   "dependencies": {
     "@vercel/analytics": "^1.6.1",
     "framer-motion": "^12.23.26",
+    "gray-matter": "^4.0.3",
     "next": "16.1.0",
     "react": "19.2.3",
     "react-dom": "19.2.3"

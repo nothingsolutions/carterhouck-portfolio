@@ -1,1000 +1,1002 @@
-[
-  {
-    "id": "2",
-    "images": [
-      "/images/Aspen%20Posters%20Winter%2025%3A26%20Catalog-1.jpg",
-      "/images/Aspen%20Posters%20Winter%2025%3A26%20Catalog-2.jpg",
-      "/images/Die%20Cut%20Shipping%20Sticker.jpg"
-    ],
-    "item": "Catalog, Stickers",
-    "client": "Aspen Posters",
-    "category": "Physical Goods",
-    "role": "Graphic Design, Production Management",
-    "date": "11.2025",
-    "program": "",
-    "supplier": "Mixam, Sticker Mule",
-    "notes": "",
-    "status": "Public"
-  },
-  {
-    "id": "3",
-    "images": [
-      "/images/Get%20a%20Room%2026%20Flyer.jpg"
-    ],
-    "item": "Get a Room: 26",
-    "client": "Nothing Radio",
-    "category": "Event Flyers, Event",
-    "role": "Bookings, Graphic Design",
-    "date": "11.2025",
-    "program": "",
-    "supplier": "",
-    "notes": "",
-    "status": "Public"
-  },
-  {
-    "id": "4",
-    "images": [
-      "/images/publichotel215-1.gif",
-      "/images/publichotel215-2.jpeg",
-      "/images/publichotel215-3.jpg",
-      "/images/publichotel215-4.png",
-      "/images/publichotel215-12222025.gif"
-    ],
-    "item": "215 @ Public Hotel",
-    "client": "Nothing Radio",
-    "category": "Event Flyers, Event",
-    "role": "Graphic Design",
-    "date": "2025",
-    "program": "",
-    "supplier": "",
-    "notes": "https://youtu.be/7jqVWf2LxgU?si=ZeJdVz4QtXYda7PR & https://youtu.be/aaWFtHanzfw?si=Ke3Psk_RAMYdGT6A",
-    "status": "Public"
-  },
-  {
-    "id": "5",
-    "images": [
-      "/images/Business%20Card%20Matchbooks-1.jpg",
-      "/images/Business%20Card%20Matchbooks-2.jpg",
-      "/images/Business%20Card%20Matchbooks-3.jpg"
-    ],
-    "item": "Business Card Matchbooks",
-    "client": "Studio Luhtala",
-    "category": "Physical Goods",
-    "role": "Techpack Design, Production Management",
-    "date": "10.2025",
-    "program": "",
-    "supplier": "GetMatches",
-    "notes": "",
-    "status": "Public"
-  },
-  {
-    "id": "6",
-    "images": [
-      "/images/AW%20Engraved%20Notepad-1.jpg",
-      "/images/AW%20Engraved%20Notepad-2.jpg"
-    ],
-    "item": "AW Engraved Notepad",
-    "client": "AW",
-    "category": "Physical Goods",
-    "role": "Techpack Design, Production Management",
-    "date": "10.2025",
-    "program": "",
-    "supplier": "Mount Street Printers",
-    "notes": "",
-    "status": "Login Required"
-  },
-  {
-    "id": "7",
-    "images": [
-      "/images/Dog%20Tag%20Necklace-1.jpg",
-      "/images/Dog%20Tag%20Necklace-2.jpg"
-    ],
-    "item": "Bottle Opener Necklace",
-    "client": "Nothing Radio",
-    "category": "Accessories",
-    "role": "Designer, Creative Direction, Video Editor",
-    "date": "10.2025",
-    "program": "",
-    "supplier": "Custom Coasters Now",
-    "notes": "",
-    "status": "Featured 1"
-  },
-  {
-    "id": "8",
-    "images": [
-      "/images/Get%20a%20Room%20Halloween%2025-1.webp",
-      "/images/Get%20a%20Room%20Halloween%2025-2.jpg",
-      "/images/Get%20a%20Room%20Halloween%2025-3.jpg"
-    ],
-    "item": "Get a Room: Halloween (2025)",
-    "client": "Nothing Radio",
-    "category": "Event Flyer",
-    "role": "",
-    "date": "10.2025",
-    "program": "",
-    "supplier": "Staples",
-    "notes": "",
-    "status": "Public"
-  },
-  {
-    "id": "9",
-    "images": [
-      "/images/Studio%20Luhtala%20website.jpg"
-    ],
-    "item": "Studio Luhtala Website",
-    "client": "Studio Luhtala",
-    "category": "Website",
-    "role": "Web Designer, Graphic Designer, Project Management",
-    "date": "9.2025",
-    "program": "Squarespace",
-    "supplier": "",
-    "notes": "studioluhtala.com",
-    "status": "Public"
-  },
-  {
-    "id": "10",
-    "images": [
-      "/images/Solo%20Studio%20Website.jpg"
-    ],
-    "item": "Solo Studio Website",
-    "client": "Solo Studio LA",
-    "category": "Website",
-    "role": "Web Designer, Graphic Designer, Project Management",
-    "date": "9.2025",
-    "program": "Squarespace",
-    "supplier": "",
-    "notes": "",
-    "status": "Public"
-  },
-  {
-    "id": "11",
-    "images": [
-      "/images/getaroom2025-01.png",
-      "/images/getaroom2025-02.jpeg",
-      "/images/getaroom2025-03.png",
-      "/images/getaroom2025-04.jpg",
-      "/images/getaroom2025-05.jpeg",
-      "/images/getaroom2025-06.jpg",
-      "/images/getaroom2025-07.png",
-      "/images/getaroom2025-08.jpg",
-      "/images/getaroom2025-09.png",
-      "/images/getaroom2025-10.jpg",
-      "/images/getaroom2025-11.png",
-      "/images/getaroom2025-12.jpg",
-      "/images/getaroom2025-13.jpg",
-      "/images/getaroom2025-14.jpg",
-      "/images/getaroom2025-15.png"
-    ],
-    "item": "Get a Room Flyers: 2025",
-    "client": "Nothing Radio",
-    "category": "Event Flyer",
-    "role": "Graphic Designer, Photographer",
-    "date": "2025",
-    "program": "",
-    "supplier": "",
-    "notes": "",
-    "status": "Public"
-  },
-  {
-    "id": "12",
-    "images": [
-      "/images/getaroom2024-1.jpg",
-      "/images/getaroom2024-1%20(1).jpg",
-      "/images/getaroom2024-1%20(2).jpg",
-      "/images/getaroom2024-1%20(3).jpg",
-      "/images/getaroom2024-1%20(4).jpg",
-      "/images/getaroom2024-2.jpg",
-      "/images/getaroom2024-2%20(1).jpg",
-      "/images/getaroom2024-2%20(2).jpg",
-      "/images/getaroom2024-3.jpg",
-      "/images/getaroom2024-3.png"
-    ],
-    "item": "Get a Room Flyers: 2024",
-    "client": "Nothing Radio",
-    "category": "Event Flyer",
-    "role": "Graphic Designer, Photographer",
-    "date": "2024",
-    "program": "",
-    "supplier": "",
-    "notes": "",
-    "status": "Public"
-  },
-  {
-    "id": "13",
-    "images": [
-      "/images/Aspen%20Posters%20x%20Framebridge%20New%20York%20City%20Popup-1.jpg"
-    ],
-    "item": "Aspen Posters x Framebridge, NYC Popup",
-    "client": "Aspen Posters, Framebridge",
-    "category": "Event, Physical Goods",
-    "role": "Project Management",
-    "date": "12.2025",
-    "program": "",
-    "supplier": "",
-    "notes": "",
-    "status": "Public"
-  },
-  {
-    "id": "14",
-    "images": [
-      "/images/Chateau%20Marmont%20holiday%20card%202026-1.jpg"
-    ],
-    "item": "Chateau Marmont Holiday Card 2026",
-    "client": "Chateau Marmont",
-    "category": "Printed Good",
-    "role": "Assistant",
-    "date": "12.2025",
-    "program": "",
-    "supplier": "",
-    "notes": "",
-    "status": "Login Required"
-  },
-  {
-    "id": "15",
-    "images": [
-      "/images/Chateau%20Marmont%20Gallery%20Wall%20Acrhive%20Project-1.jpg"
-    ],
-    "item": "Chateau Marmont Gallery Wall",
-    "client": "Chateau Marmont",
-    "category": "Project Management",
-    "role": "Project Lead",
-    "date": "12.2025",
-    "program": "",
-    "supplier": "The Logical Choice, Cityframe",
-    "notes": "",
-    "status": "Public"
-  },
-  {
-    "id": "16",
-    "images": [
-      "/images/nothing%20radio%20website-1.jpg",
-      "/images/nothing%20radio%20website-2.jpg",
-      "/images/nothing%20radio%20website-3.jpg"
-    ],
-    "item": "Nothing Radio Website",
-    "client": "Nothing Radio",
-    "category": "Website Design",
-    "role": "Website Design, Graphic Design",
-    "date": "12.2025",
-    "program": "Squarespace, CSS, HTML",
-    "supplier": "",
-    "notes": "",
-    "status": "Public"
-  },
-  {
-    "id": "17",
-    "images": [
-      "/images/Jorocco%20x%20the%20standard-1.jpg"
-    ],
-    "item": "JoRocco + The Standard, Highline",
-    "client": "The Standard, JoRocco",
-    "category": "Retail, Merchandising",
-    "role": "Project Lead",
-    "date": "1.2025",
-    "program": "",
-    "supplier": "",
-    "notes": "Redefining the ethos of The Shop at The Standard to provide guests with unique art by New York City artists. JoRocco is a NYC based jewelry designer that does frequent pops-ups at Chelsea Market.",
-    "status": "Public"
-  },
-  {
-    "id": "18",
-    "images": [
-      "/images/Carolina%20Sarria%20video%20campaign-1.jpg"
-    ],
-    "item": "Carolina Sarria video campaign",
-    "client": "Carolina Sarria",
-    "category": "Video Editing",
-    "role": "Video Editor",
-    "date": "10.2024",
-    "program": "Final Cut Pro",
-    "supplier": "",
-    "notes": "Develop and edited content for the Carolina Sarria's S/S 2025 'Circus' collection.",
-    "status": "Public"
-  },
-  {
-    "id": "19",
-    "images": [
-      "/images/All%20a%20Dream-1.jpg",
-      "/images/All%20a%20Dream-2.jpg",
-      "/images/All%20a%20Dream-3.jpg"
-    ],
-    "item": "All a Dream (2020)",
-    "client": "Personal Project",
-    "category": "Zine",
-    "role": "Graphic Designer",
-    "date": "2020",
-    "program": "Photoshop, Collage",
-    "supplier": "",
-    "notes": "Zine from when I was living in London and had to leave due to Covid. Exact copies and sizing of boarding passes, Passport and covid health information.",
-    "status": "Public"
-  },
-  {
-    "id": "20",
-    "images": [
-      "/images/Cry%20for%20Help-1.jpg",
-      "/images/Cry%20for%20Help-2.jpg",
-      "/images/Cry%20for%20Help-3.jpg"
-    ],
-    "item": "Cry for Help (2020)",
-    "client": "Personal Project",
-    "category": "Zine",
-    "role": "Graphic Designer",
-    "date": "2020",
-    "program": "Photoshop, Collage",
-    "supplier": "",
-    "notes": "8.5 x 11\" Zine Reflecting on my first year in New York City.",
-    "status": "Public"
-  },
-  {
-    "id": "21",
-    "images": [
-      "/images/Imitating%20Color-1.jpg",
-      "/images/Imitating%20Color-2.jpg",
-      "/images/Imitating%20Color-3.jpg"
-    ],
-    "item": "Imitating Color (2020)",
-    "client": "Personal Project",
-    "category": "Zine",
-    "role": "Graphic Designer",
-    "date": "2020",
-    "program": "Photoshop, Collage",
-    "supplier": "",
-    "notes": "Self bound zine about being stuck",
-    "status": "Public"
-  },
-  {
-    "id": "22",
-    "images": [
-      "/images/Kiss%20and%20Tell-1.jpg"
-    ],
-    "item": "New Years Eve Party (2025)",
-    "client": "Nothing Radio",
-    "category": "Event",
-    "role": "Booking, Creative Direction, Organizing, Physical Goods, Photography",
-    "date": "12.2024",
-    "program": "",
-    "supplier": "",
-    "notes": "Sold out event at Home Sweet Home. 220 guests in attendance. Organized bookings, photographed & recorded the event, designed custom pins, wristbands and setup AV + Projector gear.",
-    "status": "Public"
-  },
-  {
-    "id": "23",
-    "images": [
-      "/images/Anok%20and%20Alex.jpg"
-    ],
-    "item": "Anok Yai & Alex Consani Interview",
-    "client": "Nothing Radio",
-    "category": "Interview",
-    "role": "Video Editor",
-    "date": "02.2025",
-    "program": "Final Cut Pro",
-    "supplier": "",
-    "notes": "Edited interview and coordinated social scheduling across platforms. https://youtu.be/24LixXGd5OI?si=oLZsSB8bdn5d0SZw",
-    "status": "Public"
-  },
-  {
-    "id": "24",
-    "images": [],
-    "item": "Aspen Posters x Aviator Nation Aspen Popup",
-    "client": "Aspen Posters",
-    "category": "Popup, Event",
-    "role": "Project Management, Graphic Design",
-    "date": "12.2025",
-    "program": "",
-    "supplier": "",
-    "notes": "",
-    "status": "Public"
-  },
-  {
-    "id": "25",
-    "images": [
-      "/images/Aspen%20Posters%20x%20Performance%20Ski%20Aspen%20Popup-1.jpg",
-      "/images/Aspen%20Posters%20x%20Performance%20Ski%20Aspen%20Popup-2.jpg"
-    ],
-    "item": "Aspen Posters x Performance Ski Aspen Popup",
-    "client": "Aspen Posters",
-    "category": "Popup, Event",
-    "role": "Project Management, Graphic Design",
-    "date": "7.2025",
-    "program": "",
-    "supplier": "",
-    "notes": "",
-    "status": "Public"
-  },
-  {
-    "id": "26",
-    "images": [
-      "/images/getaroom2024-1%20(1).jpg"
-    ],
-    "item": "Get a Room: Halloween Party (2024)",
-    "client": "Nothing Radio",
-    "category": "Event",
-    "role": "Booking, Creative Direction, Organizing, Physical Goods, Photography",
-    "date": "2024",
-    "program": "",
-    "supplier": "",
-    "notes": "",
-    "status": "Public"
-  },
-  {
-    "id": "27",
-    "images": [],
-    "item": "Cross USB V1",
-    "client": "Nothing Radio",
-    "category": "Physical Good",
-    "role": "Creative Direction, 3D Design, Photography",
-    "date": "2024",
-    "program": "",
-    "supplier": "",
-    "notes": "",
-    "status": "Public"
-  },
-  {
-    "id": "28",
-    "images": [
-      "images/aspenposters-website.png"
-    ],
-    "item": "Aspen Posters Shopify Migration",
-    "client": "Aspen Posters",
-    "category": "Website",
-    "role": "Project Lead",
-    "date": "11.2025",
-    "program": "Shopify, Squarespace",
-    "supplier": "",
-    "notes": "",
-    "status": "Public"
-  },
-  {
-    "id": "29",
-    "images": [
-      "images/flowershop-website.png"
-    ],
-    "item": "Agency Launch",
-    "client": "Flower Shop Agency",
-    "category": "Assistant, Research",
-    "role": "",
-    "date": "2024",
-    "program": "",
-    "supplier": "",
-    "notes": "https://flowershop.agency/",
-    "status": "Public"
-  },
-  {
-    "id": "30",
-    "images": [
-      "/images/Fanatics%20x%20Tom%20Brady.jpg"
-    ],
-    "item": "Fanatics x Tom Brady",
-    "client": "Flower Shop Agency",
-    "category": "Assistant, Research",
-    "role": "",
-    "date": "2024",
-    "program": "",
-    "supplier": "",
-    "notes": "",
-    "status": "Public"
-  },
-  {
-    "id": "31",
-    "images": [
-      "/images/Sotto Voce-1.jpg"
-    ],
-    "item": "Sotto Voce Short Film",
-    "client": "Sotto Voce",
-    "category": "Short Film",
-    "role": "Assistant to the Director",
-    "date": "2024",
-    "program": "",
-    "supplier": "",
-    "notes": "",
-    "status": "Public"
-  },
-  {
-    "id": "32",
-    "images": [],
-    "item": "Merchandise Design",
-    "client": "Cinema Lab",
-    "category": "",
-    "role": "",
-    "date": "2024",
-    "program": "",
-    "supplier": "",
-    "notes": "",
-    "status": "Public"
-  },
-  {
-    "id": "33",
-    "images": [
-      "/images/Farnsworth%20Blog.jpg"
-    ],
-    "item": "Blog Post Editor",
-    "client": "Farnsworth Fine Cannabis",
-    "category": "Website, Blog",
-    "role": "",
-    "date": "2023",
-    "program": "",
-    "supplier": "",
-    "notes": "https://www.farnsworthfinecannabis.com/little-bird-blog",
-    "status": "Public"
-  },
-  {
-    "id": "34",
-    "images": [],
-    "item": "Glass Hotel Ash Tray",
-    "client": "Farnsworth Fine Cannabis",
-    "category": "Physical Goods",
-    "role": "3D Modeling",
-    "date": "2024",
-    "program": "",
-    "supplier": "",
-    "notes": "",
-    "status": "Public"
-  },
-  {
-    "id": "35",
-    "images": [],
-    "item": "Blog Post Editor",
-    "client": "Anne K Taylor Fund",
-    "category": "Website, Blog",
-    "role": "",
-    "date": "2024",
-    "program": "",
-    "supplier": "",
-    "notes": "",
-    "status": "Public"
-  },
-  {
-    "id": "36",
-    "images": [],
-    "item": "Harvard Lampoon Christmas Party",
-    "client": "Farnsworth Fine Cannabis",
-    "category": "",
-    "role": "",
-    "date": "2023",
-    "program": "",
-    "supplier": "",
-    "notes": "",
-    "status": "Public"
-  },
-  {
-    "id": "37",
-    "images": [
-      "/images/TheChlorineBible-1.jpg",
-      "images/TheChlorineBible-2.webp",
-      "images/TheChlorineBible-3.avif",
-      "/images/TheChlorineBible-4.webp"
-    ],
-    "item": "The Chlorine Bible (Pilot)",
-    "client": "The Chlorine Bible",
-    "category": "TV Show",
-    "role": "Production Designer, BTS",
-    "date": "2023",
-    "program": "",
-    "supplier": "",
-    "notes": "https://youtu.be/R1cyJ7DZem8",
-    "status": "Public"
-  },
-  {
-    "id": "38",
-    "images": [],
-    "item": "New Era",
-    "client": "Matrixunni, Mal Films",
-    "category": "Music Video",
-    "role": "BTS, Assistant",
-    "date": "2022",
-    "program": "",
-    "supplier": "",
-    "notes": "https://youtu.be/K8T89GNGbq8?si=-M6E4cnXtVbZL_0d",
-    "status": "Public"
-  },
-  {
-    "id": "39",
-    "images": [],
-    "item": "Self Destruct Sequence",
-    "client": "LeCarner Productions",
-    "category": "Video",
-    "role": "Filmer",
-    "date": "2022",
-    "program": "",
-    "supplier": "",
-    "notes": "",
-    "status": "Public"
-  },
-  {
-    "id": "40",
-    "images": [],
-    "item": "Eggs",
-    "client": "LeCarner Productions",
-    "category": "Video",
-    "role": "Filmer",
-    "date": "2021",
-    "program": "",
-    "supplier": "",
-    "notes": "https://youtu.be/kjAPoKo0ngI",
-    "status": "Public"
-  },
-  {
-    "id": "41",
-    "images": [],
-    "item": "Love Under Incandescent Light",
-    "client": "Personal Project",
-    "category": "Music",
-    "role": "",
-    "date": "2021",
-    "program": "",
-    "supplier": "",
-    "notes": "A personal music project using virtual eurorack software + custom programmed midi equiptment. https://soundcloud.com/hotelaudio/sets/love-under-incandescent-light",
-    "status": "Public"
-  },
-  {
-    "id": "42",
-    "images": [],
-    "item": "Smashface",
-    "client": "Renz, Ike, D1shonorable",
-    "category": "Music Video",
-    "role": "Video Editor, Filmer",
-    "date": "2021",
-    "program": "",
-    "supplier": "",
-    "notes": "https://youtu.be/-IDvUdkGpI0",
-    "status": "Public"
-  },
-  {
-    "id": "43",
-    "images": [],
-    "item": "My Life",
-    "client": "Lil Capi, Anxiety Attacks",
-    "category": "Cover Artwork",
-    "role": "",
-    "date": "2020",
-    "program": "",
-    "supplier": "",
-    "notes": "https://open.spotify.com/album/3wKsRurGqNvlKQPoXTggRY",
-    "status": "Public"
-  },
-  {
-    "id": "44",
-    "images": [
-      "/images/Clancy.jpg"
-    ],
-    "item": "Stone Cold Eyes",
-    "client": "Clancy",
-    "category": "Music Video",
-    "role": "Video Editor, Filmer",
-    "date": "2020",
-    "program": "",
-    "supplier": "",
-    "notes": "https://youtu.be/jZtVO67gaIY?si=DncMUu7YZmLwedQU",
-    "status": "Public"
-  },
-  {
-    "id": "45",
-    "images": [
-      "/images/Find%20Me%20Bloody.jpg"
-    ],
-    "item": "Find Me",
-    "client": "Bloody",
-    "category": "Music Video",
-    "role": "Video Editor, Filmer",
-    "date": "2020",
-    "program": "",
-    "supplier": "",
-    "notes": "https://youtu.be/rlSbtBNYMPA?si=abrtV6h8Xwu-YYjr",
-    "status": "Public"
-  },
-  {
-    "id": "46",
-    "images": [],
-    "item": "Windows",
-    "client": "Lil Capi",
-    "category": "Cover Artwork",
-    "role": "",
-    "date": "2020",
-    "program": "",
-    "supplier": "",
-    "notes": "",
-    "status": "Public"
-  },
-  {
-    "id": "47",
-    "images": [],
-    "item": "aw20 Silent Weapons",
-    "client": "Personal Project",
-    "category": "Video",
-    "role": "Video Editor, Filmer",
-    "date": "2020",
-    "program": "",
-    "supplier": "",
-    "notes": "https://youtu.be/QbHyrNMlaWo?si=-y35pLN646xJCPMC",
-    "status": "Public"
-  },
-  {
-    "id": "48",
-    "images": [],
-    "item": "Don't Worry About Me",
-    "client": "Lil Capi",
-    "category": "Cover Artwork",
-    "role": "Assistant, BTS",
-    "date": "2019",
-    "program": "",
-    "supplier": "",
-    "notes": "https://open.spotify.com/album/08ej3uKzt2vLrP5W9ucLgM",
-    "status": "Public"
-  },
-  {
-    "id": "49",
-    "images": [
-      "/images/Say%20it%20All%20Anxiety%20Attacks.jpg"
-    ],
-    "item": "Say it All",
-    "client": "Anxiety Attacks!",
-    "category": "Music Video",
-    "role": "Video Editor",
-    "date": "2019",
-    "program": "Final Cut Pro, VHS",
-    "supplier": "",
-    "notes": "https://youtu.be/dW_6ksHcp4o?si=ZczKm1pVQVB4ruCG",
-    "status": "Public"
-  },
-  {
-    "id": "50",
-    "images": [],
-    "item": "Lil Capi Artist Profile Art",
-    "client": "Lil Capi",
-    "category": "Artist Branding",
-    "role": "Photographer",
-    "date": "2019",
-    "program": "",
-    "supplier": "",
-    "notes": "",
-    "status": "Public"
-  },
-  {
-    "id": "51",
-    "images": [],
-    "item": "Triarchy Soho House (Hollywood) Popup",
-    "client": "Triarchy",
-    "category": "Event, Popup",
-    "role": "Assistant",
-    "date": "2019",
-    "program": "",
-    "supplier": "",
-    "notes": "",
-    "status": "Public"
-  },
-  {
-    "id": "52",
-    "images": [
-      "/images/Chemicals%20Anxiety%20Attacks.jpg"
-    ],
-    "item": "Chemicals",
-    "client": "Anxiety Attacks!",
-    "category": "Music Video",
-    "role": "Video Editor, Filming",
-    "date": "2019",
-    "program": "Final Cut Pro, VHS",
-    "supplier": "",
-    "notes": "https://youtu.be/dueijQ2jNMs",
-    "status": "Public"
-  },
-  {
-    "id": "53",
-    "images": [
-      "/images/Jaxxon%20D%20Silva.jpg"
-    ],
-    "item": "Escape Claws",
-    "client": "Jaxxon D. Silva",
-    "category": "Music Video",
-    "role": "Filming, BTS",
-    "date": "2019",
-    "program": "Final Cut Pro, VHS",
-    "supplier": "",
-    "notes": "https://youtu.be/bwelDYFC-EA?si=FwcsCQZX0hJDG-hC",
-    "status": "Public"
-  },
-  {
-    "id": "54",
-    "images": [],
-    "item": "Moxie (2019)",
-    "client": "Personal Project",
-    "category": "Short Film",
-    "role": "Director, Editor, Filming",
-    "date": "2019",
-    "program": "Final Cut Pro, VHS",
-    "supplier": "",
-    "notes": "https://youtu.be/FWepQ9UbAvU?si=YIE9VqRGB2bADGue",
-    "status": "Public"
-  },
-  {
-    "id": "55",
-    "images": [],
-    "item": "Joyride. (2020)",
-    "client": "Personal Project",
-    "category": "Short Film",
-    "role": "Director, Editor, Filming",
-    "date": "2020",
-    "program": "Final Cut Pro, VHS",
-    "supplier": "",
-    "notes": "https://youtu.be/ciqv9p1qh3A?si=nYbGvRgUT-mpq0lS",
-    "status": "Public"
-  },
-  {
-    "id": "56",
-    "images": [],
-    "item": "Impulse. (2020)",
-    "client": "Personal Project",
-    "category": "Short Film",
-    "role": "Director, Editor, Filming",
-    "date": "2020",
-    "program": "Final Cut Pro, VHS",
-    "supplier": "",
-    "notes": "https://youtu.be/cjErejresbc?si=z-PbyhV3rXjz762U",
-    "status": "Public"
-  },
-  {
-    "id": "57",
-    "images": [],
-    "item": "School Sucks (2019)",
-    "client": "Personal Project",
-    "category": "Short Film",
-    "role": "Director, Editor, Filming",
-    "date": "2019",
-    "program": "Final Cut Pro, VHS",
-    "supplier": "",
-    "notes": "School Sucks is a short film about life as a high schooler in the year 2019. It was filmed through out the entire school year and resulted in 15 hours of video, new friends and lots of memories. https://youtu.be/jWkjFyCTDfw?si=MGAFd6CCPaMd591m",
-    "status": "Public"
-  },
-  {
-    "id": "58",
-    "images": [],
-    "item": "Sunset Beach Hotel Merch",
-    "client": "Sunset Beach",
-    "category": "Merch, Clothing",
-    "role": "Graphic Design",
-    "date": "7.2025",
-    "program": "",
-    "supplier": "",
-    "notes": "",
-    "status": "Public"
-  },
-  {
-    "id": "59",
-    "images": [],
-    "item": "Casa Cipriani (NYC) Pool Accessories",
-    "client": "Casa Cipriani",
-    "category": "Physical Goods",
-    "role": "Graphic Design, Assistant",
-    "date": "4.2025",
-    "program": "",
-    "supplier": "",
-    "notes": "",
-    "status": "Public"
-  },
-  {
-    "id": "60",
-    "images": [],
-    "item": "Cadillac Lyric",
-    "client": "Flower Shop Agency",
-    "category": "Assistant, Research",
-    "role": "",
-    "date": "2024",
-    "program": "",
-    "supplier": "",
-    "notes": "",
-    "status": "Public"
-  },
-  {
-    "id": "61",
-    "images": [],
-    "item": "Luxury Real Estate Digital Communications",
-    "client": "Sotheby's Reality, Aspen",
-    "category": "Website, Email, Blog",
-    "role": "",
-    "date": "2025",
-    "program": "",
-    "supplier": "",
-    "notes": "",
-    "status": "Public"
-  },
-  {
-    "id": "62",
-    "images": [],
-    "item": "MCM + The Standard, Highline",
-    "client": "The Standard, MCM",
-    "category": "Retail, Merchandising, Event",
-    "role": "",
-    "date": "2024",
-    "program": "",
-    "supplier": "",
-    "notes": "",
-    "status": "Public"
-  },
-  {
-    "id": "63",
-    "images": [
-      "/images/Wiederhoeft-1.jpeg"
-    ],
-    "item": "Wiederhoeft S/S 24",
-    "client": "Lindsey Media",
-    "category": "NYFW Event",
-    "role": "NYFW Assistant",
-    "date": "2023",
-    "program": "",
-    "supplier": "",
-    "notes": "https://www.youtube.com/watch?v=9mRf8YaTvJ0",
-    "status": "Public"
-  },
-  {
-    "id": "64",
-    "images": [],
-    "item": "Sandy Liang",
-    "client": "Lindsey Media",
-    "category": "NYFW Event",
-    "role": "NYFW Assistant",
-    "date": "2024",
-    "program": "",
-    "supplier": "",
-    "notes": "",
-    "status": "Public"
-  },
-  {
-    "id": "65",
-    "images": [],
-    "item": "Dauphinette",
-    "client": "Lindsey Media",
-    "category": "NYFW Event",
-    "role": "NYFW Assistant",
-    "date": "2023",
-    "program": "",
-    "supplier": "",
-    "notes": "",
-    "status": "Public"
-  },
-  {
-    "id": "66",
-    "images": [
-      "/images/Bruce%20Glen-1.jpeg"
-    ],
-    "item": "Bruce Glen",
-    "client": "Lindsey Media",
-    "category": "NYFW Event",
-    "role": "NYFW Assistant",
-    "date": "2023",
-    "program": "",
-    "supplier": "",
-    "notes": "",
-    "status": "Public"
-  },
-  {
-    "id": "67",
-    "images": [
-      "/images/getaroomzine-1.jpg",
-      "/images/getaroomzine-2.png",
-      "/images/getaroomzine-3.jpg",
-      "/images/getaroomzine-4.jpg",
-      "/images/getaroomzine-5.gif"
-    ],
-    "item": "A Year of Get a Room",
-    "client": "Nothing Radio",
-    "category": "Zine",
-    "role": "Photographer, Graphic Designer",
-    "date": "2025",
-    "program": "",
-    "supplier": "",
-    "notes": "56 pages photographs capturing the first year of Get a Room. From our first party in Brooklyn to our homebase in the Lower East Side. 56 pages printed on heavy paper. Limited run, printed in California. https://nothingradio.com/shop/p/zine https://youtu.be/LvT5I7bKf18",
-    "status": "Public"
-  },
-  {
-    "id": "68",
-    "images": [],
-    "item": "The Drone of Humanity (2022)",
-    "client": "Nothing Solutions",
-    "category": "Collection, Clothing",
-    "role": "Designer, Video Editor",
-    "date": "2022",
-    "program": "",
-    "supplier": "",
-    "notes": "Freshman year collection at FIT. https://youtu.be/NlnWWFY0l4c",
-    "status": "Public"
-  }
-]
+{
+  "projects": [
+    {
+      "id": "2",
+      "images": [
+        "/images/Aspen%20Posters%20Winter%2025%3A26%20Catalog-1.jpg",
+        "/images/Aspen%20Posters%20Winter%2025%3A26%20Catalog-2.jpg",
+        "/images/Die%20Cut%20Shipping%20Sticker.jpg"
+      ],
+      "item": "Catalog, Stickers",
+      "client": "Aspen Posters",
+      "category": "Physical Goods",
+      "role": "Graphic Design, Production Management",
+      "date": "11.2025",
+      "program": "",
+      "supplier": "Mixam, Sticker Mule",
+      "notes": "",
+      "status": "Public"
+    },
+    {
+      "id": "3",
+      "images": [
+        "/images/Get%20a%20Room%2026%20Flyer.jpg"
+      ],
+      "item": "Get a Room: 26",
+      "client": "Nothing Radio",
+      "category": "Event Flyers, Event",
+      "role": "Bookings, Graphic Design",
+      "date": "11.2025",
+      "program": "",
+      "supplier": "",
+      "notes": "",
+      "status": "Public"
+    },
+    {
+      "id": "4",
+      "images": [
+        "/images/publichotel215-1.gif",
+        "/images/publichotel215-2.jpeg",
+        "/images/publichotel215-3.jpg",
+        "/images/publichotel215-4.png",
+        "/images/publichotel215-12222025.gif"
+      ],
+      "item": "215 @ Public Hotel",
+      "client": "Nothing Radio",
+      "category": "Event Flyers, Event",
+      "role": "Graphic Design",
+      "date": "2025",
+      "program": "",
+      "supplier": "",
+      "notes": "https://youtu.be/7jqVWf2LxgU?si=ZeJdVz4QtXYda7PR & https://youtu.be/aaWFtHanzfw?si=Ke3Psk_RAMYdGT6A",
+      "status": "Public"
+    },
+    {
+      "id": "5",
+      "images": [
+        "/images/Business%20Card%20Matchbooks-1.jpg",
+        "/images/Business%20Card%20Matchbooks-2.jpg",
+        "/images/Business%20Card%20Matchbooks-3.jpg"
+      ],
+      "item": "Business Card Matchbooks",
+      "client": "Studio Luhtala",
+      "category": "Physical Goods",
+      "role": "Techpack Design, Production Management",
+      "date": "10.2025",
+      "program": "",
+      "supplier": "GetMatches",
+      "notes": "",
+      "status": "Public"
+    },
+    {
+      "id": "6",
+      "images": [
+        "/images/AW%20Engraved%20Notepad-1.jpg",
+        "/images/AW%20Engraved%20Notepad-2.jpg"
+      ],
+      "item": "AW Engraved Notepad",
+      "client": "AW",
+      "category": "Physical Goods",
+      "role": "Techpack Design, Production Management",
+      "date": "10.2025",
+      "program": "",
+      "supplier": "Mount Street Printers",
+      "notes": "",
+      "status": "Login Required"
+    },
+    {
+      "id": "7",
+      "images": [
+        "/images/Dog%20Tag%20Necklace-1.jpg",
+        "/images/Dog%20Tag%20Necklace-2.jpg"
+      ],
+      "item": "Bottle Opener Necklace",
+      "client": "Nothing Radio",
+      "category": "Accessories",
+      "role": "Designer, Creative Direction, Video Editor",
+      "date": "10.2025",
+      "program": "",
+      "supplier": "Custom Coasters Now",
+      "notes": "",
+      "status": "Featured 1"
+    },
+    {
+      "id": "8",
+      "images": [
+        "/images/Get%20a%20Room%20Halloween%2025-1.webp",
+        "/images/Get%20a%20Room%20Halloween%2025-2.jpg",
+        "/images/Get%20a%20Room%20Halloween%2025-3.jpg"
+      ],
+      "item": "Get a Room: Halloween (2025)",
+      "client": "Nothing Radio",
+      "category": "Event Flyer",
+      "role": "",
+      "date": "10.2025",
+      "program": "",
+      "supplier": "Staples",
+      "notes": "",
+      "status": "Public"
+    },
+    {
+      "id": "9",
+      "images": [
+        "/images/Studio%20Luhtala%20website.jpg"
+      ],
+      "item": "Studio Luhtala Website",
+      "client": "Studio Luhtala",
+      "category": "Website",
+      "role": "Web Designer, Graphic Designer, Project Management",
+      "date": "9.2025",
+      "program": "Squarespace",
+      "supplier": "",
+      "notes": "studioluhtala.com",
+      "status": "Public"
+    },
+    {
+      "id": "10",
+      "images": [
+        "/images/Solo%20Studio%20Website.jpg"
+      ],
+      "item": "Solo Studio Website",
+      "client": "Solo Studio LA",
+      "category": "Website",
+      "role": "Web Designer, Graphic Designer, Project Management",
+      "date": "9.2025",
+      "program": "Squarespace",
+      "supplier": "",
+      "notes": "",
+      "status": "Public"
+    },
+    {
+      "id": "11",
+      "images": [
+        "/images/getaroom2025-01.png",
+        "/images/getaroom2025-02.jpeg",
+        "/images/getaroom2025-03.png",
+        "/images/getaroom2025-04.jpg",
+        "/images/getaroom2025-05.jpeg",
+        "/images/getaroom2025-06.jpg",
+        "/images/getaroom2025-07.png",
+        "/images/getaroom2025-08.jpg",
+        "/images/getaroom2025-09.png",
+        "/images/getaroom2025-10.jpg",
+        "/images/getaroom2025-11.png",
+        "/images/getaroom2025-12.jpg",
+        "/images/getaroom2025-13.jpg",
+        "/images/getaroom2025-14.jpg",
+        "/images/getaroom2025-15.png"
+      ],
+      "item": "Get a Room Flyers: 2025",
+      "client": "Nothing Radio",
+      "category": "Event Flyer",
+      "role": "Graphic Designer, Photographer",
+      "date": "2025",
+      "program": "",
+      "supplier": "",
+      "notes": "",
+      "status": "Public"
+    },
+    {
+      "id": "12",
+      "images": [
+        "/images/getaroom2024-1.jpg",
+        "/images/getaroom2024-1%20(1).jpg",
+        "/images/getaroom2024-1%20(2).jpg",
+        "/images/getaroom2024-1%20(3).jpg",
+        "/images/getaroom2024-1%20(4).jpg",
+        "/images/getaroom2024-2.jpg",
+        "/images/getaroom2024-2%20(1).jpg",
+        "/images/getaroom2024-2%20(2).jpg",
+        "/images/getaroom2024-3.jpg",
+        "/images/getaroom2024-3.png"
+      ],
+      "item": "Get a Room Flyers: 2024",
+      "client": "Nothing Radio",
+      "category": "Event Flyer",
+      "role": "Graphic Designer, Photographer",
+      "date": "2024",
+      "program": "",
+      "supplier": "",
+      "notes": "",
+      "status": "Public"
+    },
+    {
+      "id": "13",
+      "images": [
+        "/images/Aspen%20Posters%20x%20Framebridge%20New%20York%20City%20Popup-1.jpg"
+      ],
+      "item": "Aspen Posters x Framebridge, NYC Popup",
+      "client": "Aspen Posters, Framebridge",
+      "category": "Event, Physical Goods",
+      "role": "Project Management",
+      "date": "12.2025",
+      "program": "",
+      "supplier": "",
+      "notes": "",
+      "status": "Public"
+    },
+    {
+      "id": "14",
+      "images": [
+        "/images/Chateau%20Marmont%20holiday%20card%202026-1.jpg"
+      ],
+      "item": "Chateau Marmont Holiday Card 2026",
+      "client": "Chateau Marmont",
+      "category": "Printed Good",
+      "role": "Assistant",
+      "date": "12.2025",
+      "program": "",
+      "supplier": "",
+      "notes": "",
+      "status": "Login Required"
+    },
+    {
+      "id": "15",
+      "images": [
+        "/images/Chateau%20Marmont%20Gallery%20Wall%20Acrhive%20Project-1.jpg"
+      ],
+      "item": "Chateau Marmont Gallery Wall",
+      "client": "Chateau Marmont",
+      "category": "Project Management",
+      "role": "Project Lead",
+      "date": "12.2025",
+      "program": "",
+      "supplier": "The Logical Choice, Cityframe",
+      "notes": "",
+      "status": "Public"
+    },
+    {
+      "id": "16",
+      "images": [
+        "/images/nothing%20radio%20website-1.jpg",
+        "/images/nothing%20radio%20website-2.jpg",
+        "/images/nothing%20radio%20website-3.jpg"
+      ],
+      "item": "Nothing Radio Website",
+      "client": "Nothing Radio",
+      "category": "Website Design",
+      "role": "Website Design, Graphic Design",
+      "date": "12.2025",
+      "program": "Squarespace, CSS, HTML",
+      "supplier": "",
+      "notes": "",
+      "status": "Public"
+    },
+    {
+      "id": "17",
+      "images": [
+        "/images/Jorocco%20x%20the%20standard-1.jpg"
+      ],
+      "item": "JoRocco + The Standard, Highline",
+      "client": "The Standard, JoRocco",
+      "category": "Retail, Merchandising",
+      "role": "Project Lead",
+      "date": "1.2025",
+      "program": "",
+      "supplier": "",
+      "notes": "Redefining the ethos of The Shop at The Standard to provide guests with unique art by New York City artists. JoRocco is a NYC based jewelry designer that does frequent pops-ups at Chelsea Market.",
+      "status": "Public"
+    },
+    {
+      "id": "18",
+      "images": [
+        "/images/Carolina%20Sarria%20video%20campaign-1.jpg"
+      ],
+      "item": "Carolina Sarria video campaign",
+      "client": "Carolina Sarria",
+      "category": "Video Editing",
+      "role": "Video Editor",
+      "date": "10.2024",
+      "program": "Final Cut Pro",
+      "supplier": "",
+      "notes": "Develop and edited content for the Carolina Sarria's S/S 2025 'Circus' collection.",
+      "status": "Public"
+    },
+    {
+      "id": "19",
+      "images": [
+        "/images/All%20a%20Dream-1.jpg",
+        "/images/All%20a%20Dream-2.jpg",
+        "/images/All%20a%20Dream-3.jpg"
+      ],
+      "item": "All a Dream (2020)",
+      "client": "Personal Project",
+      "category": "Zine",
+      "role": "Graphic Designer",
+      "date": "2020",
+      "program": "Photoshop, Collage",
+      "supplier": "",
+      "notes": "Zine from when I was living in London and had to leave due to Covid. Exact copies and sizing of boarding passes, Passport and covid health information.",
+      "status": "Public"
+    },
+    {
+      "id": "20",
+      "images": [
+        "/images/Cry%20for%20Help-1.jpg",
+        "/images/Cry%20for%20Help-2.jpg",
+        "/images/Cry%20for%20Help-3.jpg"
+      ],
+      "item": "Cry for Help (2020)",
+      "client": "Personal Project",
+      "category": "Zine",
+      "role": "Graphic Designer",
+      "date": "2020",
+      "program": "Photoshop, Collage",
+      "supplier": "",
+      "notes": "8.5 x 11\" Zine Reflecting on my first year in New York City.",
+      "status": "Public"
+    },
+    {
+      "id": "21",
+      "images": [
+        "/images/Imitating%20Color-1.jpg",
+        "/images/Imitating%20Color-2.jpg",
+        "/images/Imitating%20Color-3.jpg"
+      ],
+      "item": "Imitating Color (2020)",
+      "client": "Personal Project",
+      "category": "Zine",
+      "role": "Graphic Designer",
+      "date": "2020",
+      "program": "Photoshop, Collage",
+      "supplier": "",
+      "notes": "Self bound zine about being stuck",
+      "status": "Public"
+    },
+    {
+      "id": "22",
+      "images": [
+        "/images/Kiss%20and%20Tell-1.jpg"
+      ],
+      "item": "New Years Eve Party (2025)",
+      "client": "Nothing Radio",
+      "category": "Event",
+      "role": "Booking, Creative Direction, Organizing, Physical Goods, Photography",
+      "date": "12.2024",
+      "program": "",
+      "supplier": "",
+      "notes": "Sold out event at Home Sweet Home. 220 guests in attendance. Organized bookings, photographed & recorded the event, designed custom pins, wristbands and setup AV + Projector gear.",
+      "status": "Public"
+    },
+    {
+      "id": "23",
+      "images": [
+        "/images/Anok%20and%20Alex.jpg"
+      ],
+      "item": "Anok Yai & Alex Consani Interview",
+      "client": "Nothing Radio",
+      "category": "Interview",
+      "role": "Video Editor",
+      "date": "02.2025",
+      "program": "Final Cut Pro",
+      "supplier": "",
+      "notes": "Edited interview and coordinated social scheduling across platforms. https://youtu.be/24LixXGd5OI?si=oLZsSB8bdn5d0SZw",
+      "status": "Public"
+    },
+    {
+      "id": "24",
+      "images": [],
+      "item": "Aspen Posters x Aviator Nation Aspen Popup",
+      "client": "Aspen Posters",
+      "category": "Popup, Event",
+      "role": "Project Management, Graphic Design",
+      "date": "12.2025",
+      "program": "",
+      "supplier": "",
+      "notes": "",
+      "status": "Public"
+    },
+    {
+      "id": "25",
+      "images": [
+        "/images/Aspen%20Posters%20x%20Performance%20Ski%20Aspen%20Popup-1.jpg",
+        "/images/Aspen%20Posters%20x%20Performance%20Ski%20Aspen%20Popup-2.jpg"
+      ],
+      "item": "Aspen Posters x Performance Ski Aspen Popup",
+      "client": "Aspen Posters",
+      "category": "Popup, Event",
+      "role": "Project Management, Graphic Design",
+      "date": "7.2025",
+      "program": "",
+      "supplier": "",
+      "notes": "",
+      "status": "Public"
+    },
+    {
+      "id": "26",
+      "images": [
+        "/images/getaroom2024-1%20(1).jpg"
+      ],
+      "item": "Get a Room: Halloween Party (2024)",
+      "client": "Nothing Radio",
+      "category": "Event",
+      "role": "Booking, Creative Direction, Organizing, Physical Goods, Photography",
+      "date": "2024",
+      "program": "",
+      "supplier": "",
+      "notes": "",
+      "status": "Public"
+    },
+    {
+      "id": "27",
+      "images": [],
+      "item": "Cross USB V1",
+      "client": "Nothing Radio",
+      "category": "Physical Good",
+      "role": "Creative Direction, 3D Design, Photography",
+      "date": "2024",
+      "program": "",
+      "supplier": "",
+      "notes": "",
+      "status": "Public"
+    },
+    {
+      "id": "28",
+      "images": [
+        "images/aspenposters-website.png"
+      ],
+      "item": "Aspen Posters Shopify Migration",
+      "client": "Aspen Posters",
+      "category": "Website",
+      "role": "Project Lead",
+      "date": "11.2025",
+      "program": "Shopify, Squarespace",
+      "supplier": "",
+      "notes": "",
+      "status": "Public"
+    },
+    {
+      "id": "29",
+      "images": [
+        "images/flowershop-website.png"
+      ],
+      "item": "Agency Launch",
+      "client": "Flower Shop Agency",
+      "category": "Assistant, Research",
+      "role": "",
+      "date": "2024",
+      "program": "",
+      "supplier": "",
+      "notes": "https://flowershop.agency/",
+      "status": "Public"
+    },
+    {
+      "id": "30",
+      "images": [
+        "/images/Fanatics%20x%20Tom%20Brady.jpg"
+      ],
+      "item": "Fanatics x Tom Brady",
+      "client": "Flower Shop Agency",
+      "category": "Assistant, Research",
+      "role": "",
+      "date": "2024",
+      "program": "",
+      "supplier": "",
+      "notes": "",
+      "status": "Public"
+    },
+    {
+      "id": "31",
+      "images": [
+        "/images/Sotto Voce-1.jpg"
+      ],
+      "item": "Sotto Voce Short Film",
+      "client": "Sotto Voce",
+      "category": "Short Film",
+      "role": "Assistant to the Director",
+      "date": "2024",
+      "program": "",
+      "supplier": "",
+      "notes": "",
+      "status": "Public"
+    },
+    {
+      "id": "32",
+      "images": [],
+      "item": "Merchandise Design",
+      "client": "Cinema Lab",
+      "category": "",
+      "role": "",
+      "date": "2024",
+      "program": "",
+      "supplier": "",
+      "notes": "",
+      "status": "Public"
+    },
+    {
+      "id": "33",
+      "images": [
+        "/images/Farnsworth%20Blog.jpg"
+      ],
+      "item": "Blog Post Editor",
+      "client": "Farnsworth Fine Cannabis",
+      "category": "Website, Blog",
+      "role": "",
+      "date": "2023",
+      "program": "",
+      "supplier": "",
+      "notes": "https://www.farnsworthfinecannabis.com/little-bird-blog",
+      "status": "Public"
+    },
+    {
+      "id": "34",
+      "images": [],
+      "item": "Glass Hotel Ash Tray",
+      "client": "Farnsworth Fine Cannabis",
+      "category": "Physical Goods",
+      "role": "3D Modeling",
+      "date": "2024",
+      "program": "",
+      "supplier": "",
+      "notes": "",
+      "status": "Public"
+    },
+    {
+      "id": "35",
+      "images": [],
+      "item": "Blog Post Editor",
+      "client": "Anne K Taylor Fund",
+      "category": "Website, Blog",
+      "role": "",
+      "date": "2024",
+      "program": "",
+      "supplier": "",
+      "notes": "",
+      "status": "Public"
+    },
+    {
+      "id": "36",
+      "images": [],
+      "item": "Harvard Lampoon Christmas Party",
+      "client": "Farnsworth Fine Cannabis",
+      "category": "",
+      "role": "",
+      "date": "2023",
+      "program": "",
+      "supplier": "",
+      "notes": "",
+      "status": "Public"
+    },
+    {
+      "id": "37",
+      "images": [
+        "/images/TheChlorineBible-1.jpg",
+        "images/TheChlorineBible-2.webp",
+        "images/TheChlorineBible-3.avif",
+        "/images/TheChlorineBible-4.webp"
+      ],
+      "item": "The Chlorine Bible (Pilot)",
+      "client": "The Chlorine Bible",
+      "category": "TV Show",
+      "role": "Production Designer, BTS",
+      "date": "2023",
+      "program": "",
+      "supplier": "",
+      "notes": "https://youtu.be/R1cyJ7DZem8",
+      "status": "Public"
+    },
+    {
+      "id": "38",
+      "images": [],
+      "item": "New Era",
+      "client": "Matrixunni, Mal Films",
+      "category": "Music Video",
+      "role": "BTS, Assistant",
+      "date": "2022",
+      "program": "",
+      "supplier": "",
+      "notes": "https://youtu.be/K8T89GNGbq8?si=-M6E4cnXtVbZL_0d",
+      "status": "Public"
+    },
+    {
+      "id": "39",
+      "images": [],
+      "item": "Self Destruct Sequence",
+      "client": "LeCarner Productions",
+      "category": "Video",
+      "role": "Filmer",
+      "date": "2022",
+      "program": "",
+      "supplier": "",
+      "notes": "",
+      "status": "Public"
+    },
+    {
+      "id": "40",
+      "images": [],
+      "item": "Eggs",
+      "client": "LeCarner Productions",
+      "category": "Video",
+      "role": "Filmer",
+      "date": "2021",
+      "program": "",
+      "supplier": "",
+      "notes": "https://youtu.be/kjAPoKo0ngI",
+      "status": "Public"
+    },
+    {
+      "id": "41",
+      "images": [],
+      "item": "Love Under Incandescent Light",
+      "client": "Personal Project",
+      "category": "Music",
+      "role": "",
+      "date": "2021",
+      "program": "",
+      "supplier": "",
+      "notes": "A personal music project using virtual eurorack software + custom programmed midi equiptment. https://soundcloud.com/hotelaudio/sets/love-under-incandescent-light",
+      "status": "Public"
+    },
+    {
+      "id": "42",
+      "images": [],
+      "item": "Smashface",
+      "client": "Renz, Ike, D1shonorable",
+      "category": "Music Video",
+      "role": "Video Editor, Filmer",
+      "date": "2021",
+      "program": "",
+      "supplier": "",
+      "notes": "https://youtu.be/-IDvUdkGpI0",
+      "status": "Public"
+    },
+    {
+      "id": "43",
+      "images": [],
+      "item": "My Life",
+      "client": "Lil Capi, Anxiety Attacks",
+      "category": "Cover Artwork",
+      "role": "",
+      "date": "2020",
+      "program": "",
+      "supplier": "",
+      "notes": "https://open.spotify.com/album/3wKsRurGqNvlKQPoXTggRY",
+      "status": "Public"
+    },
+    {
+      "id": "44",
+      "images": [
+        "/images/Clancy.jpg"
+      ],
+      "item": "Stone Cold Eyes",
+      "client": "Clancy",
+      "category": "Music Video",
+      "role": "Video Editor, Filmer",
+      "date": "2020",
+      "program": "",
+      "supplier": "",
+      "notes": "https://youtu.be/jZtVO67gaIY?si=DncMUu7YZmLwedQU",
+      "status": "Public"
+    },
+    {
+      "id": "45",
+      "images": [
+        "/images/Find%20Me%20Bloody.jpg"
+      ],
+      "item": "Find Me",
+      "client": "Bloody",
+      "category": "Music Video",
+      "role": "Video Editor, Filmer",
+      "date": "2020",
+      "program": "",
+      "supplier": "",
+      "notes": "https://youtu.be/rlSbtBNYMPA?si=abrtV6h8Xwu-YYjr",
+      "status": "Public"
+    },
+    {
+      "id": "46",
+      "images": [],
+      "item": "Windows",
+      "client": "Lil Capi",
+      "category": "Cover Artwork",
+      "role": "",
+      "date": "2020",
+      "program": "",
+      "supplier": "",
+      "notes": "",
+      "status": "Public"
+    },
+    {
+      "id": "47",
+      "images": [],
+      "item": "aw20 Silent Weapons",
+      "client": "Personal Project",
+      "category": "Video",
+      "role": "Video Editor, Filmer",
+      "date": "2020",
+      "program": "",
+      "supplier": "",
+      "notes": "https://youtu.be/QbHyrNMlaWo?si=-y35pLN646xJCPMC",
+      "status": "Public"
+    },
+    {
+      "id": "48",
+      "images": [],
+      "item": "Don't Worry About Me",
+      "client": "Lil Capi",
+      "category": "Cover Artwork",
+      "role": "Assistant, BTS",
+      "date": "2019",
+      "program": "",
+      "supplier": "",
+      "notes": "https://open.spotify.com/album/08ej3uKzt2vLrP5W9ucLgM",
+      "status": "Public"
+    },
+    {
+      "id": "49",
+      "images": [
+        "/images/Say%20it%20All%20Anxiety%20Attacks.jpg"
+      ],
+      "item": "Say it All",
+      "client": "Anxiety Attacks!",
+      "category": "Music Video",
+      "role": "Video Editor",
+      "date": "2019",
+      "program": "Final Cut Pro, VHS",
+      "supplier": "",
+      "notes": "https://youtu.be/dW_6ksHcp4o?si=ZczKm1pVQVB4ruCG",
+      "status": "Public"
+    },
+    {
+      "id": "50",
+      "images": [],
+      "item": "Lil Capi Artist Profile Art",
+      "client": "Lil Capi",
+      "category": "Artist Branding",
+      "role": "Photographer",
+      "date": "2019",
+      "program": "",
+      "supplier": "",
+      "notes": "",
+      "status": "Public"
+    },
+    {
+      "id": "51",
+      "images": [],
+      "item": "Triarchy Soho House (Hollywood) Popup",
+      "client": "Triarchy",
+      "category": "Event, Popup",
+      "role": "Assistant",
+      "date": "2019",
+      "program": "",
+      "supplier": "",
+      "notes": "",
+      "status": "Public"
+    },
+    {
+      "id": "52",
+      "images": [
+        "/images/Chemicals%20Anxiety%20Attacks.jpg"
+      ],
+      "item": "Chemicals",
+      "client": "Anxiety Attacks!",
+      "category": "Music Video",
+      "role": "Video Editor, Filming",
+      "date": "2019",
+      "program": "Final Cut Pro, VHS",
+      "supplier": "",
+      "notes": "https://youtu.be/dueijQ2jNMs",
+      "status": "Public"
+    },
+    {
+      "id": "53",
+      "images": [
+        "/images/Jaxxon%20D%20Silva.jpg"
+      ],
+      "item": "Escape Claws",
+      "client": "Jaxxon D. Silva",
+      "category": "Music Video",
+      "role": "Filming, BTS",
+      "date": "2019",
+      "program": "Final Cut Pro, VHS",
+      "supplier": "",
+      "notes": "https://youtu.be/bwelDYFC-EA?si=FwcsCQZX0hJDG-hC",
+      "status": "Public"
+    },
+    {
+      "id": "54",
+      "images": [],
+      "item": "Moxie (2019)",
+      "client": "Personal Project",
+      "category": "Short Film",
+      "role": "Director, Editor, Filming",
+      "date": "2019",
+      "program": "Final Cut Pro, VHS",
+      "supplier": "",
+      "notes": "https://youtu.be/FWepQ9UbAvU?si=YIE9VqRGB2bADGue",
+      "status": "Public"
+    },
+    {
+      "id": "55",
+      "images": [],
+      "item": "Joyride. (2020)",
+      "client": "Personal Project",
+      "category": "Short Film",
+      "role": "Director, Editor, Filming",
+      "date": "2020",
+      "program": "Final Cut Pro, VHS",
+      "supplier": "",
+      "notes": "https://youtu.be/ciqv9p1qh3A?si=nYbGvRgUT-mpq0lS",
+      "status": "Public"
+    },
+    {
+      "id": "56",
+      "images": [],
+      "item": "Impulse. (2020)",
+      "client": "Personal Project",
+      "category": "Short Film",
+      "role": "Director, Editor, Filming",
+      "date": "2020",
+      "program": "Final Cut Pro, VHS",
+      "supplier": "",
+      "notes": "https://youtu.be/cjErejresbc?si=z-PbyhV3rXjz762U",
+      "status": "Public"
+    },
+    {
+      "id": "57",
+      "images": [],
+      "item": "School Sucks (2019)",
+      "client": "Personal Project",
+      "category": "Short Film",
+      "role": "Director, Editor, Filming",
+      "date": "2019",
+      "program": "Final Cut Pro, VHS",
+      "supplier": "",
+      "notes": "School Sucks is a short film about life as a high schooler in the year 2019. It was filmed through out the entire school year and resulted in 15 hours of video, new friends and lots of memories. https://youtu.be/jWkjFyCTDfw?si=MGAFd6CCPaMd591m",
+      "status": "Public"
+    },
+    {
+      "id": "58",
+      "images": [],
+      "item": "Sunset Beach Hotel Merch",
+      "client": "Sunset Beach",
+      "category": "Merch, Clothing",
+      "role": "Graphic Design",
+      "date": "7.2025",
+      "program": "",
+      "supplier": "",
+      "notes": "",
+      "status": "Public"
+    },
+    {
+      "id": "59",
+      "images": [],
+      "item": "Casa Cipriani (NYC) Pool Accessories",
+      "client": "Casa Cipriani",
+      "category": "Physical Goods",
+      "role": "Graphic Design, Assistant",
+      "date": "4.2025",
+      "program": "",
+      "supplier": "",
+      "notes": "",
+      "status": "Public"
+    },
+    {
+      "id": "60",
+      "images": [],
+      "item": "Cadillac Lyric",
+      "client": "Flower Shop Agency",
+      "category": "Assistant, Research",
+      "role": "",
+      "date": "2024",
+      "program": "",
+      "supplier": "",
+      "notes": "",
+      "status": "Public"
+    },
+    {
+      "id": "61",
+      "images": [],
+      "item": "Luxury Real Estate Digital Communications",
+      "client": "Sotheby's Reality, Aspen",
+      "category": "Website, Email, Blog",
+      "role": "",
+      "date": "2025",
+      "program": "",
+      "supplier": "",
+      "notes": "",
+      "status": "Public"
+    },
+    {
+      "id": "62",
+      "images": [],
+      "item": "MCM + The Standard, Highline",
+      "client": "The Standard, MCM",
+      "category": "Retail, Merchandising, Event",
+      "role": "",
+      "date": "2024",
+      "program": "",
+      "supplier": "",
+      "notes": "",
+      "status": "Public"
+    },
+    {
+      "id": "63",
+      "images": [
+        "/images/Wiederhoeft-1.jpeg"
+      ],
+      "item": "Wiederhoeft S/S 24",
+      "client": "Lindsey Media",
+      "category": "NYFW Event",
+      "role": "NYFW Assistant",
+      "date": "2023",
+      "program": "",
+      "supplier": "",
+      "notes": "https://www.youtube.com/watch?v=9mRf8YaTvJ0",
+      "status": "Public"
+    },
+    {
+      "id": "64",
+      "images": [],
+      "item": "Sandy Liang",
+      "client": "Lindsey Media",
+      "category": "NYFW Event",
+      "role": "NYFW Assistant",
+      "date": "2024",
+      "program": "",
+      "supplier": "",
+      "notes": "",
+      "status": "Public"
+    },
+    {
+      "id": "65",
+      "images": [],
+      "item": "Dauphinette",
+      "client": "Lindsey Media",
+      "category": "NYFW Event",
+      "role": "NYFW Assistant",
+      "date": "2023",
+      "program": "",
+      "supplier": "",
+      "notes": "",
+      "status": "Public"
+    },
+    {
+      "id": "66",
+      "images": [
+        "/images/Bruce%20Glen-1.jpeg"
+      ],
+      "item": "Bruce Glen",
+      "client": "Lindsey Media",
+      "category": "NYFW Event",
+      "role": "NYFW Assistant",
+      "date": "2023",
+      "program": "",
+      "supplier": "",
+      "notes": "",
+      "status": "Public"
+    },
+    {
+      "id": "67",
+      "images": [
+        "/images/getaroomzine-1.jpg",
+        "/images/getaroomzine-2.png",
+        "/images/getaroomzine-3.jpg",
+        "/images/getaroomzine-4.jpg",
+        "/images/getaroomzine-5.gif"
+      ],
+      "item": "A Year of Get a Room",
+      "client": "Nothing Radio",
+      "category": "Zine",
+      "role": "Photographer, Graphic Designer",
+      "date": "2025",
+      "program": "",
+      "supplier": "",
+      "notes": "56 pages photographs capturing the first year of Get a Room. From our first party in Brooklyn to our homebase in the Lower East Side. 56 pages printed on heavy paper. Limited run, printed in California. https://nothingradio.com/shop/p/zine https://youtu.be/LvT5I7bKf18",
+      "status": "Public"
+    },
+    {
+      "id": "68",
+      "images": [],
+      "item": "The Drone of Humanity (2022)",
+      "client": "Nothing Solutions",
+      "category": "Collection, Clothing",
+      "role": "Designer, Video Editor",
+      "date": "2022",
+      "program": "",
+      "supplier": "",
+      "notes": "Freshman year collection at FIT. https://youtu.be/NlnWWFY0l4c",
+      "status": "Public"
+    }
+  ]
+}

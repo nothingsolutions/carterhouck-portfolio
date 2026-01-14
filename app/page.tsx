@@ -1,10 +1,10 @@
 import ProjectsContainer from "@/components/ProjectsContainer";
 import TypedBio from "@/components/TypedBio";
-import { Project } from "@/types/project";
-import projectsData from "@/data/projects.json";
+import { getAllProjects } from "@/lib/projects";
 
 export default function Home() {
-  const projects = projectsData as Project[];
+  // Get projects from markdown files (falls back to JSON if no markdown exists)
+  const projects = getAllProjects();
 
   return (
     <div className="min-h-screen bg-[#121212]">

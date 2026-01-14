@@ -1,0 +1,32 @@
+backend:
+  name: github
+  repo: nothingsolutions/carterhouck-portfolio  # TODO: Update this with your actual GitHub repo
+  branch: main  # Change to 'master' if that's your default branch
+
+# When developing locally, use this:
+# local_backend: true
+
+media_folder: "public/uploads"  # Where images will be uploaded
+public_folder: "/uploads"  # How images are referenced in content
+
+collections:
+  - name: "projects"
+    label: "Projects"
+    folder: "content/projects"
+    create: true
+    slug: "{{slug}}"
+    editor:
+      preview: false
+    fields:
+      - { label: "ID", name: "id", widget: "string", hint: "Unique project ID" }
+      - { label: "Title", name: "item", widget: "string" }
+      - { label: "Client", name: "client", widget: "string", required: false }
+      - { label: "Category", name: "category", widget: "string", required: false, hint: "e.g., Event Flyers, Physical Goods, Website" }
+      - { label: "Role", name: "role", widget: "string", required: false, hint: "e.g., Graphic Design, Project Management" }
+      - { label: "Date", name: "date", widget: "string", required: false, hint: "Format: MM.YYYY or YYYY" }
+      - { label: "Program", name: "program", widget: "string", required: false, hint: "Software or tools used" }
+      - { label: "Supplier", name: "supplier", widget: "string", required: false }
+      - { label: "Status", name: "status", widget: "select", options: ["Public", "Featured 1", "Featured 2", "Featured 3", "Login Required", "Archived"], default: "Public" }
+      - { label: "Notes", name: "notes", widget: "text", required: false }
+      - { label: "Images", name: "images", widget: "list", field: { label: "Image", name: "image", widget: "image" }, required: false }
+
