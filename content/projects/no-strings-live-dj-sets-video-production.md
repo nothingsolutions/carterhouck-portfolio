@@ -1,5 +1,5 @@
 ---
-item: "No Strings Live: DJ Sets Video Production"
+item: No Strings DJ Sets Video Production
 client: No Strings
 category: Video, Editing
 role: Video Production & Editing
