@@ -6,9 +6,64 @@
     <title>Content Manager</title>
   </head>
   <body>
-    <!-- Load config before CMS -->
-    <script src="config.js"></script>
     <!-- Include Decap CMS script -->
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <!-- Initialize CMS with inline config -->
+    <script>
+      (function() {
+        const config = {
+          backend: {
+            name: 'github',
+            repo: 'nothingsolutions/carterhouck-portfolio',
+            branch: 'main',
+          },
+          media_folder: 'public/uploads',
+          public_folder: '/uploads',
+          collections: [
+            {
+              name: 'projects',
+              label: 'Projects',
+              folder: 'content/projects',
+              create: true,
+              slug: '{{slug}}',
+              editor: {
+                preview: false,
+              },
+              fields: [
+                { label: 'ID', name: 'id', widget: 'string', hint: 'Unique project ID' },
+                { label: 'Title', name: 'item', widget: 'string' },
+                { label: 'Client', name: 'client', widget: 'string', required: false },
+                { label: 'Category', name: 'category', widget: 'string', required: false, hint: 'e.g., Event Flyers, Physical Goods, Website' },
+                { label: 'Role', name: 'role', widget: 'string', required: false, hint: 'e.g., Graphic Design, Project Management' },
+                { label: 'Date', name: 'date', widget: 'string', required: false, hint: 'Format: MM.YYYY or YYYY' },
+                { label: 'Program', name: 'program', widget: 'string', required: false, hint: 'Software or tools used' },
+                { label: 'Supplier', name: 'supplier', widget: 'string', required: false },
+                { label: 'Status', name: 'status', widget: 'select', options: ['Public', 'Featured 1', 'Featured 2', 'Featured 3', 'Login Required', 'Archived'], default: 'Public' },
+                { label: 'Notes', name: 'notes', widget: 'text', required: false },
+                { label: 'Images', name: 'images', widget: 'list', field: { label: 'Image', name: 'image', widget: 'image' }, required: false },
+              ],
+            },
+          ],
+        };
+        
+        // Wait for CMS to load, then initialize
+        if (window.CMS) {
+          window.CMS.init({ config });
+        } else {
+          window.addEventListener('load', function() {
+            if (window.CMS) {
+              window.CMS.init({ config });
+            } else {
+              // Fallback: try after a short delay
+              setTimeout(function() {
+                if (window.CMS) {
+                  window.CMS.init({ config });
+                }
+              }, 100);
+            }
+          });
+        }
+      })();
+    </script>
   </body>
 </html>
