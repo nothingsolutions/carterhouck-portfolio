@@ -34,10 +34,11 @@
               folder: 'content/projects',
               create: true,
               slug: '{{item}}',
+              identifier_field: 'item',
               editor: { preview: false },
               fields: [
-                { label: 'ID', name: 'id', widget: 'string', hint: 'Unique project ID' },
                 { label: 'Title', name: 'item', widget: 'string' },
+                { label: 'ID', name: 'id', widget: 'string', hint: 'Unique project ID', required: false },
                 { label: 'Client', name: 'client', widget: 'string', required: false },
                 { label: 'Category', name: 'category', widget: 'string', required: false, hint: 'e.g., Event Flyers, Physical Goods, Website' },
                 { label: 'Role', name: 'role', widget: 'string', required: false, hint: 'e.g., Graphic Design, Project Management' },
