@@ -1,9 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: "export",
+  // Using server-side rendering for OAuth support
   images: {
-    unoptimized: true, // Required for static export
+    unoptimized: true,
   },
 };
 
