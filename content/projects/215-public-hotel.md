@@ -1,9 +1,9 @@
 ---
-item: Nothing Radio @ TwoFifteen, Public Hotel
-id: "4"
-client: Nothing Radio
-category: Event Flyers, Event
-role: Graphic Design
+item: Nothing Radio at TwoFifteen, Public Hotel
+id: ""
+client: Public Hotel x Nothing Radio
+category: Events
+role: Graphic Design, Booking
 date: "2025"
 program: ""
 supplier: ""
