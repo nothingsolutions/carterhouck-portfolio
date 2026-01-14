@@ -1,5 +1,5 @@
 ---
-item: Nothing Radio @ TwoFifteen, Public Hotel
+item: Nothing Radio at TwoFifteen, Public Hotel
 id: ""
 client: Public Hotel x Nothing Radio
 category: Events
