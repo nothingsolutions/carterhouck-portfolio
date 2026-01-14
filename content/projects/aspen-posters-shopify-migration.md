@@ -1,13 +1,13 @@
 ---
+item: Aspen Posters Website Redesign + Shopify Migration
 id: "28"
-item: "Aspen Posters Shopify Migration"
-client: "Aspen Posters"
-category: "Website"
-role: "Project Lead"
+client: Aspen Posters
+category: Website
+role: Project Lead
 date: "11.2025"
-program: "Shopify, Squarespace"
+program: Shopify, Squarespace
 supplier: ""
-status: "Public"
+status: Public
 notes: ""
 images:
   - images/aspenposters-website.png
