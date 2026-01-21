@@ -1,9 +1,8 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import { Project } from "@/types/project";
 import ProjectRow from "./ProjectRow";
-import ImageGallery, { extractVideoUrl } from "./ImageGallery";
 
 interface SpreadsheetTableProps {
   projects: Project[];
@@ -21,9 +20,6 @@ const COLUMNS = [
 ];
 
 export default function SpreadsheetTable({ projects, isUnlocked, onUnlockRequest }: SpreadsheetTableProps) {
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const [isGalleryOpen, setIsGalleryOpen] = useState(false);
-  
   const headerScrollRef = useRef<HTMLDivElement>(null);
   const bodyScrollRef = useRef<HTMLDivElement>(null);
 
@@ -46,21 +42,6 @@ export default function SpreadsheetTable({ projects, isUnlocked, onUnlockRequest
       bodyEl.removeEventListener("scroll", syncBodyToHeader);
     };
   }, []);
-
-  const handleImageClick = (project: Project) => {
-    const hasVideo = extractVideoUrl(project.notes) !== null;
-    const hasImages = project.images.length > 0;
-    
-    if (hasImages || hasVideo) {
-      setSelectedProject(project);
-      setIsGalleryOpen(true);
-    }
-  };
-
-  const handleCloseGallery = () => {
-    setIsGalleryOpen(false);
-    setSelectedProject(null);
-  };
 
   return (
     <>
@@ -115,7 +96,6 @@ export default function SpreadsheetTable({ projects, isUnlocked, onUnlockRequest
               <ProjectRow
                 key={project.id}
                 project={project}
-                onImageClick={() => handleImageClick(project)}
                 isEven={index % 2 === 0}
                 isUnlocked={isUnlocked}
                 onUnlockRequest={onUnlockRequest}
@@ -137,15 +117,6 @@ export default function SpreadsheetTable({ projects, isUnlocked, onUnlockRequest
       <div className="mt-2 px-3 py-2 text-xs text-[#666] font-mono border-t border-[#3a3a3a]">
         {projects.length} project{projects.length !== 1 ? "s" : ""} total
       </div>
-
-      {/* Image Gallery Modal */}
-      <ImageGallery
-        images={selectedProject?.images || []}
-        videoUrl={selectedProject ? extractVideoUrl(selectedProject.notes) : null}
-        isOpen={isGalleryOpen}
-        onClose={handleCloseGallery}
-        projectName={selectedProject?.item}
-      />
     </>
   );
 }

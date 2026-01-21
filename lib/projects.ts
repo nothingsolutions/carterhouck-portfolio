@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import { Project } from '@/types/project';
+import { generateSlug } from './utils';
 
 const projectsDirectory = path.join(process.cwd(), 'content/projects');
 
@@ -72,5 +73,23 @@ function getFallbackProjects(): Project[] {
 export function getProjectById(id: string): Project | undefined {
   const projects = getAllProjects();
   return projects.find(project => project.id === id);
+}
+
+/**
+ * Get project by slug (generated from item name)
+ */
+export function getProjectBySlug(slug: string): Project | undefined {
+  const projects = getAllProjects();
+  return projects.find(project => 
+    generateSlug(project.item) === slug
+  );
+}
+
+/**
+ * Generate all valid project slugs (for static path generation)
+ */
+export function getAllProjectSlugs(): string[] {
+  const projects = getAllProjects();
+  return projects.map(project => generateSlug(project.item));
 }
 

@@ -1,12 +1,11 @@
 "use client";
-import { useState } from "react";
-
+import { useRouter } from "next/navigation";
 import { Project } from "@/types/project";
 import { extractVideoUrl } from "./ImageGallery";
+import { generateSlug } from "@/lib/utils";
 
 interface ProjectRowProps {
   project: Project;
-  onImageClick: () => void;
   isEven: boolean;
   isUnlocked: boolean;
   onUnlockRequest: () => void;
@@ -60,12 +59,12 @@ function linkifyText(text: string): React.ReactNode {
 
 export default function ProjectRow({
   project,
-  onImageClick,
   isEven,
   isUnlocked,
   onUnlockRequest,
   priority = false,
 }: ProjectRowProps) {
+  const router = useRouter();
   const hasImages = project.images.length > 0;
   const imageCount = project.images.length;
   const videoUrl = extractVideoUrl(project.notes);
@@ -74,6 +73,9 @@ export default function ProjectRow({
   const videoThumbnail = videoUrl ? getYouTubeThumbnail(videoUrl) : null;
   const isLoginRequired = project.status.toLowerCase() === "login required";
   const isProtected = isLoginRequired && !isUnlocked;
+
+  // Generate project URL
+  const projectUrl = `/project/${generateSlug(project.item)}`;
 
   // Google Analytics Event Tracking
   const trackEvent = (eventName: string) => {
@@ -88,14 +90,18 @@ export default function ProjectRow({
     }
   };
 
-  const handleUnlockRequest = () => {
+  const handleUnlockRequest = (e: React.MouseEvent) => {
+    e.stopPropagation();
     trackEvent('request_project_access');
     onUnlockRequest();
   };
 
-  const handleImageClick = () => {
-    trackEvent('view_project_media');
-    onImageClick();
+  const handleRowClick = () => {
+    if (isProtected) {
+      return; // Don't navigate if protected
+    }
+    trackEvent('view_project_page');
+    router.push(projectUrl);
   };
 
   // Total media count (video counts as 1 + images)
@@ -108,8 +114,10 @@ export default function ProjectRow({
 
   return (
     <tr
-      className={`border-b border-[#3a3a3a] hover:bg-[#2a2a2a] transition-colors ${isEven ? "bg-[#1e1e1e]" : "bg-[#252525]"
-        } ${isProtected ? "opacity-60" : ""}`}
+      className={`border-b border-[#3a3a3a] hover:bg-[#2a2a2a] transition-colors ${
+        isEven ? "bg-[#1e1e1e]" : "bg-[#252525]"
+      } ${isProtected ? "opacity-60" : "cursor-pointer"}`}
+      onClick={handleRowClick}
     >
       {/* Image cell */}
       <td className="px-3 py-2 border-r border-[#3a3a3a] align-middle">
@@ -131,9 +139,8 @@ export default function ProjectRow({
             </span>
           </button>
         ) : hasMedia ? (
-          <button
-            onClick={handleImageClick}
-            className="relative group cursor-pointer"
+          <div
+            className="relative group"
             aria-label={`View ${totalMediaCount} item${totalMediaCount > 1 ? "s" : ""}`}
           >
             <div className="w-28 h-[150px] rounded overflow-hidden border border-[#3a3a3a] group-hover:border-[#5a5a5a] transition-colors bg-[#2a2a2a]">
@@ -188,7 +195,7 @@ export default function ProjectRow({
                 </svg>
               </span>
             )}
-          </button>
+          </div>
         ) : (
           <div className="w-28 h-[150px] rounded bg-[#2a2a2a] border border-[#3a3a3a] flex items-center justify-center text-[#666] text-xs">
             —
