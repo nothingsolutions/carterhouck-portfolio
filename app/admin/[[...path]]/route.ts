@@ -2,14 +2,15 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { path?: string[] } }
+  { params }: { params: Promise<{ path?: string[] }> }
 ) {
   // Only allow in development mode
   if (process.env.NODE_ENV === "production") {
     return new NextResponse("CMS only available in development", { status: 403 });
   }
 
-  const path = params.path?.join("/") || "index.html";
+  const resolvedParams = await params;
+  const path = resolvedParams.path?.join("/") || "index.html";
   const tinaUrl = `http://localhost:4001/admin/${path}`;
 
   try {
