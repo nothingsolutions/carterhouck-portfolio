@@ -1,5 +1,5 @@
 ---
-item: Sotto Voce New York Screening at WSA
+item: Sotto Voce WSA Screening
 client: Sotto Voce x WSA
 category: Video, Physical Goods, Graphic Design
 role: Project Management, Graphic
