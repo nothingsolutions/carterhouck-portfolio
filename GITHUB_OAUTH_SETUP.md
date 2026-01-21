@@ -7,7 +7,7 @@
 3. Fill in:
    - **Application name:** `Carter Portfolio CMS`
    - **Homepage URL:** `https://www.carterhouck.com`
-   - **Authorization callback URL:** `https://www.carterhouck.com/api/auth`
+   - **Authorization callback URL:** `https://www.carterhouck.com/api/auth/callback`
 4. Click **"Register application"**
 5. **Copy the Client ID** (you'll see it immediately)
 6. Click **"Generate a new client secret"**
@@ -61,7 +61,7 @@ Visit: `https://www.carterhouck.com/admin`
 
 ### "Redirect URI mismatch"
 - Make sure the callback URL in your GitHub OAuth App matches exactly:
-  `https://www.carterhouck.com/api/auth`
+  `https://www.carterhouck.com/api/auth/callback`
 
 ### "Access denied"
 - Make sure `GITHUB_CLIENT_SECRET` is correct
