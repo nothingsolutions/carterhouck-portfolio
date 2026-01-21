@@ -40,6 +40,12 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({ error: tokenData.error_description || tokenData.error }, { status: 400 });
     }
 
+    // Format token for Decap CMS (expects "token" not "access_token")
+    const cmsToken = {
+      token: tokenData.access_token,
+      provider: 'github',
+    };
+
     // Return HTML that sends token to Decap CMS
     const htmlResponse = `
       <!DOCTYPE html>
@@ -75,7 +81,7 @@ export async function GET(request: NextRequest) {
               function receiveMessage(e) {
                 console.log("receiveMessage", e);
                 window.opener.postMessage(
-                  'authorization:github:success:${JSON.stringify(tokenData)}',
+                  'authorization:github:success:${JSON.stringify(cmsToken)}',
                   e.origin
                 );
                 window.removeEventListener("message", receiveMessage, false);
