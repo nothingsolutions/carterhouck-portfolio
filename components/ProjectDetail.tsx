@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { Project } from "@/types/project";
 import MasonryGrid from "./MasonryGrid";
-import ProjectsContainer from "./ProjectsContainer";
+import SimpleProjectList from "./SimpleProjectList";
 import { extractVideoUrl } from "./ImageGallery";
 
 interface ProjectDetailProps {
@@ -90,30 +90,6 @@ export default function ProjectDetail({ project, allProjects }: ProjectDetailPro
               </div>
             </div>
           )}
-
-          {/* Supplier */}
-          {project.supplier && (
-            <div>
-              <div className="text-[#666] text-xs uppercase tracking-wider font-semibold mb-1">
-                Supplier
-              </div>
-              <div className="text-white text-sm font-medium">
-                {project.supplier}
-              </div>
-            </div>
-          )}
-
-          {/* Status */}
-          {project.status && project.status !== "Public" && (
-            <div>
-              <div className="text-[#666] text-xs uppercase tracking-wider font-semibold mb-1">
-                Status
-              </div>
-              <div className="text-white text-sm font-medium">
-                {project.status}
-              </div>
-            </div>
-          )}
         </div>
 
         {/* Notes Section - Prominent */}
@@ -150,10 +126,10 @@ export default function ProjectDetail({ project, allProjects }: ProjectDetailPro
 
       {/* All Projects Section */}
       <section className="max-w-[1800px] mx-auto px-4 pb-12">
-        <h2 className="text-2xl font-semibold text-white mb-6 text-center">
+        <h2 className="text-2xl font-semibold text-white mb-6">
           All Projects
         </h2>
-        <ProjectsContainer projects={allProjects} />
+        <SimpleProjectList projects={allProjects} />
       </section>
 
       {/* Footer */}
