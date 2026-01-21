@@ -15,8 +15,7 @@ interface SpreadsheetTableProps {
 const COLUMNS = [
   { key: "image", label: "Image", width: 140 },
   { key: "project", label: "Client / Project", width: 220 },
-  { key: "category", label: "Category", width: 140 },
-  { key: "role", label: "Role", width: 180 },
+  { key: "role", label: "Category / Role", width: 200 },
   { key: "date", label: "Date", width: 90 },
   { key: "notes", label: "Notes", width: 0 }, // 0 = flex/auto
 ];

@@ -201,39 +201,44 @@ export default function ProjectRow({
         {isProtected ? (
           <div className="space-y-1">
             <BlurredContent>
-              <div className="text-[#b0b0b0] text-sm font-medium">{LOREM.short}</div>
+              <div className="text-white font-medium">{LOREM.short}</div>
             </BlurredContent>
             <BlurredContent>
-              <div className="text-white font-medium">{LOREM.medium}</div>
+              <div className="text-[#888] text-sm">{LOREM.medium}</div>
             </BlurredContent>
           </div>
         ) : (
           <div className="space-y-1">
-            <div className="text-[#888] text-xs uppercase tracking-wide font-semibold">
+            <div className="text-white font-medium">
               {project.client || "—"}
             </div>
-            <div className="text-white font-medium">
+            <div className="text-[#888] text-sm">
               {project.item || "—"}
             </div>
           </div>
         )}
       </td>
 
-      {/* Category */}
-      <td className="px-3 py-2 border-r border-[#3a3a3a] text-[#b0b0b0] align-middle">
+      {/* Category / Role */}
+      <td className="px-3 py-2 border-r border-[#3a3a3a] align-middle">
         {isProtected ? (
-          <BlurredContent>{LOREM.short}</BlurredContent>
+          <div className="space-y-1">
+            <BlurredContent>
+              <div className="text-white font-medium">{LOREM.short}</div>
+            </BlurredContent>
+            <BlurredContent>
+              <div className="text-[#888] text-sm">{LOREM.long}</div>
+            </BlurredContent>
+          </div>
         ) : (
-          project.category || "—"
-        )}
-      </td>
-
-      {/* Role */}
-      <td className="px-3 py-2 border-r border-[#3a3a3a] text-[#b0b0b0] align-middle">
-        {isProtected ? (
-          <BlurredContent>{LOREM.long}</BlurredContent>
-        ) : (
-          project.role || "—"
+          <div className="space-y-1">
+            <div className="text-white font-medium">
+              {project.category || "—"}
+            </div>
+            <div className="text-[#888] text-sm">
+              {project.role || "—"}
+            </div>
+          </div>
         )}
       </td>
 
