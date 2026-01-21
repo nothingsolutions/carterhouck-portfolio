@@ -1,5 +1,5 @@
 import ProjectsContainer from "@/components/ProjectsContainer";
-import TypedBio from "@/components/TypedBio";
+import Header from "@/components/Header";
 import { getAllProjects } from "@/lib/projects";
 
 export default function Home() {
@@ -8,24 +8,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-[#121212]">
-      {/* Header */}
-      <header className="sticky top-0 z-40 bg-[#1a1a1a] border-b border-[#3a3a3a]">
-        <div className="max-w-[1800px] mx-auto px-4 py-4">
-          <div className="flex items-start justify-between">
-            <div>
-              <h1 className="text-xl font-semibold text-white tracking-tight">
-                Carter Houck
-              </h1>
-              <TypedBio />
-            </div>
-            <div className="flex items-center gap-4">
-              <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" title="Live" />
-            </div>
-        </div>
-        </div>
-        {/* Accent line */}
-        <div className="h-[2px] bg-gradient-to-r from-transparent via-[#4a9eff] to-transparent header-shimmer" />
-      </header>
+      <Header />
 
       {/* Main content */}
       <main className="max-w-[1800px] mx-auto">

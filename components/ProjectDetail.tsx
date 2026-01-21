@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { Project } from "@/types/project";
+import Header from "./Header";
 import MasonryGrid from "./MasonryGrid";
 import SimpleProjectList from "./SimpleProjectList";
 import { extractVideoUrl } from "./ImageGallery";
@@ -16,6 +17,8 @@ export default function ProjectDetail({ project, allProjects }: ProjectDetailPro
 
   return (
     <div className="min-h-screen bg-[#121212]">
+      <Header />
+
       {/* Breadcrumb Navigation */}
       <div className="max-w-[1800px] mx-auto px-4 pt-8 pb-4">
         <nav className="flex items-center gap-2 text-sm font-mono text-[#666]">
