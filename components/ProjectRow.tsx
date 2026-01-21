@@ -226,24 +226,24 @@ export default function ProjectRow({
         )}
       </td>
 
-      {/* Category / Role */}
+      {/* Role / Category */}
       <td className="px-3 py-2 border-r border-[#3a3a3a] align-middle">
         {isProtected ? (
           <div className="space-y-1">
             <BlurredContent>
-              <div className="text-white font-medium">{LOREM.short}</div>
+              <div className="text-white font-medium">{LOREM.long}</div>
             </BlurredContent>
             <BlurredContent>
-              <div className="text-[#888] text-sm">{LOREM.long}</div>
+              <div className="text-[#888] text-sm">{LOREM.short}</div>
             </BlurredContent>
           </div>
         ) : (
           <div className="space-y-1">
             <div className="text-white font-medium">
-              {project.category || "—"}
+              {project.role || "—"}
             </div>
             <div className="text-[#888] text-sm">
-              {project.role || "—"}
+              {project.category || "—"}
             </div>
           </div>
         )}
