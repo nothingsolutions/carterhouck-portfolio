@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { Project } from "@/types/project";
 import Header from "./Header";
 import MasonryGrid from "./MasonryGrid";
@@ -16,21 +15,8 @@ export default function ProjectDetail({ project, allProjects }: ProjectDetailPro
   const videoUrl = extractVideoUrl(project.notes);
 
   return (
-    <div className="min-h-screen bg-[#121212]">
+    <div className="min-h-screen bg-[#1a1a1a]">
       <Header />
-
-      {/* Breadcrumb Navigation */}
-      <div className="max-w-[1800px] mx-auto px-4 pt-8 pb-4">
-        <nav className="flex items-center gap-2 text-sm font-mono text-[#666]">
-          <Link href="/" className="hover:text-[#4a9eff] transition-colors">
-            Home
-          </Link>
-          <span>›</span>
-          <span className="text-[#888]">Projects</span>
-          <span>›</span>
-          <span className="text-white">{project.item}</span>
-        </nav>
-      </div>
 
       {/* Centered Hero Header */}
       <header className="max-w-4xl mx-auto px-4 py-12 text-center">
