@@ -1,0 +1,17 @@
+fragment ProjectsParts on Projects {
+  __typename
+  projects {
+    __typename
+    id
+    item
+    client
+    category
+    role
+    date
+    program
+    supplier
+    notes
+    status
+    images
+  }
+}
