@@ -14,8 +14,7 @@ interface SpreadsheetTableProps {
 // Column widths in pixels for consistency between header and body
 const COLUMNS = [
   { key: "image", label: "Image", width: 140 },
-  { key: "item", label: "Project", width: 180 },
-  { key: "client", label: "Client", width: 140 },
+  { key: "project", label: "Client / Project", width: 220 },
   { key: "category", label: "Category", width: 140 },
   { key: "role", label: "Role", width: 180 },
   { key: "date", label: "Date", width: 90 },
