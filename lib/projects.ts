@@ -37,7 +37,7 @@ export const projects: Project[] = [
     title: "Aspen Posters Winter Catalog",
     client: "Aspen Posters",
     orientation: "vertical",
-    imageSrc: "/images/Aspen Posters Winter 25:26 Catalog-1.jpg",
+    imageSrc: "/images/Aspen Posters Winter 25-26 Catalog-1.jpg",
     group: 1,
   },
   {
@@ -419,7 +419,7 @@ export const projects: Project[] = [
     title: "Aspen Posters Winter Catalog (Alt 02)",
     client: "Aspen Posters",
     orientation: "vertical",
-    imageSrc: "/images/Aspen Posters Winter 25:26 Catalog-2.jpg",
+    imageSrc: "/images/Aspen Posters Winter 25-26 Catalog-2.jpg",
     group: 2,
   },
   {
@@ -428,7 +428,7 @@ export const projects: Project[] = [
     title: "Aspen Posters Winter Catalog (Alt 03)",
     client: "Aspen Posters",
     orientation: "vertical",
-    imageSrc: "/images/Aspen Posters Winter 25:26 Catalog-3.jpg",
+    imageSrc: "/images/Aspen Posters Winter 25-26 Catalog-3.jpg",
     group: 2,
   },
   {
