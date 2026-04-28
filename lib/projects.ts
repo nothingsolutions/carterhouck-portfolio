@@ -1,95 +1,600 @@
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
-import { Project } from '@/types/project';
-import { generateSlug } from './utils';
+export type Orientation = "vertical" | "square" | "horizontal";
 
-const projectsDirectory = path.join(process.cwd(), 'content/projects');
+// Quick add template:
+// 1) Add your image file to /public/images
+// 2) Duplicate this object in `projects` and edit values:
+// {
+//   id: "recent-9",
+//   code: "04.2026",
+//   title: "Project Name",
+//   client: "Client Name",
+//   orientation: "vertical", // "vertical" | "square" | "horizontal"
+//   imageSrc: "/images/your-file.jpg",
+//   group: 2, // 1 = Featured, 2 = Ongoing / Most Recent
+// }
 
-/**
- * Get all projects from markdown files in the content/projects directory
- * Falls back to JSON data if no markdown files exist yet
- */
-export function getAllProjects(): Project[] {
-  // Check if content directory exists
-  if (!fs.existsSync(projectsDirectory)) {
-    console.warn('Content directory not found, falling back to JSON data');
-    return getFallbackProjects();
-  }
-
-  const fileNames = fs.readdirSync(projectsDirectory);
-  const markdownFiles = fileNames.filter(fileName => fileName.endsWith('.md'));
-
-  // If no markdown files exist yet, fall back to JSON
-  if (markdownFiles.length === 0) {
-    console.warn('No markdown files found, falling back to JSON data');
-    return getFallbackProjects();
-  }
-
-  const projects = markdownFiles.map(fileName => {
-    const fullPath = path.join(projectsDirectory, fileName);
-    const fileContents = fs.readFileSync(fullPath, 'utf8');
-    const { data } = matter(fileContents);
-
-    // Convert frontmatter to Project type
-    const project: Project = {
-      id: data.id || '',
-      images: data.images || [],
-      item: data.item || '',
-      client: data.client || '',
-      category: data.category || '',
-      role: data.role || '',
-      date: data.date || '',
-      program: data.program || '',
-      supplier: data.supplier || '',
-      notes: data.notes || '',
-      status: data.status || 'Public',
-    };
-
-    return project;
-  });
-
-  return projects;
+export interface Project {
+  id: string;
+  code: string;
+  title: string;
+  client: string;
+  description?: string;
+  links?: Array<{
+    label: string;
+    url: string;
+  }>;
+  orientation: Orientation;
+  imageSrc?: string;
+  href?: string;
+  group: number;
 }
 
-/**
- * Fallback to JSON data when markdown files don't exist yet
- */
-function getFallbackProjects(): Project[] {
-  try {
-    const jsonPath = path.join(process.cwd(), 'data/projects.json');
-    const jsonData = fs.readFileSync(jsonPath, 'utf8');
-    const data = JSON.parse(jsonData);
-    return data.projects || [];
-  } catch (error) {
-    console.error('Error reading fallback JSON data:', error);
-    return [];
-  }
-}
+export const projects: Project[] = [
+  // Group 1 — Featured
+  {
+    id: "featured-1",
+    code: "11.2025",
+    title: "Aspen Posters Winter Catalog",
+    client: "Aspen Posters",
+    orientation: "vertical",
+    imageSrc: "/images/Aspen Posters Winter 25:26 Catalog-1.jpg",
+    group: 1,
+  },
+  {
+    id: "featured-2",
+    code: "10.2025",
+    title: "Business Card Matchbooks",
+    client: "Studio Luhtala",
+    orientation: "vertical",
+    imageSrc: "/images/Business Card Matchbooks-1.jpg",
+    group: 1,
+  },
+  {
+    id: "featured-3",
+    code: "12.2025",
+    title: "Nothing Radio Website",
+    client: "Nothing Radio",
+    description: "Website design and graphic direction for Nothing Radio.",
+    links: [{ label: "Visit Site", url: "https://nothingradio.com" }],
+    orientation: "horizontal",
+    imageSrc: "/images/nothing radio website-1.jpg",
+    group: 1,
+  },
+  {
+    id: "featured-4",
+    code: "2025",
+    title: "A Year of Get a Room",
+    client: "Nothing Radio",
+    orientation: "vertical",
+    imageSrc: "/images/getaroomzine-1.jpg",
+    group: 1,
+  },
+  // Group 2 — Ongoing / Most Recent
+  {
+    id: "recent-1",
+    code: "11.2025",
+    title: "Get a Room: 26",
+    client: "Nothing Radio",
+    orientation: "vertical",
+    imageSrc: "/images/Get a Room 26 Flyer.jpg",
+    group: 2,
+  },
+  {
+    id: "recent-2",
+    code: "2025",
+    title: "215 @ Public Hotel",
+    client: "Nothing Radio",
+    orientation: "square",
+    imageSrc: "/images/publichotel215-1.gif",
+    group: 2,
+  },
+  {
+    id: "recent-3",
+    code: "10.2025",
+    title: "Get a Room: Halloween (2025)",
+    client: "Nothing Radio",
+    orientation: "vertical",
+    imageSrc: "/images/Get a Room Halloween 25-1.webp",
+    group: 2,
+  },
+  {
+    id: "recent-4",
+    code: "12.2025",
+    title: "Aspen Posters x Framebridge Popup",
+    client: "Aspen Posters x Framebridge",
+    orientation: "vertical",
+    imageSrc: "/images/Aspen Posters x Framebridge New York City Popup-1.jpg",
+    group: 2,
+  },
+  {
+    id: "recent-5",
+    code: "09.2025",
+    title: "Studio Luhtala Website",
+    client: "Studio Luhtala",
+    links: [{ label: "Visit Site", url: "https://studioluhtala.com" }],
+    orientation: "horizontal",
+    imageSrc: "/images/Studio Luhtala website.jpg",
+    group: 2,
+  },
+  {
+    id: "recent-6",
+    code: "09.2025",
+    title: "Solo Studio Website",
+    client: "Solo Studio LA",
+    orientation: "horizontal",
+    imageSrc: "/images/Solo Studio Website.jpg",
+    group: 2,
+  },
+  {
+    id: "recent-7",
+    code: "2025",
+    title: "Get a Room Flyers: 2025",
+    client: "Nothing Radio",
+    orientation: "vertical",
+    imageSrc: "/images/getaroom2025-01.png",
+    group: 2,
+  },
+  {
+    id: "recent-8",
+    code: "2025",
+    title: "Get a Room Flyers: 2025 (Alt)",
+    client: "Nothing Radio",
+    orientation: "vertical",
+    imageSrc: "/images/getaroom2025-10.jpg",
+    group: 2,
+  },
+  {
+    id: "featured-5",
+    code: "12.2025",
+    title: "Chateau Marmont Gallery Wall",
+    client: "Chateau Marmont",
+    orientation: "vertical",
+    imageSrc: "/images/Chateau Marmont Gallery Wall Acrhive Project-1.jpg",
+    group: 2,
+  },
+  {
+    id: "featured-6",
+    code: "2025",
+    title: "Anok Yai & Alex Consani Interview",
+    client: "Nothing Radio",
+    description: "Video edit and social coordination for interview release.",
+    links: [
+      {
+        label: "Watch on YouTube",
+        url: "https://youtu.be/24LixXGd5OI?si=oLZsSB8bdn5d0SZw",
+      },
+    ],
+    orientation: "horizontal",
+    imageSrc: "/images/Anok and Alex.jpg",
+    group: 2,
+  },
+  {
+    id: "featured-7",
+    code: "2023",
+    title: "Wiederhoeft S/S 24",
+    client: "Lindsey Media",
+    orientation: "vertical",
+    imageSrc: "/images/Wiederhoeft-1.jpeg",
+    group: 2,
+  },
+  {
+    id: "featured-8",
+    code: "2023",
+    title: "The Chlorine Bible (Pilot)",
+    client: "The Chlorine Bible",
+    description: "Production design and behind-the-scenes support for pilot.",
+    links: [{ label: "Watch Trailer", url: "https://youtu.be/R1cyJ7DZem8" }],
+    orientation: "square",
+    imageSrc: "/images/TheChlorineBible-1.jpg",
+    group: 2,
+  },
+  {
+    id: "recent-10",
+    code: "10.2025",
+    title: "Bottle Opener Necklace",
+    client: "Nothing Radio",
+    orientation: "vertical",
+    imageSrc: "/images/Dog Tag Necklace-1.jpg",
+    group: 2,
+  },
+  {
+    id: "recent-11",
+    code: "2024",
+    title: "Get a Room Flyers: 2024",
+    client: "Nothing Radio",
+    orientation: "vertical",
+    imageSrc: "/images/getaroom2024-1.jpg",
+    group: 2,
+  },
+  {
+    id: "recent-12",
+    code: "12.2024",
+    title: "New Years Eve Party (2025)",
+    client: "Nothing Radio",
+    orientation: "vertical",
+    imageSrc: "/images/Kiss and Tell-1.jpg",
+    group: 2,
+  },
+  {
+    id: "recent-13",
+    code: "10.2024",
+    title: "Carolina Sarria Video Campaign",
+    client: "Carolina Sarria",
+    orientation: "horizontal",
+    imageSrc: "/images/Carolina Sarria video campaign-1.jpg",
+    group: 2,
+  },
+  {
+    id: "recent-14",
+    code: "2020",
+    title: "All a Dream",
+    client: "Personal Project",
+    orientation: "vertical",
+    imageSrc: "/images/All a Dream-1.jpg",
+    group: 2,
+  },
+  {
+    id: "recent-15",
+    code: "2020",
+    title: "Cry for Help",
+    client: "Personal Project",
+    orientation: "vertical",
+    imageSrc: "/images/Cry for Help-1.jpg",
+    group: 2,
+  },
+  {
+    id: "recent-16",
+    code: "2020",
+    title: "Stone Cold Eyes",
+    client: "Clancy",
+    orientation: "horizontal",
+    imageSrc: "/images/Clancy.jpg",
+    group: 2,
+  },
+  {
+    id: "recent-17",
+    code: "2020",
+    title: "Find Me",
+    client: "Bloody",
+    orientation: "horizontal",
+    imageSrc: "/images/Find Me Bloody.jpg",
+    group: 2,
+  },
+  {
+    id: "recent-18",
+    code: "2019",
+    title: "Say it All",
+    client: "Anxiety Attacks!",
+    orientation: "horizontal",
+    imageSrc: "/images/Say it All Anxiety Attacks.jpg",
+    group: 2,
+  },
+  {
+    id: "recent-19",
+    code: "2019",
+    title: "Chemicals",
+    client: "Anxiety Attacks!",
+    orientation: "horizontal",
+    imageSrc: "/images/Chemicals Anxiety Attacks.jpg",
+    group: 2,
+  },
+  {
+    id: "recent-20",
+    code: "2019",
+    title: "Escape Claws",
+    client: "Jaxxon D. Silva",
+    orientation: "horizontal",
+    imageSrc: "/images/Jaxxon D Silva.jpg",
+    group: 2,
+  },
+  {
+    id: "recent-21",
+    code: "07.2025",
+    title: "Aspen Posters x Performance Ski Aspen Popup",
+    client: "Aspen Posters",
+    orientation: "vertical",
+    imageSrc: "/images/Aspen Posters x Performance Ski Aspen Popup-1.jpg",
+    group: 2,
+  },
+  {
+    id: "recent-22",
+    code: "2024",
+    title: "Agency Launch",
+    client: "Flower Shop Agency",
+    orientation: "horizontal",
+    imageSrc: "/images/flowershop-website.png",
+    group: 2,
+  },
+  {
+    id: "recent-23",
+    code: "2024",
+    title: "Fanatics x Tom Brady",
+    client: "Flower Shop Agency",
+    orientation: "horizontal",
+    imageSrc: "/images/Fanatics x Tom Brady.jpg",
+    group: 2,
+  },
+  {
+    id: "recent-24",
+    code: "2024",
+    title: "Sotto Voce Short Film",
+    client: "Sotto Voce",
+    orientation: "horizontal",
+    imageSrc: "/images/Sotto Voce-1.jpg",
+    group: 2,
+  },
+  {
+    id: "recent-25",
+    code: "2023",
+    title: "Blog Post Editor",
+    client: "Farnsworth Fine Cannabis",
+    orientation: "horizontal",
+    imageSrc: "/images/Farnsworth Blog.jpg",
+    group: 2,
+  },
+  {
+    id: "recent-26",
+    code: "2025",
+    title: "Get a Room Flyers: 2025 (Series 02)",
+    client: "Nothing Radio",
+    orientation: "vertical",
+    imageSrc: "/images/getaroom2025-02.jpeg",
+    group: 2,
+  },
+  {
+    id: "recent-27",
+    code: "2025",
+    title: "Get a Room Flyers: 2025 (Series 11)",
+    client: "Nothing Radio",
+    orientation: "vertical",
+    imageSrc: "/images/getaroom2025-11.png",
+    group: 2,
+  },
+  {
+    id: "recent-28",
+    code: "2024",
+    title: "Get a Room Flyers: 2024 (Series 02)",
+    client: "Nothing Radio",
+    orientation: "vertical",
+    imageSrc: "/images/getaroom2024-2.jpg",
+    group: 2,
+  },
+  {
+    id: "recent-29",
+    code: "2024",
+    title: "Get a Room Flyers: 2024 (Series 03)",
+    client: "Nothing Radio",
+    orientation: "vertical",
+    imageSrc: "/images/getaroom2024-3.png",
+    group: 2,
+  },
+  {
+    id: "recent-30",
+    code: "2025",
+    title: "Nothing Radio Website (Alt 02)",
+    client: "Nothing Radio",
+    orientation: "horizontal",
+    imageSrc: "/images/nothing radio website-2.jpg",
+    group: 2,
+  },
+  {
+    id: "recent-31",
+    code: "2025",
+    title: "Nothing Radio Website (Alt 03)",
+    client: "Nothing Radio",
+    orientation: "horizontal",
+    imageSrc: "/images/nothing radio website-3.jpg",
+    group: 2,
+  },
+  {
+    id: "recent-32",
+    code: "2025",
+    title: "215 @ Public Hotel (Alt 02)",
+    client: "Nothing Radio",
+    orientation: "square",
+    imageSrc: "/images/publichotel215-2.jpeg",
+    group: 2,
+  },
+  {
+    id: "recent-33",
+    code: "2025",
+    title: "215 @ Public Hotel (Alt 03)",
+    client: "Nothing Radio",
+    orientation: "square",
+    imageSrc: "/images/publichotel215-3.jpg",
+    group: 2,
+  },
+  {
+    id: "recent-34",
+    code: "2025",
+    title: "215 @ Public Hotel (Alt 04)",
+    client: "Nothing Radio",
+    orientation: "square",
+    imageSrc: "/images/publichotel215-4.png",
+    group: 2,
+  },
+  {
+    id: "recent-35",
+    code: "11.2025",
+    title: "Aspen Posters Winter Catalog (Alt 02)",
+    client: "Aspen Posters",
+    orientation: "vertical",
+    imageSrc: "/images/Aspen Posters Winter 25:26 Catalog-2.jpg",
+    group: 2,
+  },
+  {
+    id: "recent-36",
+    code: "11.2025",
+    title: "Aspen Posters Winter Catalog (Alt 03)",
+    client: "Aspen Posters",
+    orientation: "vertical",
+    imageSrc: "/images/Aspen Posters Winter 25:26 Catalog-3.jpg",
+    group: 2,
+  },
+  {
+    id: "recent-37",
+    code: "10.2025",
+    title: "Business Card Matchbooks (Alt 02)",
+    client: "Studio Luhtala",
+    orientation: "vertical",
+    imageSrc: "/images/Business Card Matchbooks-2.jpg",
+    group: 2,
+  },
+  {
+    id: "recent-38",
+    code: "10.2025",
+    title: "Business Card Matchbooks (Alt 03)",
+    client: "Studio Luhtala",
+    orientation: "vertical",
+    imageSrc: "/images/Business Card Matchbooks-3.jpg",
+    group: 2,
+  },
+  {
+    id: "recent-39",
+    code: "11.2025",
+    title: "Die Cut Shipping Sticker",
+    client: "Aspen Posters",
+    orientation: "vertical",
+    imageSrc: "/images/Die Cut Shipping Sticker.jpg",
+    group: 2,
+  },
+  {
+    id: "recent-40",
+    code: "2025",
+    title: "A Year of Get a Room (Alt 02)",
+    client: "Nothing Radio",
+    orientation: "vertical",
+    imageSrc: "/images/getaroomzine-2.png",
+    group: 2,
+  },
+  {
+    id: "recent-41",
+    code: "2025",
+    title: "A Year of Get a Room (Alt 03)",
+    client: "Nothing Radio",
+    orientation: "vertical",
+    imageSrc: "/images/getaroomzine-3.jpg",
+    group: 2,
+  },
+  {
+    id: "recent-42",
+    code: "2025",
+    title: "A Year of Get a Room (Alt 04)",
+    client: "Nothing Radio",
+    orientation: "vertical",
+    imageSrc: "/images/getaroomzine-4.jpg",
+    group: 2,
+  },
+  {
+    id: "recent-43",
+    code: "2025",
+    title: "215 @ Public Hotel (Holiday Edit)",
+    client: "Nothing Radio",
+    orientation: "square",
+    imageSrc: "/images/publichotel215-12222025.gif",
+    group: 2,
+  },
+  {
+    id: "recent-44",
+    code: "2019",
+    title: "My Life",
+    client: "Lil Capi",
+    orientation: "square",
+    imageSrc: "/images/My Life-lilcapi-1.png",
+    group: 2,
+  },
+  {
+    id: "recent-45",
+    code: "2023",
+    title: "The Chlorine Bible Poster",
+    client: "The Chlorine Bible",
+    orientation: "vertical",
+    imageSrc: "/images/chlorine+poster+9_.webp",
+    group: 2,
+  },
+  // No Strings events
+  {
+    id: "recent-46",
+    code: "01.2026",
+    title: "Live DJ Sets — Video Production",
+    client: "No Strings",
+    description: "Video production and editing for No Strings live DJ sets.",
+    links: [{ label: "Watch on YouTube", url: "https://www.youtube.com/watch?v=W-1DXPN3kPk" }],
+    orientation: "horizontal",
+    imageSrc: "/images/no-strings-screenshot.png",
+    group: 2,
+  },
+  {
+    id: "recent-47",
+    code: "01.2026",
+    title: "Aldrich",
+    client: "No Strings",
+    orientation: "horizontal",
+    imageSrc: "/images/no-strings-aldrich.jpg",
+    group: 2,
+  },
+  {
+    id: "recent-48",
+    code: "01.2026",
+    title: "Sipper",
+    client: "No Strings",
+    orientation: "horizontal",
+    imageSrc: "/images/no-strings-sipper.jpg",
+    group: 2,
+  },
+  {
+    id: "recent-49",
+    code: "01.2026",
+    title: "Tiffany Day",
+    client: "No Strings",
+    orientation: "horizontal",
+    imageSrc: "/images/no-strings-tiffday.jpg",
+    group: 2,
+  },
+  {
+    id: "recent-50",
+    code: "01.2026",
+    title: "Tiffany Day",
+    client: "No Strings",
+    orientation: "horizontal",
+    imageSrc: "/images/no-strings-tiffday2.jpg",
+    group: 2,
+  },
+  {
+    id: "recent-51",
+    code: "01.2026",
+    title: "Toma Shade",
+    client: "No Strings",
+    orientation: "horizontal",
+    imageSrc: "/images/no-strings-tomashade.jpg",
+    group: 2,
+  },
+  {
+    id: "recent-52",
+    code: "01.2026",
+    title: "Tommy Fleece",
+    client: "No Strings",
+    orientation: "horizontal",
+    imageSrc: "/images/no-strings-tommyfleece.jpg",
+    group: 2,
+  },
+  {
+    id: "recent-53",
+    code: "01.2026",
+    title: "Sotto Voce WSA Screening",
+    client: "Sotto Voce x WSA",
+    description:
+      "Project management and graphic design for the NYC screening — video, print, and physical goods.",
+    orientation: "vertical",
+    imageSrc: "/images/sotto-voce-wsa-screening.jpeg",
+    group: 2,
+  },
+];
 
-/**
- * Get a single project by ID
- */
-export function getProjectById(id: string): Project | undefined {
-  const projects = getAllProjects();
-  return projects.find(project => project.id === id);
+export function getProjectGroups(): Record<number, Project[]> {
+  return projects.reduce<Record<number, Project[]>>((acc, p) => {
+    if (!acc[p.group]) acc[p.group] = [];
+    acc[p.group].push(p);
+    return acc;
+  }, {});
 }
-
-/**
- * Get project by slug (generated from item name)
- */
-export function getProjectBySlug(slug: string): Project | undefined {
-  const projects = getAllProjects();
-  return projects.find(project => 
-    generateSlug(project.item) === slug
-  );
-}
-
-/**
- * Generate all valid project slugs (for static path generation)
- */
-export function getAllProjectSlugs(): string[] {
-  const projects = getAllProjects();
-  return projects.map(project => generateSlug(project.item));
-}
-

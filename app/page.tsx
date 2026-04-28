@@ -1,48 +1,63 @@
-import ProjectsContainer from "@/components/ProjectsContainer";
-import Header from "@/components/Header";
-import { getAllProjects } from "@/lib/projects";
+"use client";
+
+import { useState } from "react";
+import SiteHeader from "@/components/SiteHeader";
+import SiteFooter from "@/components/SiteFooter";
+import ProjectRow from "@/components/ProjectRow";
+import ImageLightbox from "@/components/ImageLightbox";
+import { projects, getProjectGroups } from "@/lib/projects";
+
+const SECTION_LABELS: Record<number, string> = {
+  1: "Featured",
+  2: "Ongoing / Most Recent",
+};
 
 export default function Home() {
-  // Get projects from markdown files (falls back to JSON if no markdown exists)
-  const projects = getAllProjects();
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+
+  const projectGroups = getProjectGroups();
+  const groupNumbers = Object.keys(projectGroups).map(Number).sort((a, b) => a - b);
+
+  // Compute the flat index offset for each group so lightbox navigates across all projects
+  const groupStartIndices: Record<number, number> = {};
+  let offset = 0;
+  for (const g of groupNumbers) {
+    groupStartIndices[g] = offset;
+    offset += projectGroups[g].length;
+  }
+
+  const total = projects.length;
 
   return (
-    <div className="min-h-screen bg-[#121212]">
-      <Header />
+    <main className="min-h-screen bg-white">
+      <SiteHeader />
 
-      {/* Main content */}
-      <main className="max-w-[1800px] mx-auto">
-        {/* Spreadsheet container */}
-        <ProjectsContainer projects={projects} />
-
-        {/* Footer */}
-        <footer className="py-12 px-4 border-t border-[#2a2a2a] mt-8">
-          <div className="max-w-2xl mx-auto">
-            <p className="text-sm text-[#888] font-mono text-center leading-relaxed mb-6">
-              Carter Houck is worth the risk. New York City.
+      <div className="px-3 pb-16 space-y-12 md:space-y-16">
+        {groupNumbers.map((g) => (
+          <section key={g} className="space-y-2 md:space-y-3">
+            <p className="text-[11px] font-mono uppercase tracking-wide">
+              {SECTION_LABELS[g] ?? `Section ${g}`}
             </p>
-            <div className="flex items-center justify-center gap-6 text-xs font-mono">
-              <a
-                href="mailto:carter@nothingradio.com"
-                className="text-[#666] hover:text-[#4a9eff] transition-colors"
-              >
-                carter@nothingradio.com
-              </a>
-              <span className="text-[#3a3a3a]">•</span>
-              <a
-                href="https://instagram.com/carterhouck"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#666] hover:text-[#4a9eff] transition-colors"
-              >
-                @carterhouck
-              </a>
-              <span className="text-[#3a3a3a]">•</span>
-              <span className="text-[#555]">New York, NY</span>
-            </div>
-          </div>
-        </footer>
-      </main>
-    </div>
+            <ProjectRow
+              projects={projectGroups[g]}
+              startIndex={groupStartIndices[g]}
+              onCardClick={setLightboxIndex}
+            />
+          </section>
+        ))}
+      </div>
+
+      <SiteFooter />
+
+      {lightboxIndex !== null && (
+        <ImageLightbox
+          projects={projects}
+          currentIndex={lightboxIndex}
+          onClose={() => setLightboxIndex(null)}
+          onPrev={() => setLightboxIndex((i) => ((i ?? 0) - 1 + total) % total)}
+          onNext={() => setLightboxIndex((i) => ((i ?? 0) + 1) % total)}
+        />
+      )}
+    </main>
   );
 }

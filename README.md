@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio
 
-## Getting Started
+Monospaced portfolio site built with Next.js 15, Tailwind CSS, and IBM Plex Mono.
 
-First, run the development server:
+## Getting started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Customising content
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Your info
+Edit `components/SiteHeader.tsx` to update:
+- The title slug (e.g. `Dmo/Prvw_F329_47`)
+- Bio paragraph
+- Contact email (`href="mailto:..."`)
+- Instagram URL (`href="https://instagram.com/..."`)
 
-## Learn More
+### Projects
+Edit `lib/projects.ts` to update the project list. Each project has:
 
-To learn more about Next.js, take a look at the following resources:
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | string | Unique ID |
+| `code` | string | Catalog number shown below the image |
+| `title` | string | Project title |
+| `orientation` | `"vertical"` \| `"square"` \| `"horizontal"` | Controls image aspect ratio |
+| `imageSrc` | string (optional) | Path to image in `public/images/` |
+| `href` | string (optional) | Link for the SRC label |
+| `group` | number | Row group number (1, 2, 3...) |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Adding images
+Drop images into `public/images/` and reference them as:
+```ts
+imageSrc: "/images/your-image.jpg"
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deploy to Vercel
 
-## Deploy on Vercel
+1. Push this folder to a GitHub repo.
+2. Go to [vercel.com/new](https://vercel.com/new) and import the repo.
+3. Vercel auto-detects Next.js — click **Deploy**.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Every push to `main` will auto-deploy to production.
