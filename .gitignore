@@ -1,0 +1,8 @@
+.DS_Store
+.dropbox
+Icon?
+Thumbs.db
+*.swp
+*.swo
+*~
+.cursor/

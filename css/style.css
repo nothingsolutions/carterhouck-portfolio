@@ -1,0 +1,253 @@
+:root {
+  --gutter: 24px;
+  --page-pad: 40px;
+  --nav-width: 240px;
+  --nav-gap: 56px;
+  --fg: #000;
+  --bg: #fff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: light;
+  min-height: 100%;
+  background: #fff;
+}
+
+html::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url("../images/home/home-026.png") no-repeat center top;
+  background-size: 100% auto;
+  opacity: 0.1;
+  pointer-events: none;
+  z-index: 0;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  color: #000;
+}
+
+body {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  background: transparent;
+  color: var(--fg);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+
+.layout {
+  display: flex;
+  align-items: flex-start;
+  padding: var(--page-pad);
+  gap: var(--nav-gap);
+}
+
+/* ---------- Sidebar nav (desktop) ---------- */
+.sidebar {
+  flex: 0 0 var(--nav-width);
+  position: sticky;
+  top: var(--page-pad);
+}
+
+.mobile-nav {
+  display: none;
+}
+
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-list li {
+  margin: 0 0 2px;
+}
+
+.nav-list a {
+  color: var(--fg);
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.nav-list a:hover,
+.nav-list a.active {
+  text-decoration: underline;
+}
+
+.nav-clients {
+  margin-top: 20px;
+}
+
+.nav-item--soon {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  cursor: default;
+}
+
+.nav-show-more {
+  display: block;
+  margin: 2px 0 0;
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--fg);
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  cursor: pointer;
+  text-align: left;
+}
+
+.nav-show-more:hover {
+  text-decoration: underline;
+}
+
+.nav-clients-more[hidden] {
+  display: none;
+}
+
+/* ---------- Gallery (masonry via CSS columns) ---------- */
+.gallery {
+  flex: 1 1 auto;
+  column-count: 3;
+  column-gap: var(--gutter);
+}
+
+.tile {
+  margin: 0 0 var(--gutter);
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  display: block;
+  position: relative;
+}
+
+.tile img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ---------- Project pages ---------- */
+.project {
+  flex: 1 1 auto;
+}
+
+.project-description {
+  margin: 0 0 24px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+  max-width: 640px;
+}
+
+.gallery--single {
+  column-count: 1;
+  max-width: 560px;
+}
+
+.video-embed {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  margin-bottom: var(--gutter);
+  break-inside: avoid;
+}
+
+.video-embed iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.video-embed-fallback {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.video-embed-fallback a {
+  color: var(--fg);
+}
+
+/* ---------- Bio page ---------- */
+.bio {
+  flex: 1 1 auto;
+  max-width: 640px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.bio h1,
+.bio h2 {
+  font-size: 16px;
+  font-weight: 400;
+  margin: 0 0 16px;
+}
+
+.bio h2 {
+  margin-top: 24px;
+}
+
+.bio p {
+  margin: 0 0 16px;
+}
+
+.bio a {
+  color: var(--fg);
+}
+
+/* ---------- Tablet / mobile ---------- */
+@media (max-width: 1024px) {
+  :root {
+    --page-pad: 16px;
+    --gutter: 12px;
+  }
+
+  .mobile-nav {
+    display: block;
+    padding: var(--page-pad) var(--page-pad) 0;
+  }
+
+  .layout {
+    display: block;
+    padding: var(--page-pad);
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  .gallery {
+    column-count: 2;
+    column-gap: var(--gutter);
+  }
+
+  .bio {
+    max-width: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery {
+    column-count: 2;
+  }
+}

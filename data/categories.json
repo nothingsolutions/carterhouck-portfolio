@@ -1,0 +1,762 @@
+{
+  "home": {
+    "label": "Carter Houck",
+    "href": "index.html"
+  },
+  "categories": [
+    {
+      "slug": "client-work",
+      "label": "Client Work"
+    },
+    {
+      "slug": "graphics",
+      "label": "Graphics"
+    },
+    {
+      "slug": "videos",
+      "label": "Videos"
+    }
+  ],
+  "bio": {
+    "label": "Bio",
+    "href": "bio.html"
+  },
+  "clients": {
+    "featured": [
+      {
+        "slug": "sunset-beach",
+        "label": "Sunset Beach",
+        "ready": true,
+        "images": [
+          {
+            "src": "images/sunset-beach/SSB Photoshoot 1 Large.jpeg",
+            "alt": "Sunset Beach photoshoot 1",
+            "href": ""
+          },
+          {
+            "src": "images/sunset-beach/SSB Photoshoot 2 Large.jpeg",
+            "alt": "Sunset Beach photoshoot 2",
+            "href": ""
+          },
+          {
+            "src": "images/sunset-beach/SSB Photoshoot 3 Large.jpeg",
+            "alt": "Sunset Beach photoshoot 3",
+            "href": ""
+          },
+          {
+            "src": "images/sunset-beach/fifa-invite.png",
+            "alt": "Sunset Beach FIFA World Cup Pop-Up Book invite",
+            "href": ""
+          }
+        ]
+      },
+      {
+        "slug": "chateau-marmont",
+        "label": "Chateau Marmont",
+        "ready": true,
+        "description": "Gallery Wall, Matchbook Design, Merchandise",
+        "images": [
+          {
+            "src": "images/chateau-marmont/matchbook-proofs.png",
+            "alt": "Chateau Marmont matchbook print proofs",
+            "href": ""
+          },
+          {
+            "src": "images/chateau-marmont/matchbook-edit.png",
+            "alt": "Chateau Marmont matchbook design edit",
+            "href": ""
+          },
+          {
+            "src": "images/chateau-marmont/gallery-wall-archive.jpg",
+            "alt": "Chateau Marmont Gallery Wall Archive Project",
+            "href": ""
+          },
+          {
+            "src": "images/chateau-marmont/gallery-wall-1.jpg",
+            "alt": "Chateau Marmont Gallery Wall 1",
+            "href": ""
+          },
+          {
+            "src": "images/chateau-marmont/gallery-wall-2.jpg",
+            "alt": "Chateau Marmont Gallery Wall 2",
+            "href": ""
+          }
+        ]
+      },
+      {
+        "slug": "gachot",
+        "label": "Gachot",
+        "ready": true,
+        "images": [
+          {
+            "src": "images/gachot/IMG_5669.jpeg",
+            "alt": "Gachot 1",
+            "href": ""
+          },
+          {
+            "src": "images/gachot/IMG_5671.jpeg",
+            "alt": "Gachot 2",
+            "href": ""
+          },
+          {
+            "src": "images/gachot/IMG_5673.jpeg",
+            "alt": "Gachot 3",
+            "href": ""
+          },
+          {
+            "src": "images/gachot/IMG_5674.jpeg",
+            "alt": "Gachot 4",
+            "href": ""
+          },
+          {
+            "src": "images/gachot/IMG_5675.jpeg",
+            "alt": "Gachot 5",
+            "href": ""
+          },
+          {
+            "src": "images/gachot/IMG_5676.jpeg",
+            "alt": "Gachot 6",
+            "href": ""
+          },
+          {
+            "src": "images/gachot/IMG_5677.jpeg",
+            "alt": "Gachot 7",
+            "href": ""
+          },
+          {
+            "src": "images/gachot/IMG_8151.jpg",
+            "alt": "Gachot 8",
+            "href": ""
+          },
+          {
+            "src": "images/gachot/IMG_8183.jpg",
+            "alt": "Gachot 9",
+            "href": ""
+          },
+          {
+            "src": "images/gachot/IMG_8262.jpg",
+            "alt": "Gachot 10",
+            "href": ""
+          },
+          {
+            "src": "images/gachot/screenshot-11.png",
+            "alt": "Gachot 11",
+            "href": ""
+          },
+          {
+            "src": "images/gachot/screenshot-12.png",
+            "alt": "Gachot 12",
+            "href": ""
+          },
+          {
+            "src": "images/gachot/screenshot-13.png",
+            "alt": "Gachot 13",
+            "href": ""
+          },
+          {
+            "src": "images/gachot/screenshot-14.png",
+            "alt": "Gachot 14",
+            "href": ""
+          }
+        ]
+      },
+      {
+        "slug": "stillman-meyer",
+        "label": "Stillman Meyer",
+        "ready": true,
+        "images": [
+          {
+            "src": "images/stillman-meyer/aspen-catalog-1.jpg",
+            "alt": "Aspen Posters Winter 25-26 Catalog",
+            "href": ""
+          },
+          {
+            "src": "images/stillman-meyer/aspen-catalog-2.jpg",
+            "alt": "Aspen Posters Winter 25-26 Catalog",
+            "href": ""
+          },
+          {
+            "src": "images/stillman-meyer/aspen-catalog-3.jpg",
+            "alt": "Aspen Posters Winter 25-26 Catalog",
+            "href": ""
+          },
+          {
+            "src": "images/stillman-meyer/aspen-framebridge-popup.jpg",
+            "alt": "Aspen Posters x Framebridge NYC Popup",
+            "href": ""
+          },
+          {
+            "src": "images/stillman-meyer/aspen-performance-ski-popup.jpg",
+            "alt": "Aspen Posters x Performance Ski Aspen Popup",
+            "href": ""
+          },
+          {
+            "src": "images/stillman-meyer/aspen-winter-photoshoot.png",
+            "alt": "Aspen Posters Winter Photoshoot",
+            "href": ""
+          },
+          {
+            "src": "images/stillman-meyer/die-cut-shipping-sticker.jpg",
+            "alt": "Die Cut Shipping Sticker",
+            "href": ""
+          }
+        ]
+      },
+      {
+        "slug": "nothing-radio",
+        "label": "Nothing Radio",
+        "ready": true,
+        "images": [
+          {
+            "src": "images/nothing-radio/nothing-radio-01.jpg",
+            "alt": "Nothing Radio",
+            "href": ""
+          },
+          {
+            "src": "images/nothing-radio/nothing-radio-02.jpg",
+            "alt": "Nothing Radio",
+            "href": ""
+          },
+          {
+            "src": "images/nothing-radio/nothing-radio-03.webp",
+            "alt": "Nothing Radio",
+            "href": ""
+          },
+          {
+            "src": "images/nothing-radio/nothing-radio-04.jpg",
+            "alt": "Nothing Radio",
+            "href": ""
+          },
+          {
+            "src": "images/nothing-radio/nothing-radio-05.jpg",
+            "alt": "Nothing Radio",
+            "href": ""
+          },
+          {
+            "src": "images/nothing-radio/nothing-radio-06.jpg",
+            "alt": "Nothing Radio",
+            "href": ""
+          },
+          {
+            "src": "images/nothing-radio/nothing-radio-07.png",
+            "alt": "Nothing Radio",
+            "href": ""
+          },
+          {
+            "src": "images/nothing-radio/nothing-radio-08.png",
+            "alt": "Nothing Radio",
+            "href": ""
+          },
+          {
+            "src": "images/nothing-radio/nothing-radio-09.jpeg",
+            "alt": "Nothing Radio",
+            "href": ""
+          },
+          {
+            "src": "images/nothing-radio/nothing-radio-10.jpg",
+            "alt": "Nothing Radio",
+            "href": ""
+          },
+          {
+            "src": "images/nothing-radio/nothing-radio-11.png",
+            "alt": "Nothing Radio",
+            "href": ""
+          },
+          {
+            "src": "images/nothing-radio/nothing-radio-12.jpg",
+            "alt": "Nothing Radio",
+            "href": ""
+          },
+          {
+            "src": "images/nothing-radio/nothing-radio-13.jpg",
+            "alt": "Nothing Radio",
+            "href": ""
+          },
+          {
+            "src": "images/nothing-radio/nothing-radio-14.jpg",
+            "alt": "Nothing Radio",
+            "href": ""
+          },
+          {
+            "src": "images/nothing-radio/nothing-radio-15.gif",
+            "alt": "Nothing Radio",
+            "href": ""
+          },
+          {
+            "src": "images/nothing-radio/nothing-radio-16.gif",
+            "alt": "Nothing Radio",
+            "href": ""
+          },
+          {
+            "src": "images/nothing-radio/nothing-radio-17.jpeg",
+            "alt": "Nothing Radio",
+            "href": ""
+          },
+          {
+            "src": "images/nothing-radio/nothing-radio-18.jpg",
+            "alt": "Nothing Radio",
+            "href": ""
+          },
+          {
+            "src": "images/nothing-radio/nothing-radio-19.png",
+            "alt": "Nothing Radio",
+            "href": ""
+          }
+        ]
+      }
+    ],
+    "more": [
+      {
+        "slug": "jebara",
+        "label": "Jebara"
+      },
+      {
+        "slug": "aspen-snowmass-sothebys",
+        "label": "Aspen Snowmass Sotheby's"
+      },
+      {
+        "slug": "lady-and-butler",
+        "label": "Lady & Butler"
+      },
+      {
+        "slug": "no-strings",
+        "label": "No Strings",
+        "ready": true,
+        "embeds": [
+          "https://www.youtube.com/embed/W-1DXPN3kPk",
+          "https://www.youtube.com/embed/JjJ4Qss0JlQ",
+          "https://www.youtube.com/embed/W7sf_nAQ2_8",
+          "https://www.youtube.com/embed/Mk5Bl_Tk0wY",
+          "https://www.youtube.com/embed/9Hrv5A8_9q8"
+        ]
+      },
+      {
+        "slug": "studio-luhtala",
+        "label": "Studio Luhtala",
+        "ready": true,
+        "images": [
+          {
+            "src": "images/studio-luhtala/matchbooks-1.jpg",
+            "alt": "Studio Luhtala business card matchbooks 1",
+            "href": ""
+          },
+          {
+            "src": "images/studio-luhtala/matchbooks-2.jpg",
+            "alt": "Studio Luhtala business card matchbooks 2",
+            "href": ""
+          },
+          {
+            "src": "images/studio-luhtala/matchbooks-3.jpg",
+            "alt": "Studio Luhtala business card matchbooks 3",
+            "href": ""
+          },
+          {
+            "src": "images/studio-luhtala/solo-studio-website.jpg",
+            "alt": "Solo Studio website",
+            "href": ""
+          },
+          {
+            "src": "images/studio-luhtala/studio-luhtala-website.jpg",
+            "alt": "Studio Luhtala website",
+            "href": ""
+          }
+        ]
+      },
+      {
+        "slug": "sotto-voce",
+        "label": "Sotto Voce"
+      },
+      {
+        "slug": "aktaylor-fund",
+        "label": "AKTaylor Fund"
+      },
+      {
+        "slug": "casa-cipriani",
+        "label": "Casa Cipriani"
+      },
+      {
+        "slug": "dnd-agency",
+        "label": "DND Agency"
+      },
+      {
+        "slug": "solo-studio",
+        "label": "Solo Studio"
+      },
+      {
+        "slug": "substance",
+        "label": "Substance"
+      },
+      {
+        "slug": "grequity",
+        "label": "GRequity"
+      },
+      {
+        "slug": "farnsworth-fine-cannabis",
+        "label": "Farnsworth Fine Cannabis",
+        "ready": true,
+        "images": [
+          {
+            "src": "images/farnsworth-fine-cannabis/farnsworth-blog.jpg",
+            "alt": "Farnsworth Fine Cannabis blog",
+            "href": ""
+          },
+          {
+            "src": "images/farnsworth-fine-cannabis/farnsworth-01.webp",
+            "alt": "Farnsworth Fine Cannabis 1",
+            "href": ""
+          },
+          {
+            "src": "images/farnsworth-fine-cannabis/farnsworth-02.webp",
+            "alt": "Farnsworth Fine Cannabis 2",
+            "href": ""
+          },
+          {
+            "src": "images/farnsworth-fine-cannabis/farnsworth-03.webp",
+            "alt": "Farnsworth Fine Cannabis 3",
+            "href": ""
+          },
+          {
+            "src": "images/farnsworth-fine-cannabis/farnsworth-04.webp",
+            "alt": "Farnsworth Fine Cannabis 4",
+            "href": ""
+          }
+        ]
+      },
+      {
+        "slug": "sillicone-valley",
+        "label": "Sillicone Valley"
+      },
+      {
+        "slug": "somewhere-special",
+        "label": "Somewhere Special",
+        "ready": true,
+        "embed": "https://www.youtube.com/embed/iDpWB1Dntm0"
+      },
+      {
+        "slug": "triarchy-denim",
+        "label": "Triarchy Denim"
+      },
+      {
+        "slug": "julie-smith-kids",
+        "label": "Julie Smith Kids"
+      },
+      {
+        "slug": "inplay",
+        "label": "InPlay"
+      },
+      {
+        "slug": "flowershop-agency",
+        "label": "Flowershop Agency"
+      },
+      {
+        "slug": "cadillac",
+        "label": "Cadillac"
+      },
+      {
+        "slug": "tom-brady-x-tops",
+        "label": "Tom Brady x TOPS"
+      }
+    ],
+    "showMoreLabel": "+ Show More",
+    "showLessLabel": "- Show Less"
+  },
+  "gallery": {
+    "images": [
+      {
+        "src": "images/home/home-001.gif",
+        "alt": "Work 1",
+        "href": ""
+      },
+      {
+        "src": "images/home/home-002.png",
+        "alt": "Work 2",
+        "href": ""
+      },
+      {
+        "src": "images/home/home-003.png",
+        "alt": "Work 3",
+        "href": ""
+      },
+      {
+        "src": "images/home/home-004.png",
+        "alt": "Work 4",
+        "href": ""
+      },
+      {
+        "src": "images/home/home-005.gif",
+        "alt": "Work 5",
+        "href": ""
+      },
+      {
+        "src": "images/home/home-006.gif",
+        "alt": "Work 6",
+        "href": ""
+      },
+      {
+        "src": "images/home/home-007.gif",
+        "alt": "Work 7",
+        "href": ""
+      },
+      {
+        "src": "images/home/home-008.gif",
+        "alt": "Work 8",
+        "href": ""
+      },
+      {
+        "src": "images/home/home-009.gif",
+        "alt": "Work 9",
+        "href": ""
+      },
+      {
+        "src": "images/home/home-010.jpg",
+        "alt": "Work 10",
+        "href": ""
+      },
+      {
+        "src": "images/home/home-011.gif",
+        "alt": "Work 11",
+        "href": ""
+      },
+      {
+        "src": "images/home/home-012.png",
+        "alt": "Work 12",
+        "href": ""
+      },
+      {
+        "src": "images/home/home-013.jpg",
+        "alt": "Work 13",
+        "href": ""
+      },
+      {
+        "src": "images/home/home-014.png",
+        "alt": "Work 14",
+        "href": ""
+      },
+      {
+        "src": "images/home/home-015.jpg",
+        "alt": "Work 15",
+        "href": ""
+      },
+      {
+        "src": "images/home/home-016.gif",
+        "alt": "Work 16",
+        "href": ""
+      },
+      {
+        "src": "images/home/home-017.jpg",
+        "alt": "Work 17",
+        "href": ""
+      },
+      {
+        "src": "images/home/home-018.jpg",
+        "alt": "Work 18",
+        "href": ""
+      },
+      {
+        "src": "images/home/home-019.jpg",
+        "alt": "Work 19",
+        "href": ""
+      },
+      {
+        "src": "images/home/home-020.jpg",
+        "alt": "Work 20",
+        "href": ""
+      },
+      {
+        "src": "images/home/home-021.png",
+        "alt": "Work 21",
+        "href": ""
+      },
+      {
+        "src": "images/home/home-022.png",
+        "alt": "Work 22",
+        "href": ""
+      },
+      {
+        "src": "images/home/home-023.png",
+        "alt": "Work 23",
+        "href": ""
+      },
+      {
+        "src": "images/home/home-024.jpg",
+        "alt": "Work 24",
+        "href": ""
+      },
+      {
+        "src": "images/home/home-025.png",
+        "alt": "Work 25",
+        "href": ""
+      },
+      {
+        "src": "images/home/home-026.png",
+        "alt": "Work 26",
+        "href": ""
+      },
+      {
+        "src": "images/home/home-027.jpg",
+        "alt": "Work 27",
+        "href": ""
+      },
+      {
+        "src": "images/home/home-028.png",
+        "alt": "Work 28",
+        "href": ""
+      },
+      {
+        "src": "images/home/home-029.png",
+        "alt": "Work 29",
+        "href": ""
+      },
+      {
+        "src": "images/home/home-030.jpg",
+        "alt": "Work 30",
+        "href": ""
+      },
+      {
+        "src": "images/home/home-031.png",
+        "alt": "Work 31",
+        "href": ""
+      },
+      {
+        "src": "images/home/home-032.jpg",
+        "alt": "Work 32",
+        "href": ""
+      },
+      {
+        "src": "images/home/home-033.jpg",
+        "alt": "Work 33",
+        "href": ""
+      },
+      {
+        "src": "images/home/home-034.jpg",
+        "alt": "Work 34",
+        "href": ""
+      },
+      {
+        "src": "images/home/home-035.jpg",
+        "alt": "Work 35",
+        "href": ""
+      },
+      {
+        "src": "images/home/home-036.png",
+        "alt": "Work 36",
+        "href": ""
+      },
+      {
+        "src": "images/home/home-037.png",
+        "alt": "Work 37",
+        "href": ""
+      },
+      {
+        "src": "images/home/home-038.jpg",
+        "alt": "Work 38",
+        "href": ""
+      },
+      {
+        "src": "images/home/home-039.jpg",
+        "alt": "Work 39",
+        "href": ""
+      },
+      {
+        "src": "images/home/home-040.png",
+        "alt": "Work 40",
+        "href": ""
+      },
+      {
+        "src": "images/home/home-041.jpg",
+        "alt": "Work 41",
+        "href": ""
+      },
+      {
+        "src": "images/home/home-042.jpg",
+        "alt": "Work 42",
+        "href": ""
+      },
+      {
+        "src": "images/home/home-043.png",
+        "alt": "Work 43",
+        "href": ""
+      },
+      {
+        "src": "images/home/home-044.png",
+        "alt": "Work 44",
+        "href": ""
+      },
+      {
+        "src": "images/home/home-045.png",
+        "alt": "Work 45",
+        "href": ""
+      },
+      {
+        "src": "images/home/home-046.png",
+        "alt": "Work 46",
+        "href": ""
+      },
+      {
+        "src": "images/home/home-047.gif",
+        "alt": "Work 47",
+        "href": ""
+      },
+      {
+        "src": "images/home/home-048.jpg",
+        "alt": "Work 48",
+        "href": ""
+      },
+      {
+        "src": "images/home/home-049.jpg",
+        "alt": "Work 49",
+        "href": ""
+      },
+      {
+        "src": "images/home/home-050.jpg",
+        "alt": "Work 50",
+        "href": ""
+      },
+      {
+        "src": "images/home/home-051.jpg",
+        "alt": "Work 51",
+        "href": ""
+      },
+      {
+        "src": "images/home/home-052.gif",
+        "alt": "Work 52",
+        "href": ""
+      },
+      {
+        "src": "images/home/home-053.jpg",
+        "alt": "Work 53",
+        "href": ""
+      },
+      {
+        "src": "images/home/home-054.jpg",
+        "alt": "Work 54",
+        "href": ""
+      },
+      {
+        "src": "images/home/home-055.jpg",
+        "alt": "Work 55",
+        "href": ""
+      },
+      {
+        "src": "images/home/home-056.png",
+        "alt": "Work 56",
+        "href": ""
+      },
+      {
+        "src": "images/home/home-057.jpg",
+        "alt": "Work 57",
+        "href": ""
+      },
+      {
+        "src": "images/home/home-058.jpg",
+        "alt": "Work 58",
+        "href": ""
+      },
+      {
+        "src": "images/home/home-059.jpg",
+        "alt": "Work 59",
+        "href": ""
+      }
+    ]
+  }
+}
