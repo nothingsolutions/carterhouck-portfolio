@@ -21,8 +21,8 @@ html::before {
   content: "";
   position: fixed;
   inset: 0;
-  background: url("../images/home/home-026.png") no-repeat center top;
-  background-size: 100% auto;
+  background: url("../images/home/home-026.png") no-repeat center center;
+  background-size: cover;
   opacity: 0.1;
   pointer-events: none;
   z-index: 0;
@@ -224,12 +224,71 @@ body {
 
   .mobile-nav {
     display: block;
-    padding: var(--page-pad) var(--page-pad) 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
   }
 
+  .mobile-nav-toggle {
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: var(--page-pad);
+    border: none;
+    color: var(--fg);
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  /* Closed: frost + fade on toggle only */
+  .mobile-nav:has(.mobile-nav-panel[hidden]) .mobile-nav-toggle {
+    background: color-mix(in srgb, var(--bg) 82%, transparent);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    padding-bottom: calc(var(--page-pad) + 20px);
+    -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 55%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 0%, #000 55%, transparent 100%);
+  }
+
+  /* Open: single frost layer on parent — no seam between toggle and panel */
+  .mobile-nav:has(.mobile-nav-panel:not([hidden])) {
+    display: flex;
+    flex-direction: column;
+    max-height: 100vh;
+    background: color-mix(in srgb, var(--bg) 82%, transparent);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 calc(100% - 28px), transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 0%, #000 calc(100% - 28px), transparent 100%);
+  }
+
+  .mobile-nav-panel {
+    padding: 0 var(--page-pad) var(--page-pad);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .mobile-nav:has(.mobile-nav-panel:not([hidden])) .mobile-nav-panel {
+    flex: 1 1 auto;
+    min-height: 0;
+    padding-bottom: calc(var(--page-pad) + 12px);
+  }
+
+  .mobile-nav-panel[hidden] {
+    display: none;
+  }
+
+  /* Clear the fixed bar so image tops / page text aren't hidden behind it. */
   .layout {
     display: block;
     padding: var(--page-pad);
+    padding-top: 64px;
   }
 
   .sidebar {

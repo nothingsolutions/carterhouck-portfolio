@@ -1,11 +1,9 @@
-// Renders the site nav (desktop sidebar + mobile duplicate) from shared site data.
+// Renders the site nav (desktop sidebar + mobile dropdown) from shared site data.
 (async function () {
-  const mounts = [
-    document.getElementById("site-nav"),
-    document.getElementById("mobile-nav")
-  ].filter(Boolean);
+  const sidebarMount = document.getElementById("site-nav");
+  const mobileMount = document.getElementById("mobile-nav");
 
-  if (!mounts.length) return;
+  if (!sidebarMount && !mobileMount) return;
 
   const data = await loadSiteData();
   const current = document.body.getAttribute("data-category") || "";
@@ -32,7 +30,7 @@
     return li;
   }
 
-  function buildNav() {
+  function buildNav(options) {
     const nav = document.createElement("nav");
     nav.className = "nav";
 
@@ -41,7 +39,8 @@
 
     if (data.home) {
       const li = document.createElement("li");
-      addLink(li, data.home.label, data.home.href || "index.html", "all");
+      const homeLinkLabel = (options && options.homeLabel) || data.home.label;
+      addLink(li, homeLinkLabel, data.home.href || "index.html", "all");
       mainList.appendChild(li);
     }
 
@@ -116,7 +115,50 @@
     return nav;
   }
 
-  mounts.forEach((mount) => {
-    mount.appendChild(buildNav());
-  });
+  if (sidebarMount) {
+    sidebarMount.appendChild(buildNav());
+  }
+
+  if (mobileMount) {
+    const homeLabel = (data.home && data.home.label) || "Carter Houck";
+
+    const toggle = document.createElement("button");
+    toggle.type = "button";
+    toggle.className = "mobile-nav-toggle";
+    toggle.setAttribute("aria-controls", "mobile-nav-panel");
+    toggle.setAttribute("aria-expanded", "false");
+
+    const panel = document.createElement("div");
+    panel.className = "mobile-nav-panel";
+    panel.id = "mobile-nav-panel";
+    panel.hidden = true;
+    panel.appendChild(buildNav({ homeLabel: "Home" }));
+
+    function setOpen(open) {
+      panel.hidden = !open;
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      toggle.textContent = homeLabel + (open ? " −" : " +");
+    }
+
+    setOpen(false);
+
+    toggle.addEventListener("click", () => {
+      setOpen(panel.hidden);
+    });
+
+    panel.addEventListener("click", (e) => {
+      if (e.target.closest("a")) setOpen(false);
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!mobileMount.contains(e.target)) setOpen(false);
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") setOpen(false);
+    });
+
+    mobileMount.appendChild(toggle);
+    mobileMount.appendChild(panel);
+  }
 })();
