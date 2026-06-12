@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://carterhouck.com/sitemap.xml
+
+# LLM-readable site overview
+# https://carterhouck.com/llms.txt
