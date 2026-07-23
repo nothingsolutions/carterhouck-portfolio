@@ -62,7 +62,7 @@
     const img = document.createElement("img");
     img.src = encodeURI(item.src);
     img.alt = item.alt || "";
-    img.loading = "lazy";
+    img.loading = "eager";
     if (item.href) {
       const a = document.createElement("a");
       a.href = item.href;
