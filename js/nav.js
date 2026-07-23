@@ -57,6 +57,12 @@
       mainList.appendChild(li);
     }
 
+    if (data.feed) {
+      const li = document.createElement("li");
+      addLink(li, data.feed.label, data.feed.href || "feed.html", "feed");
+      mainList.appendChild(li);
+    }
+
     nav.appendChild(mainList);
 
     const clients = data.clients;

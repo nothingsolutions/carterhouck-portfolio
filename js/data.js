@@ -20,6 +20,7 @@ window.SITE_DATA_FALLBACK = {
     { slug: "videos", label: "Videos" }
   ],
   bio: { label: "Bio", href: "bio.html" },
+  feed: { label: "Feed", href: "feed.html" },
   clients: {
     featured: [
       {

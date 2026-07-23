@@ -21,6 +21,10 @@
     "label": "Bio",
     "href": "bio.html"
   },
+  "feed": {
+    "label": "Feed",
+    "href": "feed.html"
+  },
   "clients": {
     "featured": [
       {

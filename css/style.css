@@ -187,6 +187,55 @@ body {
   color: var(--fg);
 }
 
+/* ---------- Feed page ---------- */
+.feed {
+  flex: 1 1 auto;
+  max-width: 720px;
+  width: 100%;
+}
+
+.feed-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.feed-item {
+  margin: 0;
+}
+
+.feed-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.feed-pager {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 40px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.feed-pager a {
+  color: var(--fg);
+  text-decoration: none;
+}
+
+.feed-pager a:hover {
+  text-decoration: underline;
+}
+
+.feed-pager-status {
+  color: var(--fg);
+}
+
+.feed-pager[hidden] {
+  display: none;
+}
+
 /* ---------- Bio page ---------- */
 .bio {
   flex: 1 1 auto;
@@ -302,6 +351,14 @@ body {
 
   .bio {
     max-width: none;
+  }
+
+  .feed {
+    max-width: none;
+  }
+
+  .feed-stack {
+    gap: 24px;
   }
 }
 
