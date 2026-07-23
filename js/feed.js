@@ -2,7 +2,6 @@
 window.FEED_DATA_FALLBACK = {
   pageSize: 20,
   posts: [
-    { src: "images/feed/2026-07-22-gif.gif", alt: "" },
     { src: "images/feed/2026-07-18-screenshot.jpg", alt: "" },
     { src: "images/feed/2026-07-18-photo.jpg", alt: "" },
     { src: "images/feed/2026-07-17-screenshot.jpg", alt: "" },
