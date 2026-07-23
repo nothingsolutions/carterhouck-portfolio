@@ -45,12 +45,9 @@
     }
 
     (data.categories || []).forEach((cat) => {
+      if (!cat.ready) return;
       const li = document.createElement("li");
-      if (cat.ready) {
-        addLink(li, cat.label, cat.slug + ".html", cat.slug);
-      } else {
-        addSoon(li, cat.label);
-      }
+      addLink(li, cat.label, cat.slug + ".html", cat.slug);
       mainList.appendChild(li);
     });
 
