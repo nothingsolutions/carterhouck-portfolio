@@ -6,7 +6,7 @@ window.renderGallery = async function renderGallery() {
   if (!mount) return;
 
   mount.replaceChildren();
-  mount.classList.remove("gallery--single");
+  mount.classList.remove("gallery--single", "gallery--cols");
 
   const data = await loadSiteData();
   const current = document.body.getAttribute("data-category") || "all";
@@ -83,7 +83,25 @@ window.renderGallery = async function renderGallery() {
 
   if (current === "all") {
     const images = (data.gallery && data.gallery.images) || [];
-    images.forEach((item) => mount.appendChild(makeImage(item)));
+    const colCount = window.matchMedia("(max-width: 1024px)").matches ? 2 : 3;
+    mount.classList.add("gallery--cols");
+    const cols = [];
+    for (let i = 0; i < colCount; i++) {
+      const col = document.createElement("div");
+      col.className = "gallery-col";
+      cols.push(col);
+      mount.appendChild(col);
+    }
+    images.forEach((item, i) => cols[i % colCount].appendChild(makeImage(item)));
+
+    if (!window._galleryColMq) {
+      window._galleryColMq = window.matchMedia("(max-width: 1024px)");
+      window._galleryColMq.addEventListener("change", () => {
+        if (document.body.getAttribute("data-category") === "all" && window.renderGallery) {
+          window.renderGallery();
+        }
+      });
+    }
     return;
   }
 

@@ -121,19 +121,43 @@ body {
   display: none;
 }
 
-/* ---------- Gallery (masonry via CSS columns) ---------- */
+/* ---------- Gallery ---------- */
+/* Homepage: independent columns (LTR then down) so tiles sit flush. */
 .gallery {
   flex: 1 1 auto;
+}
+
+.gallery--cols {
+  display: flex;
+  gap: var(--gutter);
+  align-items: flex-start;
+}
+
+.gallery-col {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gutter);
+}
+
+/* Project pages: CSS-column masonry */
+.gallery:not(.gallery--cols):not(.gallery--single) {
   column-count: 3;
   column-gap: var(--gutter);
 }
 
 .tile {
+  margin: 0;
+  display: block;
+  position: relative;
+  line-height: 0;
+}
+
+.gallery:not(.gallery--cols) .tile {
   margin: 0 0 var(--gutter);
   break-inside: avoid;
   -webkit-column-break-inside: avoid;
-  display: block;
-  position: relative;
 }
 
 .tile img {
@@ -373,7 +397,7 @@ body {
     display: none;
   }
 
-  .gallery {
+  .gallery:not(.gallery--cols):not(.gallery--single) {
     column-count: 2;
     column-gap: var(--gutter);
   }
@@ -392,7 +416,7 @@ body {
 }
 
 @media (max-width: 480px) {
-  .gallery {
+  .gallery:not(.gallery--cols):not(.gallery--single) {
     column-count: 2;
   }
 }
