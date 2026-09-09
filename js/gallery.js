@@ -59,13 +59,14 @@ window.renderGallery = async function renderGallery() {
     return wrap;
   }
 
-  function makeImage(item) {
+  function makeImage(item, loading) {
     const fig = document.createElement("figure");
     fig.className = "tile";
     const img = document.createElement("img");
     img.src = encodeURI(item.src);
     img.alt = item.alt || "";
-    img.loading = "eager";
+    img.loading = loading || "eager";
+    img.decoding = "async";
     if (item.href) {
       const a = document.createElement("a");
       a.href = item.href;
@@ -92,7 +93,9 @@ window.renderGallery = async function renderGallery() {
       cols.push(col);
       mount.appendChild(col);
     }
-    images.forEach((item, i) => cols[i % colCount].appendChild(makeImage(item)));
+    images.forEach((item, i) => {
+      cols[i % colCount].appendChild(makeImage(item, i < 6 ? "eager" : "lazy"));
+    });
 
     if (!window._galleryColMq) {
       window._galleryColMq = window.matchMedia("(max-width: 1024px)");
