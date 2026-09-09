@@ -1,9 +1,12 @@
 // Renders image grids from site data.
 // - Homepage: gallery.images
 // - Project pages: description + images from matching category or client
-(async function () {
+window.renderGallery = async function renderGallery() {
   const mount = document.getElementById("gallery");
   if (!mount) return;
+
+  mount.replaceChildren();
+  mount.classList.remove("gallery--single");
 
   const data = await loadSiteData();
   const current = document.body.getAttribute("data-category") || "all";
@@ -104,4 +107,4 @@
   }
 
   (project.images || []).forEach((item) => mount.appendChild(makeImage(item)));
-})();
+};

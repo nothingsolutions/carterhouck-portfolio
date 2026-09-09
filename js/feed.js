@@ -22,10 +22,16 @@ window.FEED_DATA_FALLBACK = {
   ]
 };
 
-(async function () {
+window.renderFeed = async function renderFeed() {
   const stack = document.getElementById("feed-stack");
   const pager = document.getElementById("feed-pager");
   if (!stack) return;
+
+  stack.replaceChildren();
+  if (pager) {
+    pager.replaceChildren();
+    pager.hidden = true;
+  }
 
   async function loadFeed() {
     try {
@@ -90,4 +96,4 @@ window.FEED_DATA_FALLBACK = {
     next.textContent = "Next ?";
     pager.appendChild(next);
   }
-})();
+};
