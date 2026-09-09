@@ -1,4 +1,4 @@
-// Renders the site nav (desktop sidebar + mobile dropdown) from shared site data.
+// Renders the site nav (desktop sidebar + mobile slide-out drawer) from shared site data.
 (async function () {
   const sidebarMount = document.getElementById("site-nav");
   const mobileMount = document.getElementById("mobile-nav");
@@ -125,43 +125,65 @@
   if (mobileMount) {
     const homeLabel = (data.home && data.home.label) || "Carter Houck";
 
+    const bar = document.createElement("div");
+    bar.className = "mobile-nav-bar";
+
     const toggle = document.createElement("button");
     toggle.type = "button";
     toggle.className = "mobile-nav-toggle";
-    toggle.setAttribute("aria-controls", "mobile-nav-panel");
+    toggle.setAttribute("aria-controls", "mobile-nav-drawer");
     toggle.setAttribute("aria-expanded", "false");
+    toggle.setAttribute("aria-label", "Open menu");
 
-    const panel = document.createElement("div");
-    panel.className = "mobile-nav-panel";
-    panel.id = "mobile-nav-panel";
-    panel.hidden = true;
-    panel.appendChild(buildNav({ homeLabel: "Home" }));
+    const label = document.createElement("span");
+    label.className = "mobile-nav-toggle-label";
+    label.textContent = homeLabel;
+
+    const mark = document.createElement("span");
+    mark.className = "mobile-nav-mark";
+    mark.setAttribute("aria-hidden", "true");
+    mark.textContent = "+";
+
+    toggle.appendChild(label);
+    toggle.appendChild(mark);
+
+    const overlay = document.createElement("div");
+    overlay.className = "mobile-nav-overlay";
+    overlay.hidden = true;
+
+    const drawer = document.createElement("div");
+    drawer.className = "mobile-nav-drawer";
+    drawer.id = "mobile-nav-drawer";
+    drawer.appendChild(buildNav({ homeLabel: "Home" }));
 
     function setOpen(open) {
-      panel.hidden = !open;
+      mobileMount.classList.toggle("is-open", open);
+      document.body.classList.toggle("mobile-nav-open", open);
+      overlay.hidden = !open;
       toggle.setAttribute("aria-expanded", open ? "true" : "false");
-      toggle.textContent = homeLabel + (open ? " −" : " +");
+      toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+      mark.textContent = open ? "−" : "+";
     }
 
     setOpen(false);
 
     toggle.addEventListener("click", () => {
-      setOpen(panel.hidden);
+      setOpen(!mobileMount.classList.contains("is-open"));
     });
 
-    panel.addEventListener("click", (e) => {
+    overlay.addEventListener("click", () => setOpen(false));
+
+    drawer.addEventListener("click", (e) => {
       if (e.target.closest("a")) setOpen(false);
-    });
-
-    document.addEventListener("click", (e) => {
-      if (!mobileMount.contains(e.target)) setOpen(false);
     });
 
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape") setOpen(false);
     });
 
-    mobileMount.appendChild(toggle);
-    mobileMount.appendChild(panel);
+    bar.appendChild(toggle);
+    mobileMount.appendChild(bar);
+    mobileMount.appendChild(overlay);
+    mobileMount.appendChild(drawer);
   }
 })();

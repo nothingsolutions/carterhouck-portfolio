@@ -273,19 +273,26 @@ body {
 
   .mobile-nav {
     display: block;
+  }
+
+  .mobile-nav-bar {
     position: fixed;
     top: 0;
     left: 0;
-    right: 0;
-    z-index: 100;
+    z-index: 130;
+    background: none;
   }
 
   .mobile-nav-toggle {
-    display: block;
-    width: 100%;
+    display: flex;
+    align-items: baseline;
+    justify-content: flex-start;
+    gap: 8px;
+    width: auto;
     margin: 0;
     padding: var(--page-pad);
     border: none;
+    background: none;
     color: var(--fg);
     font-family: inherit;
     font-size: 16px;
@@ -295,42 +302,53 @@ body {
     cursor: pointer;
   }
 
-  /* Closed: frost + fade on toggle only */
-  .mobile-nav:has(.mobile-nav-panel[hidden]) .mobile-nav-toggle {
-    background: color-mix(in srgb, var(--bg) 82%, transparent);
-    -webkit-backdrop-filter: blur(12px);
-    backdrop-filter: blur(12px);
-    padding-bottom: calc(var(--page-pad) + 20px);
-    -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 55%, transparent 100%);
-    mask-image: linear-gradient(to bottom, #000 0%, #000 55%, transparent 100%);
+  .mobile-nav-mark {
+    font-size: 16px;
+    line-height: 1.5;
   }
 
-  /* Open: single frost layer on parent — no seam between toggle and panel */
-  .mobile-nav:has(.mobile-nav-panel:not([hidden])) {
-    display: flex;
-    flex-direction: column;
-    max-height: 100vh;
-    background: color-mix(in srgb, var(--bg) 82%, transparent);
-    -webkit-backdrop-filter: blur(12px);
-    backdrop-filter: blur(12px);
-    -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 calc(100% - 28px), transparent 100%);
-    mask-image: linear-gradient(to bottom, #000 0%, #000 calc(100% - 28px), transparent 100%);
+  .mobile-nav-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 105;
+    background: rgba(0, 0, 0, 0.35);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
   }
 
-  .mobile-nav-panel {
-    padding: 0 var(--page-pad) var(--page-pad);
+  .mobile-nav.is-open .mobile-nav-overlay {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .mobile-nav-overlay[hidden] {
+    display: block;
+  }
+
+  .mobile-nav-drawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 120;
+    width: min(80vw, 280px);
+    height: 100%;
+    padding: 64px var(--page-pad) var(--page-pad);
+    background: color-mix(in srgb, var(--bg) 78%, transparent);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
+    transform: translateX(-100%);
+    transition: transform 0.25s ease;
   }
 
-  .mobile-nav:has(.mobile-nav-panel:not([hidden])) .mobile-nav-panel {
-    flex: 1 1 auto;
-    min-height: 0;
-    padding-bottom: calc(var(--page-pad) + 12px);
+  .mobile-nav.is-open .mobile-nav-drawer {
+    transform: translateX(0);
   }
 
-  .mobile-nav-panel[hidden] {
-    display: none;
+  body.mobile-nav-open {
+    overflow: hidden;
   }
 
   /* Clear the fixed bar so image tops / page text aren't hidden behind it. */
