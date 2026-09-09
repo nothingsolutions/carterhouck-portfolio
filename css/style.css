@@ -147,12 +147,23 @@ body {
   flex: 1 1 auto;
 }
 
+.project-title {
+  margin: 0 0 16px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
 .project-description {
   margin: 0 0 24px;
   font-size: 16px;
   font-weight: 400;
   line-height: 1.6;
   max-width: 640px;
+}
+
+.project-description:empty {
+  display: none;
 }
 
 .gallery--single {

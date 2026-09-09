@@ -87,6 +87,11 @@
   const project = findProject(current);
   if (!project) return;
 
+  if (project.label) {
+    const title = document.getElementById("project-title");
+    if (title) title.textContent = project.label;
+  }
+
   if (project.description) {
     const desc = document.getElementById("project-description");
     if (desc) desc.textContent = project.description;
