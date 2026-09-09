@@ -23,7 +23,8 @@
   },
   "feed": {
     "label": "Feed",
-    "href": "feed.html"
+    "href": "feed.html",
+    "hidden": true
   },
   "clients": {
     "featured": [
