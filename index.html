@@ -56,11 +56,26 @@
   <div class="mobile-nav" id="mobile-nav"></div>
   <div class="layout">
     <nav class="sidebar" id="site-nav"></nav>
-    <main class="gallery" id="gallery"></main>
+    <main class="main-content">
+      <section class="bio-section">
+        <h1 class="bio-name">Carter Houck</h1>
+        <p class="bio-text" id="bio-text">
+          Carter Houck is a New York City based Graphic Designer, Video Editor and Event Manager,
+          specializing in nightlife. He currently works at DND Agency, a hospitality design agency.
+          He also is working on Nothing Radio.
+          He is available for freelance projects and collaboration.
+        </p>
+        <button type="button" class="bio-toggle" id="bio-toggle" aria-expanded="false" aria-controls="bio-text">
+          Read more
+        </button>
+      </section>
+      <div class="gallery" id="gallery"></div>
+    </main>
   </div>
   <script src="js/data.js"></script>
   <script src="js/nav.js"></script>
   <script src="js/gallery.js?v=webp1"></script>
+  <script src="js/bio-toggle.js"></script>
   <script src="js/page.js"></script>
 </body>
 </html>
