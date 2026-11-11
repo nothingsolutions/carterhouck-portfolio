@@ -116,6 +116,11 @@ window.renderGallery = async function renderGallery() {
     if (title) title.textContent = project.label;
   }
 
+  if (project.bio) {
+    const bio = document.getElementById("project-bio");
+    if (bio) bio.textContent = project.bio;
+  }
+
   if (project.description) {
     const desc = document.getElementById("project-description");
     if (desc) desc.textContent = project.description;
