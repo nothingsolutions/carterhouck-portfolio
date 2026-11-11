@@ -46,7 +46,8 @@ window.SITE_DATA_FALLBACK = {
           { src: "images/nothing-radio/nothing-radio-16.gif", alt: "Nothing Radio", href: "" },
           { src: "images/nothing-radio/nothing-radio-17.jpeg", alt: "Nothing Radio", href: "" },
           { src: "images/nothing-radio/nothing-radio-18.jpg", alt: "Nothing Radio", href: "" },
-          { src: "images/nothing-radio/nothing-radio-19.png", alt: "Nothing Radio", href: "" }
+          { src: "images/nothing-radio/nothing-radio-19.png", alt: "Nothing Radio", href: "" },
+          { src: "images/nothing-radio/nothing-radio-20.png", alt: "Nothing Radio", href: "" }
         ]
       },
       {
