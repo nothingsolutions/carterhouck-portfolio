@@ -28,6 +28,8 @@ window.SITE_DATA_FALLBACK = {
         label: "Nothing Radio",
         ready: true,
         images: [
+          { src: "images/nothing-radio/nothing-radio-21.png", alt: "Nothing Radio", href: "" },
+          { src: "images/nothing-radio/nothing-radio-22.webp", alt: "Nothing Radio", href: "" },
           { src: "images/nothing-radio/nothing-radio-20.png", alt: "Nothing Radio", href: "" },
           { src: "images/nothing-radio/nothing-radio-01.jpg", alt: "Nothing Radio", href: "" },
           { src: "images/nothing-radio/nothing-radio-02.jpg", alt: "Nothing Radio", href: "" },

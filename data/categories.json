@@ -34,6 +34,16 @@
         "ready": true,
         "images": [
           {
+            "src": "images/nothing-radio/nothing-radio-21.png",
+            "alt": "Nothing Radio",
+            "href": ""
+          },
+          {
+            "src": "images/nothing-radio/nothing-radio-22.webp",
+            "alt": "Nothing Radio",
+            "href": ""
+          },
+          {
             "src": "images/nothing-radio/nothing-radio-20.png",
             "alt": "Nothing Radio",
             "href": ""
