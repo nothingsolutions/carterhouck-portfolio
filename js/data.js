@@ -55,6 +55,11 @@ window.SITE_DATA_FALLBACK = {
         label: "Sunset Beach",
         ready: true,
         images: [
+          { src: "images/sunset-beach/home-063.webp", alt: "Sunset Beach", href: "" },
+          { src: "images/sunset-beach/home-071.webp", alt: "Sunset Beach", href: "" },
+          { src: "images/sunset-beach/home-062.webp", alt: "Sunset Beach", href: "" },
+          { src: "images/sunset-beach/home-073.webp", alt: "Sunset Beach", href: "" },
+          { src: "images/sunset-beach/home-075.webp", alt: "Sunset Beach", href: "" },
           { src: "images/sunset-beach/SSB Photoshoot 1 Large.jpeg", alt: "Sunset Beach photoshoot 1", href: "" },
           { src: "images/sunset-beach/SSB Photoshoot 2 Large.jpeg", alt: "Sunset Beach photoshoot 2", href: "" },
           { src: "images/sunset-beach/SSB Photoshoot 3 Large.jpeg", alt: "Sunset Beach photoshoot 3", href: "" },
@@ -67,6 +72,9 @@ window.SITE_DATA_FALLBACK = {
         ready: true,
         description: "Working on collateral for the hotel.",
         images: [
+          { src: "images/chateau-marmont/home-070.webp", alt: "Chateau Marmont", href: "" },
+          { src: "images/chateau-marmont/home-066.webp", alt: "Chateau Marmont", href: "" },
+          { src: "images/chateau-marmont/home-064.webp", alt: "Chateau Marmont", href: "" },
           { src: "images/chateau-marmont/matchbook-proofs.png", alt: "Chateau Marmont matchbook print proofs", href: "" },
           { src: "images/chateau-marmont/matchbook-edit.png", alt: "Chateau Marmont matchbook design edit", href: "" },
           { src: "images/chateau-marmont/gallery-wall-archive.jpg", alt: "Chateau Marmont Gallery Wall Archive Project", href: "" },

@@ -141,6 +141,31 @@
         "ready": true,
         "images": [
           {
+            "src": "images/sunset-beach/home-063.webp",
+            "alt": "Sunset Beach",
+            "href": ""
+          },
+          {
+            "src": "images/sunset-beach/home-071.webp",
+            "alt": "Sunset Beach",
+            "href": ""
+          },
+          {
+            "src": "images/sunset-beach/home-062.webp",
+            "alt": "Sunset Beach",
+            "href": ""
+          },
+          {
+            "src": "images/sunset-beach/home-073.webp",
+            "alt": "Sunset Beach",
+            "href": ""
+          },
+          {
+            "src": "images/sunset-beach/home-075.webp",
+            "alt": "Sunset Beach",
+            "href": ""
+          },
+          {
             "src": "images/sunset-beach/SSB Photoshoot 1 Large.jpeg",
             "alt": "Sunset Beach photoshoot 1",
             "href": ""
@@ -168,6 +193,21 @@
         "ready": true,
         "description": "Gallery Wall, Matchbook Design, Merchandise",
         "images": [
+          {
+            "src": "images/chateau-marmont/home-070.webp",
+            "alt": "Chateau Marmont",
+            "href": ""
+          },
+          {
+            "src": "images/chateau-marmont/home-066.webp",
+            "alt": "Chateau Marmont",
+            "href": ""
+          },
+          {
+            "src": "images/chateau-marmont/home-064.webp",
+            "alt": "Chateau Marmont",
+            "href": ""
+          },
           {
             "src": "images/chateau-marmont/matchbook-proofs.png",
             "alt": "Chateau Marmont matchbook print proofs",
