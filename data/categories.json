@@ -32,6 +32,7 @@
         "slug": "nothing-radio",
         "label": "Nothing Radio",
         "ready": true,
+        "bio": "Nothing Radio is a New York–based event organizer.",
         "images": [
           {
             "src": "images/nothing-radio/nothing-radio-34.webp",
@@ -289,6 +290,7 @@
         "slug": "sunset-beach",
         "label": "Sunset Beach",
         "ready": true,
+        "bio": "Sunset Beach is a boutique hotel on Shelter Island, New York.",
         "images": [
           {
             "src": "images/sunset-beach/sunset-beach-01.webp",
@@ -381,6 +383,7 @@
         "slug": "chateau-marmont",
         "label": "Chateau Marmont",
         "ready": true,
+        "bio": "Chateau Marmont is the legendary Hollywood hotel on Sunset Boulevard.",
         "description": "Gallery Wall, Matchbook Design, Merchandise",
         "images": [
           {
@@ -429,6 +432,7 @@
         "slug": "gachot",
         "label": "Gachot",
         "ready": true,
+        "bio": "Gachot is a New York City–based interior design studio.",
         "images": [
           {
             "src": "images/gachot/IMG_5669.jpeg",
