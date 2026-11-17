@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png" />
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <title>Scanner Machine — Carter Houck</title>
+  <meta name="description" content="Carter Houck — Scanner Machine. A client-side scanner emulator." />
+  <link rel="canonical" href="https://carterhouck.com/scanner.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Carter Houck" />
+  <meta property="og:title" content="Scanner Machine — Carter Houck" />
+  <meta property="og:description" content="Carter Houck — Scanner Machine. A client-side scanner emulator." />
+  <meta property="og:url" content="https://carterhouck.com/scanner.html" />
+  <meta property="og:image" content="https://carterhouck.com/images/home/home-026.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Scanner Machine — Carter Houck" />
+  <meta name="twitter:description" content="Carter Houck — Scanner Machine. A client-side scanner emulator." />
+  <meta name="twitter:image" content="https://carterhouck.com/images/home/home-026.png" />
+  <link rel="stylesheet" href="css/style.css?v=flush1" />
+  <style>
+    /* Scanner-specific styles matching archivefolder.xyz aesthetic */
+    body {
+      background: #202121;
+      overflow-x: hidden;
+    }
+
+    .scanner-container {
+      display: flex;
+      width: 100%;
+      min-height: 100vh;
+      background: #202121;
+    }
+
+    .scanner-sidebar {
+      width: 380px;
+      background: #d9d9d9;
+      padding: 20px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .scanner-main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+      min-height: 100vh;
+    }
+
+    .scanner-upload-zone {
+      width: 100%;
+      max-width: 600px;
+      height: 400px;
+      border: 2px dashed rgba(217, 217, 217, 0.5);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .scanner-upload-zone:hover,
+    .scanner-upload-zone.dragging {
+      border-color: #d9d9d9;
+      background: rgba(217, 217, 217, 0.05);
+    }
+
+    .scanner-upload-text {
+      font-family: 'Alba Mono', monospace, 'Courier New', monospace;
+      font-size: 13px;
+      color: #d9d9d9;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .scanner-upload-zone input[type="file"] {
+      display: none;
+    }
+
+    .scanner-canvas-wrapper {
+      width: 100%;
+      max-width: 1000px;
+      display: none;
+    }
+
+    .scanner-canvas-wrapper.active {
+      display: block;
+    }
+
+    .scanner-canvas {
+      width: 100%;
+      height: auto;
+      display: block;
+      border: 1px solid rgba(217, 217, 217, 0.2);
+      border-radius: 8px;
+      background: #000;
+    }
+
+    .scanner-title {
+      font-family: 'Alba Mono', monospace, 'Courier New', monospace;
+      font-size: 18px;
+      font-weight: 400;
+      color: #202121;
+      text-transform: uppercase;
+      margin: 0 0 20px 0;
+      letter-spacing: 0.5px;
+    }
+
+    .scanner-section {
+      border-top: 1px solid rgba(32, 33, 33, 0.15);
+      padding-top: 14px;
+    }
+
+    .scanner-section:first-child {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .scanner-section-title {
+      font-family: 'Alba Mono', monospace, 'Courier New', monospace;
+      font-size: 11px;
+      font-weight: 400;
+      color: #202121;
+      text-transform: uppercase;
+      margin: 0 0 12px 0;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      user-select: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .scanner-section-title:hover {
+      opacity: 0.7;
+    }
+
+    .scanner-section-toggle {
+      font-size: 14px;
+    }
+
+    .scanner-section-content {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .scanner-section.collapsed .scanner-section-content {
+      display: none;
+    }
+
+    .scanner-control {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .scanner-control-label {
+      font-family: 'Alba Mono', monospace, 'Courier New', monospace;
+      font-size: 11px;
+      color: #444;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .scanner-control-value {
+      color: #666;
+      font-weight: 400;
+    }
+
+    .scanner-control input[type="range"] {
+      width: 100%;
+      height: 2px;
+      -webkit-appearance: none;
+      appearance: none;
+      background: #444;
+      outline: none;
+      border-radius: 1px;
+    }
+
+    .scanner-control input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 14px;
+      height: 14px;
+      background: #202121;
+      cursor: pointer;
+      border-radius: 50%;
+    }
+
+    .scanner-control input[type="range"]::-moz-range-thumb {
+      width: 14px;
+      height: 14px;
+      background: #202121;
+      cursor: pointer;
+      border-radius: 50%;
+      border: none;
+    }
+
+    .scanner-control select {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #444;
+      background: #fff;
+      font-family: 'Alba Mono', monospace, 'Courier New', monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: 8px;
+      color: #202121;
+      letter-spacing: 0.3px;
+    }
+
+    .scanner-control input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+    }
+
+    .scanner-checkbox-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .scanner-preset-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+
+    .scanner-preset-btn {
+      padding: 12px 8px;
+      background: #fff;
+      border: 1px solid #444;
+      font-family: 'Alba Mono', monospace, 'Courier New', monospace;
+      font-size: 10px;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: 8px;
+      color: #202121;
+      transition: all 0.15s;
+      letter-spacing: 0.3px;
+    }
+
+    .scanner-preset-btn:hover {
+      background: #202121;
+      color: #d9d9d9;
+    }
+
+    .scanner-btn {
+      padding: 14px 16px;
+      background: #202121;
+      color: #d9d9d9;
+      border: none;
+      font-family: 'Alba Mono', monospace, 'Courier New', monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: opacity 0.2s;
+      letter-spacing: 0.5px;
+    }
+
+    .scanner-btn:hover {
+      opacity: 0.85;
+    }
+
+    .scanner-btn:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+
+    .scanner-btn-secondary {
+      background: #fff;
+      color: #202121;
+      border: 1px solid #444;
+    }
+
+    .scanner-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .scanner-container {
+        flex-direction: column;
+      }
+
+      .scanner-sidebar {
+        width: 100%;
+        max-height: 50vh;
+      }
+
+      .scanner-main {
+        padding: 20px;
+      }
+    }
+  </style>
+  <script src="js/posthog.js"></script>
+</head>
+<body data-category="scanner">
+  <div class="scanner-container">
+    <aside class="scanner-sidebar">
+      <h1 class="scanner-title">Folder Scan Machine</h1>
+
+      <!-- Upload Section -->
+      <div class="scanner-section">
+        <div class="scanner-section-content">
+          <div class="scanner-actions">
+            <button class="scanner-btn" id="btn-upload">Upload Image</button>
+            <button class="scanner-btn scanner-btn-secondary" id="btn-new-image" style="display: none;">New Image</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Presets -->
+      <div class="scanner-section">
+        <h3 class="scanner-section-title">
+          Presets
+          <span class="scanner-section-toggle">−</span>
+        </h3>
+        <div class="scanner-section-content">
+          <div class="scanner-preset-grid">
+            <button class="scanner-preset-btn" data-preset="standard">Standard</button>
+            <button class="scanner-preset-btn" data-preset="overexposed">Overexposed</button>
+            <button class="scanner-preset-btn" data-preset="vintage">Vintage</button>
+            <button class="scanner-preset-btn" data-preset="glitch">Glitch</button>
+            <button class="scanner-preset-btn" data-preset="soft">Soft</button>
+            <button class="scanner-preset-btn" data-preset="harsh">Harsh</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scanner Effects -->
+      <div class="scanner-section">
+        <h3 class="scanner-section-title">
+          Scanner Effects
+          <span class="scanner-section-toggle">−</span>
+        </h3>
+        <div class="scanner-section-content">
+          <div class="scanner-control">
+            <label class="scanner-control-label">
+              Scan Lines
+              <span class="scanner-control-value" id="value-scanlines">3</span>
+            </label>
+            <input type="range" id="ctrl-scanlines" min="0" max="100" step="1" value="3" />
+          </div>
+
+          <div class="scanner-control">
+            <label class="scanner-control-label">
+              Distortion
+              <span class="scanner-control-value" id="value-distortion">5</span>
+            </label>
+            <input type="range" id="ctrl-distortion" min="0" max="60" step="1" value="5" />
+          </div>
+
+          <div class="scanner-control">
+            <label class="scanner-control-label">
+              Scanner Streaks
+              <span class="scanner-control-value" id="value-streaks">2</span>
+            </label>
+            <input type="range" id="ctrl-streaks" min="0" max="100" step="1" value="2" />
+          </div>
+
+          <div class="scanner-control">
+            <label class="scanner-control-label">
+              Offset
+              <span class="scanner-control-value" id="value-offset">0.5</span>
+            </label>
+            <input type="range" id="ctrl-offset" min="0" max="2" step="0.1" value="0.5" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Image Adjustments -->
+      <div class="scanner-section">
+        <h3 class="scanner-section-title">
+          Image Adjustments
+          <span class="scanner-section-toggle">−</span>
+        </h3>
+        <div class="scanner-section-content">
+          <div class="scanner-control">
+            <label class="scanner-control-label">
+              Contrast
+              <span class="scanner-control-value" id="value-contrast">126</span>
+            </label>
+            <input type="range" id="ctrl-contrast" min="0" max="220" step="1" value="126" />
+          </div>
+
+          <div class="scanner-control">
+            <label class="scanner-control-label">
+              Brightness
+              <span class="scanner-control-value" id="value-brightness">-5</span>
+            </label>
+            <input type="range" id="ctrl-brightness" min="-90" max="90" step="1" value="-5" />
+          </div>
+
+          <div class="scanner-control">
+            <label class="scanner-control-label">
+              Exposure
+              <span class="scanner-control-value" id="value-exposure">0</span>
+            </label>
+            <input type="range" id="ctrl-exposure" min="-2" max="2" step="0.05" value="0" />
+          </div>
+
+          <div class="scanner-control">
+            <label class="scanner-control-label">
+              Gamma
+              <span class="scanner-control-value" id="value-gamma">1.0</span>
+            </label>
+            <input type="range" id="ctrl-gamma" min="0.3" max="3" step="0.05" value="1.0" />
+          </div>
+
+          <div class="scanner-control">
+            <label class="scanner-control-label">
+              Blur
+              <span class="scanner-control-value" id="value-blur">0.6</span>
+            </label>
+            <input type="range" id="ctrl-blur" min="0" max="10" step="0.1" value="0.6" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Color & Texture -->
+      <div class="scanner-section">
+        <h3 class="scanner-section-title">
+          Color & Texture
+          <span class="scanner-section-toggle">−</span>
+        </h3>
+        <div class="scanner-section-content">
+          <div class="scanner-control">
+            <label class="scanner-control-label">
+              Vibrance
+              <span class="scanner-control-value" id="value-vibrance">0</span>
+            </label>
+            <input type="range" id="ctrl-vibrance" min="-100" max="100" step="1" value="0" />
+          </div>
+
+          <div class="scanner-control">
+            <label class="scanner-control-label">Texture Mode</label>
+            <select id="ctrl-texture">
+              <option value="none">None</option>
+              <option value="paper1">Paper 1</option>
+              <option value="paper2" selected>Paper 2</option>
+              <option value="paper3">Paper 3</option>
+              <option value="grain">Film Grain</option>
+            </select>
+          </div>
+
+          <div class="scanner-control">
+            <label class="scanner-control-label">
+              Texture Opacity
+              <span class="scanner-control-value" id="value-texture-opacity">30</span>
+            </label>
+            <input type="range" id="ctrl-texture-opacity" min="0" max="100" step="1" value="30" />
+          </div>
+
+          <div class="scanner-control">
+            <div class="scanner-checkbox-wrapper">
+              <input type="checkbox" id="ctrl-bw" />
+              <label class="scanner-control-label" for="ctrl-bw">Black & White</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Effects -->
+      <div class="scanner-section collapsed">
+        <h3 class="scanner-section-title">
+          Advanced Effects
+          <span class="scanner-section-toggle">+</span>
+        </h3>
+        <div class="scanner-section-content">
+          <div class="scanner-control">
+            <label class="scanner-control-label">
+              Noise
+              <span class="scanner-control-value" id="value-noise">0</span>
+            </label>
+            <input type="range" id="ctrl-noise" min="0" max="120" step="1" value="0" />
+          </div>
+
+          <div class="scanner-control">
+            <label class="scanner-control-label">
+              CMYK Screen
+              <span class="scanner-control-value" id="value-cmyk">0</span>
+            </label>
+            <input type="range" id="ctrl-cmyk" min="0" max="100" step="1" value="0" />
+          </div>
+
+          <div class="scanner-control">
+            <label class="scanner-control-label">
+              Ink Smear
+              <span class="scanner-control-value" id="value-inksmear">0</span>
+            </label>
+            <input type="range" id="ctrl-inksmear" min="0" max="100" step="1" value="0" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Export -->
+      <div class="scanner-section">
+        <div class="scanner-section-content">
+          <div class="scanner-actions">
+            <button class="scanner-btn" id="btn-export-png" disabled>Export PNG</button>
+            <button class="scanner-btn scanner-btn-secondary" id="btn-randomize">Randomize</button>
+            <button class="scanner-btn scanner-btn-secondary" id="btn-reset">Reset All</button>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <main class="scanner-main">
+      <div class="scanner-upload-zone" id="upload-zone">
+        <input type="file" id="file-input" accept="image/*" />
+        <p class="scanner-upload-text">Drop an image here or click to upload</p>
+      </div>
+
+      <div class="scanner-canvas-wrapper" id="canvas-wrapper">
+        <canvas id="scanner-canvas" class="scanner-canvas"></canvas>
+      </div>
+    </main>
+  </div>
+  <script src="js/scanner.js"></script>
+</body>
+</html>
