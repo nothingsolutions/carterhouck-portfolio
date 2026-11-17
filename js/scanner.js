@@ -58,7 +58,7 @@
     gamma: 1.0,
     blur: 0.6,
     vibrance: 0,
-    texture: 'paper2',
+    texture: 'white-copy',
     textureOpacity: 30,
     bw: false,
     noise: 0,
@@ -71,37 +71,37 @@
     standard: {
       scanlines: 3, distortion: 5, streaks: 2, offset: 0.5,
       contrast: 126, brightness: -5, exposure: 0, gamma: 1.0, blur: 0.6,
-      vibrance: 0, texture: 'paper2', textureOpacity: 30, bw: false,
+      vibrance: 0, texture: 'white-copy', textureOpacity: 30, bw: false,
       noise: 0, cmyk: 0, inksmear: 0
     },
     overexposed: {
       scanlines: 38, distortion: 0, streaks: 0, offset: 0.5,
       contrast: 86, brightness: 15, exposure: 0.8, gamma: 1.0, blur: 0,
-      vibrance: 0, texture: 'paper1', textureOpacity: 87, bw: false,
+      vibrance: 0, texture: 'recycled-beige', textureOpacity: 87, bw: false,
       noise: 0, cmyk: 74, inksmear: 39
     },
     vintage: {
       scanlines: 15, distortion: 20, streaks: 30, offset: 1.2,
       contrast: 140, brightness: -10, exposure: 0.2, gamma: 1.3, blur: 1.5,
-      vibrance: -40, texture: 'paper3', textureOpacity: 60, bw: false,
+      vibrance: -40, texture: 'aged-book', textureOpacity: 60, bw: false,
       noise: 25, cmyk: 20, inksmear: 15
     },
     glitch: {
       scanlines: 45, distortion: 45, streaks: 60, offset: 1.8,
       contrast: 180, brightness: 0, exposure: 0.3, gamma: 0.9, blur: 0,
-      vibrance: 50, texture: 'grain', textureOpacity: 20, bw: false,
+      vibrance: 50, texture: 'film-grain', textureOpacity: 20, bw: false,
       noise: 80, cmyk: 5, inksmear: 5
     },
     soft: {
       scanlines: 0, distortion: 0, streaks: 2, offset: 0.09,
       contrast: 111, brightness: -5, exposure: 0.02, gamma: 2.14, blur: 0.6,
-      vibrance: -33, texture: 'paper2', textureOpacity: 38, bw: false,
+      vibrance: -33, texture: 'creased-white', textureOpacity: 38, bw: false,
       noise: 0, cmyk: 0, inksmear: 0
     },
     harsh: {
       scanlines: 60, distortion: 35, streaks: 80, offset: 1.5,
       contrast: 200, brightness: 20, exposure: 0.5, gamma: 0.7, blur: 0,
-      vibrance: 80, texture: 'grain', textureOpacity: 50, bw: false,
+      vibrance: 80, texture: 'crumpled-olive', textureOpacity: 50, bw: false,
       noise: 100, cmyk: 40, inksmear: 50
     }
   };
@@ -217,26 +217,48 @@
 
   // ===== TEXTURE LOADING =====
   function loadTextures() {
-    // Generate procedural textures
-    textureImages = {
-      paper1: generatePaperTexture(512, 512, 0.15),
-      paper2: generatePaperTexture(512, 512, 0.25),
-      paper3: generatePaperTexture(512, 512, 0.35),
-      grain: generateGrainTexture(512, 512)
+    // Load real scanned paper textures (CC0 from ambientCG and Wikimedia Commons)
+    const textureFiles = {
+      'white-copy': 'images/scanner/paper/white-copy-paper.webp',
+      'recycled-beige': 'images/scanner/paper/recycled-fiber-beige.webp',
+      'creased-white': 'images/scanner/paper/creased-white.webp',
+      'kraft-ribbed': 'images/scanner/paper/kraft-ribbed.webp',
+      'manila-cardstock': 'images/scanner/paper/manila-cardstock.webp',
+      'kraft-brown': 'images/scanner/paper/kraft-brown.webp',
+      'cardboard': 'images/scanner/paper/cardboard-corrugated.webp',
+      'crumpled-white': 'images/scanner/paper/crumpled-white.webp',
+      'aged-book': 'images/scanner/paper/aged-fiber-page.webp',
+      'crumpled-olive': 'images/scanner/paper/crumpled-olive.webp'
     };
+
+    // Load each texture asynchronously
+    Object.keys(textureFiles).forEach(key => {
+      const img = new Image();
+      img.onload = () => {
+        textureImages[key] = img;
+      };
+      img.onerror = () => {
+        console.error(`Failed to load texture: ${textureFiles[key]}`);
+        // Fallback to procedural texture
+        textureImages[key] = generateFallbackTexture();
+      };
+      img.src = textureFiles[key];
+    });
+    
+    // Add procedural Film Grain texture
+    textureImages['film-grain'] = generateFilmGrainTexture();
   }
 
-  function generatePaperTexture(width, height, intensity) {
+  function generateFilmGrainTexture() {
     const tempCanvas = document.createElement('canvas');
-    tempCanvas.width = width;
-    tempCanvas.height = height;
+    tempCanvas.width = 512;
+    tempCanvas.height = 512;
     const tempCtx = tempCanvas.getContext('2d');
-    const imageData = tempCtx.createImageData(width, height);
+    const imageData = tempCtx.createImageData(512, 512);
     const data = imageData.data;
 
     for (let i = 0; i < data.length; i += 4) {
-      const noise = (Math.random() - 0.5) * intensity * 255;
-      const value = 255 + noise;
+      const value = Math.random() * 255;
       data[i] = value;
       data[i + 1] = value;
       data[i + 2] = value;
@@ -247,16 +269,18 @@
     return tempCanvas;
   }
 
-  function generateGrainTexture(width, height) {
+  function generateFallbackTexture() {
+    // Simple fallback texture if loading fails
     const tempCanvas = document.createElement('canvas');
-    tempCanvas.width = width;
-    tempCanvas.height = height;
+    tempCanvas.width = 512;
+    tempCanvas.height = 512;
     const tempCtx = tempCanvas.getContext('2d');
-    const imageData = tempCtx.createImageData(width, height);
+    const imageData = tempCtx.createImageData(512, 512);
     const data = imageData.data;
 
     for (let i = 0; i < data.length; i += 4) {
-      const value = Math.random() * 255;
+      const noise = (Math.random() - 0.5) * 0.25 * 255;
+      const value = 255 + noise;
       data[i] = value;
       data[i + 1] = value;
       data[i + 2] = value;
@@ -333,6 +357,9 @@
   }
 
   function randomizeAll() {
+    const textures = ['none', 'white-copy', 'recycled-beige', 'creased-white', 'kraft-ribbed',
+                      'manila-cardstock', 'kraft-brown', 'cardboard', 'crumpled-white', 
+                      'aged-book', 'crumpled-olive', 'film-grain'];
     const randomValues = {
       scanlines: Math.floor(Math.random() * 101),
       distortion: Math.floor(Math.random() * 61),
@@ -344,7 +371,7 @@
       gamma: Math.random() * 2.7 + 0.3,
       blur: Math.random() * 10,
       vibrance: Math.floor(Math.random() * 201) - 100,
-      texture: ['none', 'paper1', 'paper2', 'paper3', 'grain'][Math.floor(Math.random() * 5)],
+      texture: textures[Math.floor(Math.random() * textures.length)],
       textureOpacity: Math.floor(Math.random() * 101),
       bw: Math.random() > 0.5,
       noise: Math.floor(Math.random() * 121),
@@ -683,14 +710,44 @@
     const texture = textureImages[textureName];
     if (!texture) return;
 
+    // Create temporary canvas for texture
+    const tempCanvas = document.createElement('canvas');
+    tempCanvas.width = width;
+    tempCanvas.height = height;
+    const tempCtx = tempCanvas.getContext('2d');
+
+    // Scale and draw texture to fill canvas
+    const textureAspect = texture.width / texture.height;
+    const canvasAspect = width / height;
+    
+    let drawWidth, drawHeight, offsetX, offsetY;
+    
+    // Cover the entire canvas
+    if (canvasAspect > textureAspect) {
+      drawWidth = width;
+      drawHeight = width / textureAspect;
+      offsetX = 0;
+      offsetY = (height - drawHeight) / 2;
+    } else {
+      drawHeight = height;
+      drawWidth = height * textureAspect;
+      offsetX = (width - drawWidth) / 2;
+      offsetY = 0;
+    }
+    
+    tempCtx.drawImage(texture, offsetX, offsetY, drawWidth, drawHeight);
+
+    // Apply with multiply blend for paper tone and fibers
     ctx.globalAlpha = opacity / 100;
     ctx.globalCompositeOperation = 'multiply';
+    ctx.drawImage(tempCanvas, 0, 0);
     
-    // Tile texture to cover canvas
-    const pattern = ctx.createPattern(texture, 'repeat');
-    ctx.fillStyle = pattern;
-    ctx.fillRect(0, 0, width, height);
+    // Add subtle overlay for creases and texture details
+    ctx.globalAlpha = (opacity / 100) * 0.3;
+    ctx.globalCompositeOperation = 'overlay';
+    ctx.drawImage(tempCanvas, 0, 0);
     
+    // Reset
     ctx.globalAlpha = 1;
     ctx.globalCompositeOperation = 'source-over';
   }
