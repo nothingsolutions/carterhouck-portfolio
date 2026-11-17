@@ -77,31 +77,31 @@
     overexposed: {
       scanlines: 38, distortion: 0, streaks: 0, offset: 0.5,
       contrast: 86, brightness: 15, exposure: 0.8, gamma: 1.0, blur: 0,
-      vibrance: 0, texture: 'vintage-beige', textureOpacity: 87, bw: false,
+      vibrance: 0, texture: 'recycled-beige', textureOpacity: 87, bw: false,
       noise: 0, cmyk: 74, inksmear: 39
     },
     vintage: {
       scanlines: 15, distortion: 20, streaks: 30, offset: 1.2,
       contrast: 140, brightness: -10, exposure: 0.2, gamma: 1.3, blur: 1.5,
-      vibrance: -40, texture: 'old-yellowed', textureOpacity: 60, bw: false,
+      vibrance: -40, texture: 'aged-book', textureOpacity: 60, bw: false,
       noise: 25, cmyk: 20, inksmear: 15
     },
     glitch: {
       scanlines: 45, distortion: 45, streaks: 60, offset: 1.8,
       contrast: 180, brightness: 0, exposure: 0.3, gamma: 0.9, blur: 0,
-      vibrance: 50, texture: 'newsprint', textureOpacity: 20, bw: false,
+      vibrance: 50, texture: 'film-grain', textureOpacity: 20, bw: false,
       noise: 80, cmyk: 5, inksmear: 5
     },
     soft: {
       scanlines: 0, distortion: 0, streaks: 2, offset: 0.09,
       contrast: 111, brightness: -5, exposure: 0.02, gamma: 2.14, blur: 0.6,
-      vibrance: -33, texture: 'white-copy', textureOpacity: 38, bw: false,
+      vibrance: -33, texture: 'creased-white', textureOpacity: 38, bw: false,
       noise: 0, cmyk: 0, inksmear: 0
     },
     harsh: {
       scanlines: 60, distortion: 35, streaks: 80, offset: 1.5,
       contrast: 200, brightness: 20, exposure: 0.5, gamma: 0.7, blur: 0,
-      vibrance: 80, texture: 'crumpled-white', textureOpacity: 50, bw: false,
+      vibrance: 80, texture: 'crumpled-olive', textureOpacity: 50, bw: false,
       noise: 100, cmyk: 40, inksmear: 50
     }
   };
@@ -217,17 +217,18 @@
 
   // ===== TEXTURE LOADING =====
   function loadTextures() {
-    // Load real scanned paper textures
+    // Load real scanned paper textures (CC0 from ambientCG and Wikimedia Commons)
     const textureFiles = {
-      'white-copy': 'images/scanner/paper/white-copy-paper.jpg',
-      'crumpled-white': 'images/scanner/paper/crumpled-white.jpg',
-      'kraft-brown': 'images/scanner/paper/kraft-brown.jpg',
-      'brown-cardboard': 'images/scanner/paper/brown-cardboard.jpg',
-      'newsprint': 'images/scanner/paper/newsprint.jpg',
-      'vintage-beige': 'images/scanner/paper/vintage-beige.jpg',
-      'folded-creased': 'images/scanner/paper/folded-creased.jpg',
-      'old-yellowed': 'images/scanner/paper/old-yellowed.jpg',
-      'recycled': 'images/scanner/paper/recycled-texture.jpg'
+      'white-copy': 'images/scanner/paper/white-copy-paper.webp',
+      'recycled-beige': 'images/scanner/paper/recycled-fiber-beige.webp',
+      'creased-white': 'images/scanner/paper/creased-white.webp',
+      'kraft-ribbed': 'images/scanner/paper/kraft-ribbed.webp',
+      'manila-cardstock': 'images/scanner/paper/manila-cardstock.webp',
+      'kraft-brown': 'images/scanner/paper/kraft-brown.webp',
+      'cardboard': 'images/scanner/paper/cardboard-corrugated.webp',
+      'crumpled-white': 'images/scanner/paper/crumpled-white.webp',
+      'aged-book': 'images/scanner/paper/aged-fiber-page.webp',
+      'crumpled-olive': 'images/scanner/paper/crumpled-olive.webp'
     };
 
     // Load each texture asynchronously
@@ -243,6 +244,29 @@
       };
       img.src = textureFiles[key];
     });
+    
+    // Add procedural Film Grain texture
+    textureImages['film-grain'] = generateFilmGrainTexture();
+  }
+
+  function generateFilmGrainTexture() {
+    const tempCanvas = document.createElement('canvas');
+    tempCanvas.width = 512;
+    tempCanvas.height = 512;
+    const tempCtx = tempCanvas.getContext('2d');
+    const imageData = tempCtx.createImageData(512, 512);
+    const data = imageData.data;
+
+    for (let i = 0; i < data.length; i += 4) {
+      const value = Math.random() * 255;
+      data[i] = value;
+      data[i + 1] = value;
+      data[i + 2] = value;
+      data[i + 3] = 255;
+    }
+
+    tempCtx.putImageData(imageData, 0, 0);
+    return tempCanvas;
   }
 
   function generateFallbackTexture() {
@@ -333,8 +357,9 @@
   }
 
   function randomizeAll() {
-    const textures = ['none', 'white-copy', 'crumpled-white', 'kraft-brown', 'brown-cardboard', 
-                      'newsprint', 'vintage-beige', 'folded-creased', 'old-yellowed', 'recycled'];
+    const textures = ['none', 'white-copy', 'recycled-beige', 'creased-white', 'kraft-ribbed',
+                      'manila-cardstock', 'kraft-brown', 'cardboard', 'crumpled-white', 
+                      'aged-book', 'crumpled-olive', 'film-grain'];
     const randomValues = {
       scanlines: Math.floor(Math.random() * 101),
       distortion: Math.floor(Math.random() * 61),
