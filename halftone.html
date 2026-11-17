@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png" />
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <title>Halftone — Carter Houck</title>
+  <meta name="description" content="Carter Houck — Halftone. A client-side halftone image generator." />
+  <link rel="canonical" href="https://carterhouck.com/halftone.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Carter Houck" />
+  <meta property="og:title" content="Halftone — Carter Houck" />
+  <meta property="og:description" content="Carter Houck — Halftone. A client-side halftone image generator." />
+  <meta property="og:url" content="https://carterhouck.com/halftone.html" />
+  <meta property="og:image" content="https://carterhouck.com/images/home/home-026.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Halftone — Carter Houck" />
+  <meta name="twitter:description" content="Carter Houck — Halftone. A client-side halftone image generator." />
+  <meta name="twitter:image" content="https://carterhouck.com/images/home/home-026.png" />
+  <link rel="stylesheet" href="css/style.css?v=flush1" />
+  <style>
+    .halftone-container {
+      flex: 1 1 auto;
+      max-width: 1200px;
+      width: 100%;
+    }
+    
+    .halftone-upload {
+      border: 2px dashed #000;
+      border-radius: 4px;
+      padding: 40px;
+      text-align: center;
+      margin-bottom: 32px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    
+    .halftone-upload:hover,
+    .halftone-upload.dragging {
+      background: rgba(0, 0, 0, 0.05);
+    }
+    
+    .halftone-upload input[type="file"] {
+      display: none;
+    }
+    
+    .halftone-upload-text {
+      font-size: 16px;
+      line-height: 1.6;
+      margin: 0;
+    }
+    
+    .halftone-main {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 40px;
+      align-items: start;
+    }
+    
+    .halftone-preview {
+      width: 100%;
+      position: relative;
+    }
+    
+    .halftone-canvas {
+      display: block;
+      width: 100%;
+      height: auto;
+      border: 1px solid #000;
+      background: #fff;
+    }
+    
+    .halftone-controls {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    
+    .halftone-control {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    
+    .halftone-control label {
+      font-size: 14px;
+      font-weight: 400;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .halftone-control-value {
+      font-weight: 400;
+      color: #666;
+    }
+    
+    .halftone-control input[type="range"] {
+      width: 100%;
+      height: 2px;
+      -webkit-appearance: none;
+      appearance: none;
+      background: #000;
+      outline: none;
+    }
+    
+    .halftone-control input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 16px;
+      height: 16px;
+      background: #000;
+      cursor: pointer;
+      border-radius: 50%;
+    }
+    
+    .halftone-control input[type="range"]::-moz-range-thumb {
+      width: 16px;
+      height: 16px;
+      background: #000;
+      cursor: pointer;
+      border-radius: 50%;
+      border: none;
+    }
+    
+    .halftone-control select,
+    .halftone-control input[type="color"] {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #000;
+      background: #fff;
+      font-family: inherit;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    
+    .halftone-control input[type="color"] {
+      height: 40px;
+      cursor: pointer;
+    }
+    
+    .halftone-control input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+    }
+    
+    .halftone-checkbox-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .halftone-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 8px;
+    }
+    
+    .halftone-btn {
+      padding: 12px 20px;
+      background: #000;
+      color: #fff;
+      border: none;
+      font-family: inherit;
+      font-size: 14px;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    
+    .halftone-btn:hover {
+      opacity: 0.8;
+    }
+    
+    .halftone-btn:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+    
+    @media (max-width: 768px) {
+      .halftone-main {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      
+      .halftone-controls {
+        order: 2;
+      }
+    }
+  </style>
+  <script src="js/posthog.js"></script>
+</head>
+<body data-category="halftone">
+  <div class="mobile-nav" id="mobile-nav"></div>
+  <div class="layout">
+    <nav class="sidebar" id="site-nav"></nav>
+    <main class="halftone-container">
+      <h1 class="project-title">Halftone</h1>
+      
+      <div class="halftone-upload" id="upload-zone">
+        <input type="file" id="file-input" accept="image/*" />
+        <p class="halftone-upload-text">
+          Click or drag an image here to begin
+        </p>
+      </div>
+      
+      <div class="halftone-main" id="halftone-main" style="display: none;">
+        <div class="halftone-preview">
+          <canvas id="halftone-canvas" class="halftone-canvas"></canvas>
+        </div>
+        
+        <div class="halftone-controls">
+          <div class="halftone-control">
+            <label>
+              Dot Size
+              <span class="halftone-control-value" id="value-dotsize">8</span>
+            </label>
+            <input type="range" id="ctrl-dotsize" min="2" max="24" step="1" value="8" />
+          </div>
+          
+          <div class="halftone-control">
+            <label>
+              Spacing
+              <span class="halftone-control-value" id="value-spacing">1.0</span>
+            </label>
+            <input type="range" id="ctrl-spacing" min="0.5" max="2" step="0.1" value="1.0" />
+          </div>
+          
+          <div class="halftone-control">
+            <label>
+              Angle
+              <span class="halftone-control-value" id="value-angle">0°</span>
+            </label>
+            <input type="range" id="ctrl-angle" min="0" max="360" step="1" value="0" />
+          </div>
+          
+          <div class="halftone-control">
+            <label>Dot Shape</label>
+            <select id="ctrl-shape">
+              <option value="circle">Circle</option>
+              <option value="square">Square</option>
+              <option value="line">Line</option>
+            </select>
+          </div>
+          
+          <div class="halftone-control">
+            <label>
+              Contrast
+              <span class="halftone-control-value" id="value-contrast">0</span>
+            </label>
+            <input type="range" id="ctrl-contrast" min="-100" max="100" step="1" value="0" />
+          </div>
+          
+          <div class="halftone-control">
+            <label>
+              Brightness
+              <span class="halftone-control-value" id="value-brightness">0</span>
+            </label>
+            <input type="range" id="ctrl-brightness" min="-100" max="100" step="1" value="0" />
+          </div>
+          
+          <div class="halftone-control">
+            <label>Foreground Color</label>
+            <input type="color" id="ctrl-foreground" value="#000000" />
+          </div>
+          
+          <div class="halftone-control">
+            <label>Background Color</label>
+            <input type="color" id="ctrl-background" value="#ffffff" />
+          </div>
+          
+          <div class="halftone-control">
+            <div class="halftone-checkbox-wrapper">
+              <input type="checkbox" id="ctrl-invert" />
+              <label for="ctrl-invert">Invert</label>
+            </div>
+          </div>
+          
+          <div class="halftone-actions">
+            <button class="halftone-btn" id="btn-download-png">Download PNG</button>
+            <button class="halftone-btn" id="btn-download-svg">Download SVG</button>
+            <button class="halftone-btn" id="btn-new-image">New Image</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="js/data.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/page.js"></script>
+  <script src="js/halftone.js"></script>
+</body>
+</html>
