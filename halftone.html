@@ -24,7 +24,7 @@
   <style>
     .halftone-container {
       flex: 1 1 auto;
-      max-width: 1200px;
+      max-width: 1400px;
       width: 100%;
     }
     
@@ -55,14 +55,15 @@
     
     .halftone-main {
       display: grid;
-      grid-template-columns: 1fr 300px;
+      grid-template-columns: 1fr 340px;
       gap: 40px;
       align-items: start;
     }
     
     .halftone-preview {
       width: 100%;
-      position: relative;
+      position: sticky;
+      top: 40px;
     }
     
     .halftone-canvas {
@@ -76,17 +77,51 @@
     .halftone-controls {
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 24px;
+    }
+    
+    .halftone-section {
+      border-top: 1px solid #000;
+      padding-top: 16px;
+    }
+    
+    .halftone-section-title {
+      font-size: 16px;
+      font-weight: 400;
+      margin: 0 0 16px 0;
+      cursor: pointer;
+      user-select: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .halftone-section-title:hover {
+      opacity: 0.7;
+    }
+    
+    .halftone-section-toggle {
+      font-size: 12px;
+    }
+    
+    .halftone-section-content {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    
+    .halftone-section.collapsed .halftone-section-content {
+      display: none;
     }
     
     .halftone-control {
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 6px;
     }
     
     .halftone-control label {
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 400;
       display: flex;
       justify-content: space-between;
@@ -96,6 +131,7 @@
     .halftone-control-value {
       font-weight: 400;
       color: #666;
+      font-size: 12px;
     }
     
     .halftone-control input[type="range"] {
@@ -110,16 +146,16 @@
     .halftone-control input[type="range"]::-webkit-slider-thumb {
       -webkit-appearance: none;
       appearance: none;
-      width: 16px;
-      height: 16px;
+      width: 14px;
+      height: 14px;
       background: #000;
       cursor: pointer;
       border-radius: 50%;
     }
     
     .halftone-control input[type="range"]::-moz-range-thumb {
-      width: 16px;
-      height: 16px;
+      width: 14px;
+      height: 14px;
       background: #000;
       cursor: pointer;
       border-radius: 50%;
@@ -127,24 +163,29 @@
     }
     
     .halftone-control select,
-    .halftone-control input[type="color"] {
+    .halftone-control input[type="color"],
+    .halftone-control input[type="text"] {
       width: 100%;
       padding: 8px;
       border: 1px solid #000;
       background: #fff;
       font-family: inherit;
-      font-size: 14px;
+      font-size: 13px;
       cursor: pointer;
     }
     
+    .halftone-control input[type="text"] {
+      cursor: text;
+    }
+    
     .halftone-control input[type="color"] {
-      height: 40px;
+      height: 36px;
       cursor: pointer;
     }
     
     .halftone-control input[type="checkbox"] {
-      width: 20px;
-      height: 20px;
+      width: 18px;
+      height: 18px;
       cursor: pointer;
     }
     
@@ -157,17 +198,17 @@
     .halftone-actions {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 10px;
       margin-top: 8px;
     }
     
     .halftone-btn {
-      padding: 12px 20px;
+      padding: 12px 16px;
       background: #000;
       color: #fff;
       border: none;
       font-family: inherit;
-      font-size: 14px;
+      font-size: 13px;
       cursor: pointer;
       text-align: center;
       text-decoration: none;
@@ -183,10 +224,50 @@
       cursor: not-allowed;
     }
     
-    @media (max-width: 768px) {
+    .halftone-btn-secondary {
+      background: #fff;
+      color: #000;
+      border: 1px solid #000;
+    }
+    
+    .halftone-btn-randomize {
+      background: #fff;
+      color: #000;
+      border: 2px solid #000;
+      font-weight: 500;
+    }
+    
+    .halftone-preset-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+    
+    .halftone-preset-btn {
+      padding: 8px;
+      background: #fff;
+      border: 1px solid #000;
+      font-family: inherit;
+      font-size: 12px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    
+    .halftone-preset-btn:hover {
+      background: #000;
+      color: #fff;
+    }
+    
+    @media (max-width: 1024px) {
       .halftone-main {
         grid-template-columns: 1fr;
         gap: 32px;
+      }
+      
+      .halftone-preview {
+        position: relative;
+        top: 0;
       }
       
       .halftone-controls {
@@ -216,76 +297,281 @@
         </div>
         
         <div class="halftone-controls">
-          <div class="halftone-control">
-            <label>
-              Dot Size
-              <span class="halftone-control-value" id="value-dotsize">8</span>
-            </label>
-            <input type="range" id="ctrl-dotsize" min="2" max="24" step="1" value="8" />
+          <!-- Quick Actions -->
+          <div class="halftone-actions">
+            <button class="halftone-btn halftone-btn-randomize" id="btn-randomize">🎲 Randomize All</button>
           </div>
           
-          <div class="halftone-control">
-            <label>
-              Spacing
-              <span class="halftone-control-value" id="value-spacing">1.0</span>
-            </label>
-            <input type="range" id="ctrl-spacing" min="0.5" max="2" step="0.1" value="1.0" />
-          </div>
-          
-          <div class="halftone-control">
-            <label>
-              Angle
-              <span class="halftone-control-value" id="value-angle">0°</span>
-            </label>
-            <input type="range" id="ctrl-angle" min="0" max="360" step="1" value="0" />
-          </div>
-          
-          <div class="halftone-control">
-            <label>Dot Shape</label>
-            <select id="ctrl-shape">
-              <option value="circle">Circle</option>
-              <option value="square">Square</option>
-              <option value="line">Line</option>
-            </select>
-          </div>
-          
-          <div class="halftone-control">
-            <label>
-              Contrast
-              <span class="halftone-control-value" id="value-contrast">0</span>
-            </label>
-            <input type="range" id="ctrl-contrast" min="-100" max="100" step="1" value="0" />
-          </div>
-          
-          <div class="halftone-control">
-            <label>
-              Brightness
-              <span class="halftone-control-value" id="value-brightness">0</span>
-            </label>
-            <input type="range" id="ctrl-brightness" min="-100" max="100" step="1" value="0" />
-          </div>
-          
-          <div class="halftone-control">
-            <label>Foreground Color</label>
-            <input type="color" id="ctrl-foreground" value="#000000" />
-          </div>
-          
-          <div class="halftone-control">
-            <label>Background Color</label>
-            <input type="color" id="ctrl-background" value="#ffffff" />
-          </div>
-          
-          <div class="halftone-control">
-            <div class="halftone-checkbox-wrapper">
-              <input type="checkbox" id="ctrl-invert" />
-              <label for="ctrl-invert">Invert</label>
+          <!-- Presets -->
+          <div class="halftone-section">
+            <h3 class="halftone-section-title">
+              Presets
+              <span class="halftone-section-toggle">−</span>
+            </h3>
+            <div class="halftone-section-content">
+              <div class="halftone-preset-grid">
+                <button class="halftone-preset-btn" data-preset="classic">Classic</button>
+                <button class="halftone-preset-btn" data-preset="newsprint">Newsprint</button>
+                <button class="halftone-preset-btn" data-preset="dots">Big Dots</button>
+                <button class="halftone-preset-btn" data-preset="fine">Fine Detail</button>
+                <button class="halftone-preset-btn" data-preset="engraving">Engraving</button>
+                <button class="halftone-preset-btn" data-preset="stipple">Stipple</button>
+                <button class="halftone-preset-btn" data-preset="radial">Radial</button>
+                <button class="halftone-preset-btn" data-preset="hex">Honeycomb</button>
+              </div>
             </div>
           </div>
           
+          <!-- Grid -->
+          <div class="halftone-section">
+            <h3 class="halftone-section-title">
+              Grid
+              <span class="halftone-section-toggle">−</span>
+            </h3>
+            <div class="halftone-section-content">
+              <div class="halftone-control">
+                <label>Grid Type</label>
+                <select id="ctrl-grid-type">
+                  <option value="square">Square</option>
+                  <option value="hex">Hexagonal</option>
+                  <option value="radial">Radial</option>
+                  <option value="line">Line</option>
+                </select>
+              </div>
+              
+              <div class="halftone-control">
+                <label>
+                  Spacing
+                  <span class="halftone-control-value" id="value-spacing">8</span>
+                </label>
+                <input type="range" id="ctrl-spacing" min="3" max="30" step="1" value="8" />
+              </div>
+              
+              <div class="halftone-control">
+                <label>
+                  Angle
+                  <span class="halftone-control-value" id="value-angle">0°</span>
+                </label>
+                <input type="range" id="ctrl-angle" min="0" max="360" step="1" value="0" />
+              </div>
+              
+              <div class="halftone-control">
+                <label>
+                  Size
+                  <span class="halftone-control-value" id="value-grid-size">1.0</span>
+                </label>
+                <input type="range" id="ctrl-grid-size" min="0.5" max="2" step="0.1" value="1.0" />
+              </div>
+            </div>
+          </div>
+          
+          <!-- Shape -->
+          <div class="halftone-section">
+            <h3 class="halftone-section-title">
+              Shape
+              <span class="halftone-section-toggle">−</span>
+            </h3>
+            <div class="halftone-section-content">
+              <div class="halftone-control">
+                <label>Shape Type</label>
+                <select id="ctrl-shape">
+                  <option value="circle">Circle</option>
+                  <option value="square">Square</option>
+                  <option value="triangle">Triangle</option>
+                  <option value="diamond">Diamond</option>
+                  <option value="ellipse">Ellipse</option>
+                  <option value="cross">Cross</option>
+                  <option value="star">Star</option>
+                  <option value="line">Line</option>
+                </select>
+              </div>
+              
+              <div class="halftone-control">
+                <label>
+                  Dot Size
+                  <span class="halftone-control-value" id="value-dotsize">0.62</span>
+                </label>
+                <input type="range" id="ctrl-dotsize" min="0.1" max="1.5" step="0.01" value="0.62" />
+              </div>
+              
+              <div class="halftone-control">
+                <label>
+                  Size Offset
+                  <span class="halftone-control-value" id="value-size-offset">0</span>
+                </label>
+                <input type="range" id="ctrl-size-offset" min="-5" max="10" step="0.5" value="0" />
+              </div>
+              
+              <div class="halftone-control">
+                <label>
+                  Shape Rotation
+                  <span class="halftone-control-value" id="value-shape-rotation">0°</span>
+                </label>
+                <input type="range" id="ctrl-shape-rotation" min="0" max="360" step="1" value="0" />
+              </div>
+              
+              <div class="halftone-control">
+                <label>
+                  Corner Rounding
+                  <span class="halftone-control-value" id="value-rounding">0</span>
+                </label>
+                <input type="range" id="ctrl-rounding" min="0" max="1" step="0.05" value="0" />
+              </div>
+            </div>
+          </div>
+          
+          <!-- Image Adjustments -->
+          <div class="halftone-section">
+            <h3 class="halftone-section-title">
+              Image Adjustments
+              <span class="halftone-section-toggle">−</span>
+            </h3>
+            <div class="halftone-section-content">
+              <div class="halftone-control">
+                <label>
+                  Blur
+                  <span class="halftone-control-value" id="value-blur">0</span>
+                </label>
+                <input type="range" id="ctrl-blur" min="0" max="20" step="1" value="0" />
+              </div>
+              
+              <div class="halftone-control">
+                <label>
+                  Gamma
+                  <span class="halftone-control-value" id="value-gamma">1.0</span>
+                </label>
+                <input type="range" id="ctrl-gamma" min="0.3" max="3" step="0.1" value="1.0" />
+              </div>
+              
+              <div class="halftone-control">
+                <label>
+                  Contrast
+                  <span class="halftone-control-value" id="value-contrast">0</span>
+                </label>
+                <input type="range" id="ctrl-contrast" min="-100" max="100" step="1" value="0" />
+              </div>
+              
+              <div class="halftone-control">
+                <label>
+                  Brightness
+                  <span class="halftone-control-value" id="value-brightness">0</span>
+                </label>
+                <input type="range" id="ctrl-brightness" min="-100" max="100" step="1" value="0" />
+              </div>
+            </div>
+          </div>
+          
+          <!-- Sampling & Color -->
+          <div class="halftone-section">
+            <h3 class="halftone-section-title">
+              Sampling & Color
+              <span class="halftone-section-toggle">−</span>
+            </h3>
+            <div class="halftone-section-content">
+              <div class="halftone-control">
+                <label>Sample Channel</label>
+                <select id="ctrl-channel">
+                  <option value="luminance">Luminance</option>
+                  <option value="red">Red</option>
+                  <option value="green">Green</option>
+                  <option value="blue">Blue</option>
+                  <option value="alpha">Alpha</option>
+                </select>
+              </div>
+              
+              <div class="halftone-control">
+                <label>Color Mode</label>
+                <select id="ctrl-color-mode">
+                  <option value="two-colors">Two Colors</option>
+                  <option value="gradient">Gradient Map</option>
+                  <option value="source">Source Colors</option>
+                </select>
+              </div>
+              
+              <div class="halftone-control" id="control-foreground">
+                <label>Foreground Color</label>
+                <input type="color" id="ctrl-foreground" value="#000000" />
+              </div>
+              
+              <div class="halftone-control" id="control-background">
+                <label>Background Color</label>
+                <input type="color" id="ctrl-background" value="#ffffff" />
+              </div>
+              
+              <div class="halftone-control" id="control-gradient" style="display: none;">
+                <label>Gradient Preset</label>
+                <select id="ctrl-gradient-preset">
+                  <option value="bw">Black → White</option>
+                  <option value="duotone-blue">Duotone Blue</option>
+                  <option value="duotone-red">Duotone Red</option>
+                  <option value="thermal">Thermal</option>
+                  <option value="rainbow">Rainbow</option>
+                  <option value="sunset">Sunset</option>
+                  <option value="ocean">Ocean</option>
+                  <option value="forest">Forest</option>
+                  <option value="sepia">Sepia</option>
+                </select>
+              </div>
+              
+              <div class="halftone-control">
+                <div class="halftone-checkbox-wrapper">
+                  <input type="checkbox" id="ctrl-invert" />
+                  <label for="ctrl-invert">Invert</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Effects -->
+          <div class="halftone-section collapsed">
+            <h3 class="halftone-section-title">
+              Effects
+              <span class="halftone-section-toggle">+</span>
+            </h3>
+            <div class="halftone-section-content">
+              <div class="halftone-control">
+                <label>Dithering</label>
+                <select id="ctrl-dither">
+                  <option value="none">None</option>
+                  <option value="bayer2">Bayer 2×2</option>
+                  <option value="bayer4">Bayer 4×4</option>
+                  <option value="bayer8">Bayer 8×8</option>
+                  <option value="floyd">Floyd-Steinberg</option>
+                </select>
+              </div>
+              
+              <div class="halftone-control">
+                <label>
+                  Displacement
+                  <span class="halftone-control-value" id="value-displacement">0</span>
+                </label>
+                <input type="range" id="ctrl-displacement" min="0" max="20" step="1" value="0" />
+              </div>
+              
+              <div class="halftone-control">
+                <label>
+                  Noise Amount
+                  <span class="halftone-control-value" id="value-noise">0</span>
+                </label>
+                <input type="range" id="ctrl-noise" min="0" max="0.5" step="0.01" value="0" />
+              </div>
+              
+              <div class="halftone-control">
+                <label>
+                  Noise Scale
+                  <span class="halftone-control-value" id="value-noise-scale">10</span>
+                </label>
+                <input type="range" id="ctrl-noise-scale" min="1" max="50" step="1" value="10" />
+              </div>
+            </div>
+          </div>
+          
+          <!-- Export Actions -->
           <div class="halftone-actions">
             <button class="halftone-btn" id="btn-download-png">Download PNG</button>
             <button class="halftone-btn" id="btn-download-svg">Download SVG</button>
-            <button class="halftone-btn" id="btn-new-image">New Image</button>
+            <button class="halftone-btn halftone-btn-secondary" id="btn-reset">Reset All</button>
+            <button class="halftone-btn halftone-btn-secondary" id="btn-new-image">New Image</button>
           </div>
         </div>
       </div>
