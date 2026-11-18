@@ -71,7 +71,6 @@
       clientList.className = "nav-list nav-clients";
 
       (clients.featured || []).forEach((client) => {
-        if (client.hidden) return;
         const li = document.createElement("li");
         if (client.ready) {
           addLink(li, client.label, client.slug + ".html", client.slug);
@@ -89,7 +88,6 @@
         moreList.hidden = true;
 
         clients.more.forEach((client) => {
-          if (client.hidden) return;
           const li = document.createElement("li");
           if (client.ready) {
             addLink(li, client.label, client.slug + ".html", client.slug);

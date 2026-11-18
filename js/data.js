@@ -158,13 +158,6 @@ window.SITE_DATA_FALLBACK = {
           { src: "images/stillman-meyer/aspen-winter-photoshoot.png", alt: "Aspen Posters Winter Photoshoot", href: "" },
           { src: "images/stillman-meyer/die-cut-shipping-sticker.jpg", alt: "Die Cut Shipping Sticker", href: "" }
         ]
-      },
-      {
-        slug: "jarod-john-leonard",
-        label: "Jarod John Leonard",
-        ready: true,
-        bio: "",
-        images: []
       }
     ],
     more: [
@@ -205,8 +198,7 @@ window.SITE_DATA_FALLBACK = {
       {
         slug: "farnsworth-fine-cannabis",
         label: "Farnsworth Fine Cannabis",
-        ready: true,
-        hidden: true,
+        ready: false,
         images: [
           { src: "images/farnsworth-fine-cannabis/farnsworth-blog.jpg", alt: "Farnsworth Fine Cannabis blog", href: "" },
           { src: "images/farnsworth-fine-cannabis/farnsworth-01.webp", alt: "Farnsworth Fine Cannabis 1", href: "" },
@@ -223,8 +215,15 @@ window.SITE_DATA_FALLBACK = {
         embed: "https://www.youtube.com/embed/iDpWB1Dntm0"
       },
       { slug: "triarchy-denim", label: "Triarchy Denim" },
-      { slug: "julie-smith-kids", label: "Julie Smith Kids" },
       { slug: "inplay", label: "InPlay" },
+      {
+        slug: "jarod-john-leonard",
+        label: "Jarod John Leonard",
+        ready: true,
+        bio: "",
+        images: []
+      },
+      { slug: "julie-smith-kids", label: "Julie Smith Kids" },
       { slug: "flowershop-agency", label: "Flowershop Agency" },
       { slug: "cadillac", label: "Cadillac" },
       { slug: "tom-brady-x-tops", label: "Tom Brady x TOPS" }

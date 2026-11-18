@@ -547,13 +547,6 @@
             "href": ""
           }
         ]
-      },
-      {
-        "slug": "jarod-john-leonard",
-        "label": "Jarod John Leonard",
-        "ready": true,
-        "bio": "",
-        "images": []
       }
     ],
     "more": [
@@ -644,8 +637,7 @@
       {
         "slug": "farnsworth-fine-cannabis",
         "label": "Farnsworth Fine Cannabis",
-        "ready": true,
-        "hidden": true,
+        "ready": false,
         "images": [
           {
             "src": "images/farnsworth-fine-cannabis/farnsworth-blog.jpg",
@@ -689,12 +681,19 @@
         "label": "Triarchy Denim"
       },
       {
-        "slug": "julie-smith-kids",
-        "label": "Julie Smith Kids"
-      },
-      {
         "slug": "inplay",
         "label": "InPlay"
+      },
+      {
+        "slug": "jarod-john-leonard",
+        "label": "Jarod John Leonard",
+        "ready": true,
+        "bio": "",
+        "images": []
+      },
+      {
+        "slug": "julie-smith-kids",
+        "label": "Julie Smith Kids"
       },
       {
         "slug": "flowershop-agency",
