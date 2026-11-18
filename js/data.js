@@ -221,7 +221,15 @@ window.SITE_DATA_FALLBACK = {
         label: "Jarod John Leonard",
         ready: true,
         bio: "",
-        images: []
+        images: [
+          { src: "images/jarod-john-leonard/jarod-john-leonard-01.webp", alt: "Jarod John Leonard 'Last Living Rockstar' Harvey Nichols collection debut poster", href: "" },
+          { src: "images/jarod-john-leonard/jarod-john-leonard-02.webp", alt: "Jarod John Leonard vintage Harvey Nichols gold logo", href: "" },
+          { src: "images/jarod-john-leonard/jarod-john-leonard-03.webp", alt: "Jarod John Leonard historic Knightsbridge street photo", href: "" },
+          { src: "images/jarod-john-leonard/jarod-john-leonard-04.webp", alt: "Jarod John Leonard historic department store illustration", href: "" },
+          { src: "images/jarod-john-leonard/jarod-john-leonard-05.webp", alt: "Jarod John Leonard Harvey Nichols 1918 receipt with JJL signature", href: "" },
+          { src: "images/jarod-john-leonard/jarod-john-leonard-06.webp", alt: "Jarod John Leonard Post Party NYFW poster", href: "" },
+          { src: "images/jarod-john-leonard/jarod-john-leonard-07.webp", alt: "Jarod John Leonard Post Party Public Roof lineup flyer", href: "" }
+        ]
       },
       { slug: "julie-smith-kids", label: "Julie Smith Kids" },
       { slug: "flowershop-agency", label: "Flowershop Agency" },
