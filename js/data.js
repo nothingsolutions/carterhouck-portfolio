@@ -27,7 +27,7 @@ window.SITE_DATA_FALLBACK = {
         slug: "nothing-radio",
         label: "Nothing Radio",
         ready: true,
-        bio: "Nothing Radio is a New York–based event organizer.",
+        bio: "A New York–based event organizer.",
         images: [
           { src: "images/nothing-radio/nothing-radio-34.webp", alt: "Nothing Radio", href: "" },
           { src: "images/nothing-radio/nothing-radio-35.jpg", alt: "Nothing Radio", href: "" },
@@ -85,7 +85,7 @@ window.SITE_DATA_FALLBACK = {
         slug: "sunset-beach",
         label: "Sunset Beach",
         ready: true,
-        bio: "Sunset Beach is a boutique hotel on Shelter Island, New York.",
+        bio: "A boutique hotel on Shelter Island, New York.",
         images: [
           { src: "images/sunset-beach/sunset-beach-01.webp", alt: "Sunset Beach", href: "" },
           { src: "images/sunset-beach/sunset-beach-02.webp", alt: "Sunset Beach", href: "" },
@@ -110,7 +110,7 @@ window.SITE_DATA_FALLBACK = {
         slug: "chateau-marmont",
         label: "Chateau Marmont",
         ready: true,
-        bio: "Chateau Marmont is the legendary Hollywood hotel on Sunset Boulevard.",
+        bio: "The legendary Hollywood hotel on Sunset Boulevard.",
         description: "Working on collateral for the hotel.",
         images: [
           { src: "images/chateau-marmont/home-070.webp", alt: "Chateau Marmont", href: "" },
@@ -127,7 +127,7 @@ window.SITE_DATA_FALLBACK = {
         slug: "gachot",
         label: "Gachot",
         ready: true,
-        bio: "Gachot is a New York City–based interior design studio.",
+        bio: "A New York City–based interior design studio.",
         images: [
           { src: "images/gachot/IMG_5669.jpeg", alt: "Gachot 1", href: "" },
           { src: "images/gachot/IMG_5671.jpeg", alt: "Gachot 2", href: "" },
@@ -198,7 +198,7 @@ window.SITE_DATA_FALLBACK = {
       {
         slug: "farnsworth-fine-cannabis",
         label: "Farnsworth Fine Cannabis",
-        ready: true,
+        ready: false,
         images: [
           { src: "images/farnsworth-fine-cannabis/farnsworth-blog.jpg", alt: "Farnsworth Fine Cannabis blog", href: "" },
           { src: "images/farnsworth-fine-cannabis/farnsworth-01.webp", alt: "Farnsworth Fine Cannabis 1", href: "" },
@@ -215,8 +215,15 @@ window.SITE_DATA_FALLBACK = {
         embed: "https://www.youtube.com/embed/iDpWB1Dntm0"
       },
       { slug: "triarchy-denim", label: "Triarchy Denim" },
-      { slug: "julie-smith-kids", label: "Julie Smith Kids" },
       { slug: "inplay", label: "InPlay" },
+      {
+        slug: "jarod-john-leonard",
+        label: "Jarod John Leonard",
+        ready: true,
+        bio: "",
+        images: []
+      },
+      { slug: "julie-smith-kids", label: "Julie Smith Kids" },
       { slug: "flowershop-agency", label: "Flowershop Agency" },
       { slug: "cadillac", label: "Cadillac" },
       { slug: "tom-brady-x-tops", label: "Tom Brady x TOPS" }
