@@ -87,6 +87,12 @@ window.SITE_DATA_FALLBACK = {
         ready: true,
         bio: "A boutique hotel on Shelter Island, New York.",
         images: [
+          { src: "images/sunset-beach/sunset-beach-09.webp", alt: "Sunset Beach", href: "" },
+          { src: "images/sunset-beach/sunset-beach-10.webp", alt: "Sunset Beach", href: "" },
+          { src: "images/sunset-beach/sunset-beach-11.webp", alt: "Sunset Beach", href: "" },
+          { src: "images/sunset-beach/sunset-beach-12.webp", alt: "Sunset Beach", href: "" },
+          { src: "images/sunset-beach/sunset-beach-13.webp", alt: "Sunset Beach", href: "" },
+          { src: "images/sunset-beach/sunset-beach-14.webp", alt: "Sunset Beach", href: "" },
           { src: "images/sunset-beach/sunset-beach-01.webp", alt: "Sunset Beach", href: "" },
           { src: "images/sunset-beach/sunset-beach-02.webp", alt: "Sunset Beach", href: "" },
           { src: "images/sunset-beach/sunset-beach-03.webp", alt: "Sunset Beach", href: "" },
